@@ -1,0 +1,86 @@
+.cc-step-info{
+    .cc-step-info-right{
+        background: $bluebg;
+        .pbdf & {
+            background: $bluebg;  
+        }
+        .pbwl & {
+            background: $purplebg;  
+        }
+
+        h4{
+            color: #bcbfcc;
+           
+            font-size: 24px;
+        }
+        .form-group{
+            label{
+                color: #006dd3;
+                .pbwl & {
+                    color: $purpletext;  
+                }
+                font-size: 13px;
+            }
+        }
+        .ccKeyboard{
+            .fa{
+                font-size: 20px;
+                color: #13c5f2;
+                .pbwl & {
+                    color: $purpletext;  
+                }
+            }
+        }
+        .ccv{
+            .fa {
+                font-size: 20px;
+                color: #13c5f2;
+                line-height: 37px;
+                .pbwl & {
+                    color: $purpletext;  
+                }
+            }
+        }
+        
+    }
+
+    .form-row{
+        .form-row-label {
+            color: #006dd3;
+            .pbwl & {
+                color: $purpletext;  
+            }
+            font-size: 13px;
+        }
+    }
+        
+  
+    
+}
+
+.ccNumpad{
+    font-size: 12px;
+    width: 99px;
+    padding: 0 0.75rem;
+    .row{
+        >div{
+            padding: 1px;
+        }
+    }
+    button{
+        background-color: #f3f5f8;
+        box-shadow: 1px  1px rgba(136, 136, 136,0.3);
+        transition: 0.3s ease-in-out all;
+        &:active{
+            background-color: #e9ecf0 ;
+                 
+            box-shadow: 1px  1px rgba(136, 136, 136,0.7);
+        }
+        &:hover{
+            background-color: #d7dff0;
+        }
+    }
+    .fa {
+        color: #333 !important;
+    }  
+}

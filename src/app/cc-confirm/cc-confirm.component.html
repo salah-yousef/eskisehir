@@ -1,0 +1,40 @@
+<div class="row h-100 cc-step-confirm">
+  <div class="col-md-5 col-10 mx-auto h-100 pb-3 pb-md-5">
+    <img *ngIf="!ss.theme.logo" src="assets/images/svg/logo_pay-bros.svg" class="logo_pay-bros" alt="paybros">
+
+    <app-cart [step]="step"></app-cart>
+
+    <app-footer-left *ngIf="!ss.theme.sss" class="d-none d-md-block"></app-footer-left>
+  </div>
+
+  <div class="col-md-7 col-sm-12 cc-step-confirm-right pt-5 pb-5">
+    <div class="row h-100">
+      <div class="col-11 col-sm-9 mx-auto">
+        <div class="text-right order-id">
+          Order ID: {{decodedData.OrderId}}
+        </div>
+
+        <h4 class="pt-3 pt-md-5 mb-4">Kredi Kartı ile Ödeme</h4>
+
+        <div class="confirm-content text-center mt-1 mt-sm-5">
+          <i class="icon loading"></i>
+          <div class="confirm-code-title mb-1 mb-sm-3">
+            ONAY BEKLİYOR
+          </div>
+          <div class="confirm-info">
+            <div class="operator-message mb-3">       
+                <span *ngIf="operatorConfirm" class="text text-warning">Ödeme işleminiz için birazdan operatörlerimiz tarafından aranacaksınız.</span>
+            </div>
+            <p>
+              Lütfen sayfayı kapatmayınız!  
+            </p>
+          </div>
+        </div>
+        <div class="pt-1">
+          <app-footer-right [ngClass]="ss.GetPaymentChannelOptions().Class"></app-footer-right>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>

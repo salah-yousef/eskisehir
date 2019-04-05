@@ -1,0 +1,37 @@
+<div class="row merchant-container banks mb-2 mb-md-5">
+  <div class="col-1 p-0 d-none d-md-inline-block"></div>
+  <div class="col-12 col-md-8 pb-3" style="background: #FFF">
+    <div class="merchant h-100">
+      <h5 class="bank-transfers">Havale Yapabileceğiniz Bankalar</h5>
+      <ng-select class="default" placeholder="Bir Banka Seçiniz" 
+      [items]="BankAccounts" bindLabel="BankName" 
+      [(ngModel)]="CurrentBankAccount"
+      (ngModelChange)="SetupBankTransferTequest()"
+      ></ng-select>
+      <div class="text-center bank-logo">
+        <img *ngIf="CurrentBankAccount != null" [src]="CurrentBankAccount.BankLogoUrl" alt="">
+      </div>
+      <div class="info">
+        <div class="title">        
+          <i class="fa fa-info-circle"></i>
+          <span>Lütfen Dikkat!</span>
+        </div>
+        <p>
+          Yatırılan tutar ile alışveriş yapılmak istenen tutarın aynı olmaması durumunda ödemeniz onaylanmayacaktır.
+        </p>
+        <p>
+          Mesai saatleri dışında gerçekleştirilen EFT işlemleriniz takip eden ilk iş günü işleme alınacaktır.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="d-none d-md-inline-block col-4 col-sm-3">
+    <div class="steps">
+      <div [className]="'step-active-bar h-'+ step.bar"></div>
+      <div [className]="'step step-1 '+ step.step1"></div>
+      <div [className]="'step step-2 ' +step.step2"></div>
+      <div [className]="'step step-3 ' +step.step3"></div>
+    </div>
+  </div>
+</div>

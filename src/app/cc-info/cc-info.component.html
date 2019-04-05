@@ -1,0 +1,97 @@
+<div class="row h-100 cc-step-info">
+  <div class="col-md-5 col-10 mx-auto h-100 pb-3 pb-md-5 mobil-step-1-left">
+    <img *ngIf="!ss.theme.logo" src="assets/images/svg/logo_pay-bros.svg" class="logo_pay-bros" alt="paybros">
+
+    <app-cart [step]="step"></app-cart>
+
+    <app-footer-left *ngIf="!ss.theme.sss" class="d-none d-md-block"></app-footer-left>
+  </div>
+
+  <div class="col-md-7 col-sm-12 cc-step-info-right pt-5 pb-5">
+    <div class="row h-100">
+      <div class="col-11 col-sm-9 mx-auto">
+        <div class="text-right order-id">
+          Order ID: {{decodedData.OrderId}}
+        </div>
+
+        <h4 class="pt-5 mb-4">Kredi Kartı Bilgileri</h4>
+        <app-loading *ngIf="loading"></app-loading>
+        <form *ngIf="!loading" role="form" id="CredidCard" [formGroup]="ccForm" (ngSubmit)="ccSubmit(ccForm)" novalidate autocomplete="off">
+          <div class="form-group">
+            <label for="">Kart Sahibi</label>
+            <input type="text" formControlName="CreditCardHolderFirstName" class="form-control" placeholder="İsim Soyisim">
+          </div>
+
+          <div class="form-group">
+            <label for="">Kart Numarası</label>
+            <div class="input-group">
+              <input type="text" class="form-control" placeholder="____ ____ ____ ____" [textMask]="ccMask" [(ngModel)]="cardInfo.CreditCardNumber"
+                formControlName="CreditCardNumber">
+              <div class="input-group-prepend ccKeyboard">
+                <i [popover]="popTemplate" [outsideClick]="true" placement="top" class="input-group-text fa fa-keyboard-o"></i>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="col-7 col-sm-8 form-row-label">Son Kullanma Tarihi</div>
+            <div class="col-5 col-sm-4 form-row-label">Güvenlik Numarası</div>
+            <div class="form-group col-3">
+              <ng-select class="custom" formControlName="CreditCardExpireDateMonth" placeholder="01" [(ngModel)]="cardInfo.CreditCardExpireDateMonth"
+                [items]="month" bindLabel="name" bindValue="name">
+              </ng-select>
+            </div>
+            <div class="form-group col-4">
+              <ng-select class="custom" formControlName="CreditCardExpireDateYear" placeholder="{{currentYear}}" [(ngModel)]="cardInfo.CreditCardExpireDateYear"
+                [items]="years" bindLabel="name">
+              </ng-select>
+            </div>
+            <div class="form-group col-1 col-md-1 d-none d-sm-block"></div>
+            <div class="form-group col-5 col-sm-4 ccv">
+              <div class="row">
+                <div class="col-8">
+                  <input type="text" class="form-control" placeholder="___" [textMask]="ccvMask" formControlName="CreditCardCVV">
+                </div>
+                <div class="col-4">
+                  <i [popover]="cvvTemplate" [outsideClick]="true" placement="left" class="fa fa-info-circle"></i>
+                </div>
+
+              </div>
+            </div>
+          </div>
+
+          <button type="submit" [disabled]="ccForm.invalid" class="btn btn-primary min200">Devam et</button>
+        </form>
+
+        <div class="pt-4 pt-sm-0">
+          <app-footer-right [ngClass]="ss.GetPaymentChannelOptions().Class"></app-footer-right>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<ng-template #popTemplate>
+  <div class="ccNumpad">
+    <div class="row">
+      <div class="col-4" *ngFor="let item of [1,2,3,4,5,6,7,8,9,0];">
+        <button (click)="addKey(item)" class="btn btn-default btn-sm btn-block">{{item}}</button>
+      </div>
+      <div class="col-4">
+        <button class="btn btn-default btn-sm btn-block" (click)="delKey()">
+          <i class="fa fa-caret-left"></i>
+        </button>
+      </div>
+      <div class="col-4">
+        <button class="btn btn-default btn-sm btn-block" (click)="clearVal()">
+          <i class="fa fa-trash"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+</ng-template>
+
+<ng-template #cvvTemplate>
+  <img src="assets/images/icons/icon-cvv.svg" width="95" height="75" alt="cvv">
+</ng-template>

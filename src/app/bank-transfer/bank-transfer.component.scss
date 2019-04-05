@@ -1,0 +1,71 @@
+.bank-transfer{
+    .bank-transfer-right{
+        background: $bluebg;
+        .pbwl & {
+            background: $purplebg;
+        }
+        h4{
+            color: #bcbfcc;
+            font-size: 24px;
+        }
+        .form-group{
+            label{
+                color: #006dd3;
+                font-size: 13px;
+                .pbwl & {
+                    color: $purpletext;
+                }
+                &.hgn {
+                    color: #24ca95; 
+                }
+            }
+
+            .label-info {
+                color:#FFF;
+                padding-left: 15px;
+                font-size: 16px;
+            }
+            &.bordered {
+                padding-bottom: 15px;
+                border-bottom: 2px solid #13c5f2;    
+                .pbwl & {
+                    border-bottom: 2px solid $purpletext;    
+                }           
+            }
+        }     
+    }
+    .hgn-info {
+        min-height: 70px;
+
+        .bank-transfer-info {
+            .icon{
+                float: left;
+                width: 9%;
+                .fa {
+                    font-size: 20px;
+                     color: #24ca95;                  
+                  }
+            }
+            .text {
+                font-size: 13px;
+                color: #FFF;
+                display: inline-block;  
+                width: 91%;       
+                span{
+                    color: #ec5454;
+                }
+            }
+        }
+    }
+    
+
+    .form-row{
+        .form-row-label {
+            color: #006dd3;
+            font-size: 13px;
+            .pbwl & {
+                color: $purpletext;
+            }
+        }
+    }
+}

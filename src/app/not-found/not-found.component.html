@@ -1,0 +1,25 @@
+<div class="not-found pt-1 pt-sm-5 pb-1 pb-sm-4 vertical-center2">
+  <div class="header">
+    <img *ngIf="!ss.theme.logo" class="pb-logo" src="assets/images/svg/logo_pay-bros.svg" width="190" alt="pay bros">
+  </div>
+  <div class="row mx-auto" style="width:100%">
+    <div class="col text-center not-found-content vertical-center">
+      <div class="mx-auto">
+        <i class="fa fa-close fa-5x"></i>
+        <h3>
+          <b>HATA !</b>
+        </h3>
+        <p>
+          İçerik bulunamadı
+        </p>
+      </div>
+    </div>
+  </div>
+  <div class="footer" *ngIf="!ss.theme.hidden">
+    <div class="row">
+      <div class="col-12">
+        <app-footer-left class="d-none d-md-block mt-5"></app-footer-left>
+      </div>
+    </div>
+  </div>
+</div>

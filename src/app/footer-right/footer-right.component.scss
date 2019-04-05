@@ -1,0 +1,38 @@
+.right-footer{   
+    width: 100%;
+  
+      .static & {
+          position: static;
+      }
+      .cc-login & {
+          position: absolute;
+          bottom:-20px;
+          right:15px;
+          .pbwl & {
+              bottom: -10px;
+          }
+          @include media-breakpoint-down(sm) { 
+            position: static;
+          }
+      }
+      .logo_operators{
+        max-width: 110px;
+        width: 100%;
+    
+    }
+    .logo-sec{
+        max-width: 160px;
+        width: 100%;
+    }
+}
+
+.operator-logo-hidden{
+    .mobil-footer-right{
+        display: none;
+    }
+}
+.cc-logo-hidden{
+    .cc-footer-right{
+        display: none;
+    }
+}

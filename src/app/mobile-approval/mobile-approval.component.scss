@@ -1,0 +1,26 @@
+@import "../../style/_pbVariables";
+.mobil-step-2{
+    .mobil-step-2-right{
+        background: $bluebg;
+        color: #bcbfcc;
+        position: relative;
+        .pbwl & {
+           background: $purplebg;     
+        }
+        .title {
+            font-size: 24px;
+        }
+        .info{
+            font-size: 12px;
+            &.green{
+                color: #01bf7f;
+            }
+        }
+        .countdown{
+            max-width: 160px;
+        }
+        .approval-info {
+            font-size: 12px; 
+        }
+    }
+}

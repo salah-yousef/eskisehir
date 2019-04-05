@@ -1,0 +1,62 @@
+<div class="cc-login row">
+  <div class="col-11 mx-auto pb-3 pb-sm-4">
+    <div class="row">
+      <div class="col-12 col-sm-12 col-md-6">
+        <div class="row h-100">
+          <div class="col-12 col-sm-12 col-md-10 vertical-center2">
+            <img *ngIf="!ss.theme.logo" src="assets/images/svg/logo_pay-bros.svg" class="logo_pay-bros" alt="paybros"
+              style="margin-left: 0">
+            <div class="cc-login-content" *ngIf="!getPhoneNumberStatus">
+              <div class="first-content mt-1 mt-sm-5">
+                <h2 class="clear mb-4">Giriş Yap</h2>
+                <p class="mb-5">Ödeme işleminizi başlatmak için lütfen cep telefonu numaranızı girerek “Onay Kodu
+                  Gönder” butonuna tıklayınız.</p>
+              </div>
+
+              <form role="form" [formGroup]="CCLoginForm" (ngSubmit)="getSMSLoginCode(CCLoginForm)"  autocomplete="off">
+                <div id="sendSMS" class="form-group text-center">
+                  <label for="">GSM Numaranız</label>
+                  <div class="input-group">
+                    <div class="input-group-prepend">
+                      <i class="input-group-text fa fa-mobile"></i>
+                    </div>
+                    <div class="int-tel">
+                      <ngx-intl-tel-input id="phoneNumber" [cssClass]="'form-control'" [preferredCountries]="['tr']"
+                      [enablePlaceholder]="false" [enableAutoCountrySelect]="true" name="phoneNumber" 
+                      formControlName="phoneNumber">
+                    </ngx-intl-tel-input>
+                    </div>
+                                      
+                  </div>
+
+                  <button type="submit" [disabled]="CCLoginForm.invalid" 
+                  class="btn btn-primary min200 mt-4">Onay Kodu Gönder</button>
+
+                  <!-- <button type="submit" [disabled]="CCLoginForm.invalid" (click)="getSMSLoginCode(phoneNumber)"
+                    class="btn btn-primary min200 mt-4">Onay Kodu Gönder</button> -->
+                </div>
+              </form>
+            </div>
+
+            <app-footer-left *ngIf="!ss.theme.sss" class="d-none d-md-block"></app-footer-left>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="col-12 col-sm-12 col-md-6 cc-login-right">
+        <img *ngIf="!ss.theme.hidden" class="pb-amblem login" src="assets/images/svg/amblem_pay-bros.svg" width="235"
+          alt="pay bros">
+
+        <div class="row">
+          <div class="security-info col-sm-12 col-md-7 text-left text-md-right">
+            <h2>Güvenlik Uyarısı</h2>
+            <p>Yapacağınız işlemler 256 Bit SSL serfitikası ile korunmakta olup, herhangi bir üçüncü parti kurum veya
+              kuruluşlarla paylaşılmamaktadır. Tüm ödemelerinizi güvenle gerçekleştirebilirsiniz.</p>
+          </div>
+        </div>
+        <app-footer-right [ngClass]="ss.GetPaymentChannelOptions().Class"></app-footer-right>
+      </div>
+    </div>
+  </div>
+</div>

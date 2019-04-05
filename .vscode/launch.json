@@ -1,0 +1,16 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+
+        {
+            "type": "chrome",
+            "request": "launch",
+            "name": "Localhost için Chrome'u çalıştır",
+            "url": "http://localhost:4200/paybros?token=zydCyKqsUGb95%2fNlL5G7FLOgBAAqRJ6jaBZFFWthZdkTvrRWBwnvEYxTVxzbB%2b337%2b1QngwVvOtdjNwfy3mlhNDpCbdEn%2f9esLErn2SrebcM9yKyTyHc9yVMCFB%2boEzOYD7P7OYXkPu4ffDpj5wenZLY%2fCFzQjQv87x7%2fnEcdWLldrABBzRJ0t0I5r5hQL4D%2fHnkKaltI19LkI%2bpHDXYW2BIZuh12BcAISGVX5%2fDF5eVwS3fItX8G2pNdQ0NCPShYWKKwte4%2b1MYHa0UoYJ7eenqUVjDCG7xB7dFVwufUkJ1qk0NZ0AmqeW7BiB7QSOfdK5X6Jh6UeCYepkq9fhgAPmhXPhOu2rBQX6JADr6GLDr6LuvIAaoOwQzvoYKC%2fTQD9H8DKWA%2fSXQ3Ktf163JY%2fMshmnu23wDEYlkpyVwIrpLMpPLY2ykhnqZjwGK7bCq",
+            "webRoot": "${workspaceFolder}"
+        }
+    ]
+}

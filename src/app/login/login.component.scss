@@ -1,0 +1,157 @@
+.cc-login { 
+    @media only screen and (min-width: 960px)  {
+        min-height: 600px;
+    }
+  .pbdf & {
+    background-image: url('../assets/images/layout/blue-bg.png');
+    @include media-breakpoint-down(sm) { 
+        //background-position: right  -18.5% center;    
+        background-image: none;  
+       }
+  }  
+   .pbwl & {
+       background-image: url('../assets/images/layout/login-secure.jpg');
+       @include media-breakpoint-down(sm) { 
+        background-image: none;  
+       }
+   }
+   background-position: top right;
+   background-repeat: no-repeat;
+
+   @media only screen and (min-width: 768px) and (max-width:992px) {
+    background-position:130px 0; 
+    background-size: cover;
+       .pb-amblem{
+           width: 120px;
+           right: 15px !important;
+           .pbwl & {
+            display: none;
+        }
+       }
+       .pbwl & {
+        background-position:320px 0; 
+        background-size: initial;
+    }
+
+       .operator-logos{
+          img {
+              width: 40px;
+              &.tt {
+                width: 50px;
+            }
+          }
+           
+       }
+  
+    
+      
+}
+.input-group-prepend{
+    width: 5%;
+    .input-group-text  {
+        width: 100%;
+    }
+}
+.int-tel{
+    width: 95%;
+    .intl-tel-input{
+        width: 100%;
+        .dropdown-menu{          
+                max-width: 435px;
+                overflow-x: hidden; 
+           
+        }
+    }
+}
+
+
+.cc-login-content{
+    @media only screen and (min-width: 960px)  {
+        min-height: 335px;
+      }
+}
+
+.first-content{
+    color: #bcbfcc;
+    h2{
+        font-size: 24px;
+    }
+    p{
+        font-size: 12px;
+    }
+}
+
+    #sendSMS {
+        input {
+         color: #333;
+         font-size: 18px;
+         font-weight: bold;}
+        label{
+            float: left;
+            font-size: 13px;
+            color: #006dd3;
+            .pbwl & {
+                color:$purpletext;
+            }
+        }
+    }
+
+    .cc-login-right{
+
+        .pbwl & {
+            @media only screen and (min-width: 768px)  {
+                min-height: 570px;
+            }
+        }
+        
+        .pb-amblem {
+            position: absolute;
+            right: 25.3%;
+            &.login{
+                top: 7.6%;
+            }
+            &.approval{
+                top: 7.6%;
+            }
+            .pbwl & {
+                display: none;
+            }
+        }
+        .security-info{
+            color: #1e4fc5;
+            position: absolute;
+            bottom: 25px;
+            right: 0;
+            .pbwl & {
+                color: #FFF;  
+                bottom: 115px; 
+                right: 13%;             
+            }
+            h2{
+                font-size: 24px;
+                .pbwl & {
+                    text-align: center;
+                }
+            }
+            p{
+                font-size: 12px;
+                text-align: justify;
+            }
+           
+        }
+        @include media-breakpoint-down(sm) { 
+            .pb-amblem {
+              display: none;
+            } 
+            .security-info{
+                position: static;
+                color: #333 !important;
+                .pbwl & {
+                    color: #333;                                   
+                }
+            }
+           }
+        
+    }
+
+}

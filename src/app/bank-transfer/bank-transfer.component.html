@@ -1,0 +1,90 @@
+<div class="row h-100 bank-transfer">
+  <div class="col-md-5 col-10 mx-auto h-100 pb-3 pb-md-5 mobil-step-1-left">
+    <img *ngIf="!ss.theme.logo" src="assets/images/svg/logo_pay-bros.svg" class="logo_pay-bros" alt="paybros">
+
+    <app-banks (SelectedBankAccount)="SelectedBankAccount($event)"></app-banks>
+
+    <app-footer-left *ngIf="!ss.theme.logo" class="d-none d-md-block"></app-footer-left>
+  </div>
+
+  <div id="bankTransfer" class="col-md-7 col-sm-12 bank-transfer-right pt-5 pb-5">
+    <div class="row h-100">
+      <div class="col-11 col-sm-9 mx-auto">
+
+        <div class="text-right basket-amount">
+          Alışveriş Sepetiniz: {{NetAmount}} TL
+        </div>
+
+        <h4 class="pt-5 mb-4">Banka Bilgileri</h4>
+        <div class="form-group">
+          <label>Hesap Sahibi</label>
+          <div class="label-info">
+            <span *ngIf="CurrentBankAccount !=null">{{CurrentBankAccount.MerchantName}}</span>
+          </div>
+        </div>
+
+
+        <div class="row">
+          <div class="col-4">
+            <div class="form-group">
+              <label>Şube No :</label>
+              <div class="label-info">
+                <span *ngIf="CurrentBankAccount !=null">{{CurrentBankAccount.BankBranchCode}}</span>
+              </div>
+            </div>
+          </div>
+          <div class="col-8">
+            <div class="form-group">
+              <label>Hesap No :</label>
+              <div class="label-info">
+                <span *ngIf="CurrentBankAccount !=null">{{CurrentBankAccount.BankAccountNumber}}</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="form-group bordered">
+          <label>IBAN No :</label>
+          <div class="label-info">
+            <span *ngIf="CurrentBankAccount !=null">
+              {{CurrentBankAccount.IBAN}}
+            </span>
+          </div>
+        </div>
+        <div class="hgn-info">
+          <div class="row" *ngIf="CurrentBankAccount !=null && CurrentBankAccount.HGNStatus">
+            <div class="col-3">
+              <div class="form-group">
+                <label class="hgn">HGN Kodu:</label>
+                <div class="label-info">
+                  <span>{{CurrentBankAccount.HGN}}</span>
+                </div>
+              </div>
+            </div>
+            <div class="col-9 bank-transfer-info">
+              <div class="icon">
+                <i class="fa fa-info-circle"></i>
+              </div>
+              <div class="text">İlgili HGN kodunu açıklama kısmına yazarak
+                <span>24 saat içerisinde</span> ödemenizi tamamlayabilirsiniz.</div>
+            </div>
+          </div>
+          <div class="row" *ngIf="CurrentBankAccount !=null && !CurrentBankAccount.HGNStatus">
+            <div class="col">
+              <div class="alert alert-danger">
+                {{CurrentBankAccount.HGNMessages == null ? 'Bilinmeyen bir hata oluştu!':CurrentBankAccount.HGNMessages}}
+              </div>
+            </div>
+          </div>
+        </div>
+       
+
+
+        <button [disabled]="CurrentBankAccount == null" class="btn btn-primary min200" (click)="BankTransferComplate()">Tamamla</button>
+        <div class="pt-4 pt-sm-0">
+          <app-footer-right [ngClass]="ss.GetPaymentChannelOptions().Class"></app-footer-right>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>

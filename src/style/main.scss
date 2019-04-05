@@ -1,0 +1,121 @@
+@import url('https://fonts.googleapis.com/css?family=Lato:400,700,900');
+@import "./node_modules/bootstrap/scss/bootstrap.scss";
+@import "~ngx-toastr/toastr.css";
+
+@import "_pbVariables";
+@import "_icons";
+@import "_merchant";
+@import "_steps";
+
+@import "../app/footer-left/footer-left.component.scss";
+@import "../app/login-approval/login-approval.component.scss";
+@import "../app/login/login.component.scss";
+@import "../app/cc-confirm/cc-confirm.component.scss";
+@import "../app/cc-info/cc-info.component.scss";
+@import "../app/mobile-approval/mobile-approval.component.scss";
+@import "../app/bank-transfer/bank-transfer.component.scss";   
+@import "_customs";
+@import "_ng-select";
+@import "../app/loading/loading.component.scss";
+@import "../app/footer-right/footer-right.component.scss";
+@import "../app/result/result.component.scss";
+@import "../app/banks/banks.component.scss";
+
+
+html {
+    min-height: 100%;
+}
+
+body,html{
+    height:100%;
+}
+
+body{
+    background-image:none;
+    background-color:#FFF;
+    &.pbwl{
+        background-image: url(../assets/images/layout/bg_purple.jpg);
+        background-color: #001537;
+    }
+    &.pbdf{
+        background-image: url(../assets/images/layout/bg.jpg);
+        background-color: #001537; 
+    }
+    
+    background-size: cover;
+    font-family: 'Lato', sans-serif !important;
+    @include media-breakpoint-down(xs) { 
+    background-image: none;  
+    }
+    &.fullpage {
+        margin-bottom: 50px;
+        height: auto;
+    }
+}
+.paybros{
+    @include media-breakpoint-down(xs){
+        min-height: 58%;
+    }
+    @media only screen and (min-width: 768px) and (max-width: 1024px)  {
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 100%;
+    flex: 0 0 100%;
+    max-width: 100%;
+    }
+    @media only screen and (min-width: 960px)  {
+      min-height: 600px;
+    }
+    
+}
+
+.content {
+    background: #FFF;
+    box-shadow: 0px 0px 8px #222;
+}
+.min200{
+    min-width: 200px;
+}
+.order-id {   
+    color: $blue2;
+    .pbwl & {
+        color: $purpletext;
+    }
+}
+.basket-amount{
+    color: #FFF;
+}
+
+
+.vertical-center {
+    min-height: 100%;  /* Fallback for browsers do NOT support vh unit */
+    min-height: 100vh; /* These two lines are counted as one :-)       */  
+    display: flex;
+    align-items: center;
+}
+.vertical-center2 {
+    .pbwl & {
+        min-height: 100%;  
+        min-height: 61vh; 
+        display: flex;
+        align-items: center;
+    }   
+}
+.a-center {
+    width: 100%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+    .merchant & {
+        top: 55%;
+    }
+}
+
+ 
+
+
+
+
+
+

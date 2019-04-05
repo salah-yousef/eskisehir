@@ -1,0 +1,33 @@
+<div class="row merchant-container mb-2 mb-md-5">
+  <div class="col-1 p-0 d-none d-md-inline-block"></div>
+  <div class="col-12 col-md-8 pt-4 pb-3" style="background: #FFF">
+    <div class="merchant h-100">
+      <div class="text-center">
+        <div class="merchant-logo d-none d-md-block" *ngIf="MerchantLogoUrl">
+          <img [src]="decodedData.MerchantLogoUrl" alt="{{decodedData.MerchantName}}" (error)="MerchantLogoUrl = false">
+        </div>
+          <carousel class="text-center a-center" [interval]="0">
+             <slide *ngFor="let item of decodedData.ProductList;">
+                <div class="merchant-product mt-1" *ngIf="PictureUrl">
+                <img [src]="item.PictureUrl" alt="" (error)="PictureUrl = false">
+              </div>                           
+              <div class="merchant-title" title="{{item.Name}}">{{item.Name | truncate:0:15}}</div>              
+            </slide>        
+            <div class="merchant-price">{{ NetAmount | currency:decodedData.Currency.AlphabeticalCode }}</div>
+          </carousel>    
+      </div>
+    </div>
+  </div>
+  <div class="d-none d-md-inline-block col-4 col-sm-3">
+    <div class="steps">
+      <div [className]="'step-active-bar h-'+ step.bar"></div>
+      <div [className]="'step step-1 '+ step.step1"></div>
+      <div [className]="'step step-2 ' +step.step2"></div>
+      <div [className]="'step step-3 ' +step.step3"></div>
+    </div>
+  </div>
+</div>
+
+
+
+

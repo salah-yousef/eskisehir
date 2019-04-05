@@ -1,0 +1,7 @@
+<div class="h-100 secure">
+  <div class="w-100 secure-content text-center" (window:resize)="onResize($event)">
+    <iframe id="frame" onresize="onResize(e)" onerror="console.log(e)" class="mx-auto frameUrl" [src]="frameUrl | safeUrl" frameborder="0"
+      height="{{frameHeight}}">
+    </iframe>
+  </div>
+</div>

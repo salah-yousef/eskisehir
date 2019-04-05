@@ -1,0 +1,22 @@
+.footer-left{
+    width: 100%;
+    text-align: center;
+    .pbwl & {
+        display: none;
+    }
+    a {
+        color: #bcbfcc;     
+        i {
+            margin-right: 5px;
+        }   
+        span{
+            font-size: 12px;
+            line-height: 20px;
+        }
+    }
+    .secure-page & {
+        text-align: left !important;
+        margin-top: 3rem !important;
+    }
+   
+}

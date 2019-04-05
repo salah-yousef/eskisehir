@@ -1,0 +1,77 @@
+@media (min-width: 992px){
+    .modal-lg {
+        max-width: 954px;
+    }
+  }
+
+  input {
+    letter-spacing: 1px;
+    &::placeholder { 
+        letter-spacing: 2px;
+    }
+}
+
+select {
+    option{
+        color: #001537;
+    }
+}
+
+.input-group-text{
+    padding: 0 2px;
+    &.fa {
+        font-size: 26px;
+    }
+    .pbwl & {
+        border-bottom: 2px solid $purpletext;        
+    }
+}
+
+//pb-faq panel-group
+.pb-faq {
+    .panel-heading {
+        cursor: pointer;
+    }
+}
+
+.form-control {
+    &.ng-invalid.ng-dirty{
+        border-bottom: 2px solid #ff7675;
+    }    
+    .pbwl & {
+        border-bottom: 2px solid $purpletext; 
+    }
+}
+
+.pbwl {  
+        .ng-invalid.ng-dirty  {
+            .input-group-text {
+                border-bottom: 2px solid #ff7675;
+            } 
+        }  
+   
+    .btn-primary {
+    background-color: $purpletext;
+    border-color: $purpletext;
+    &:focus {
+        -webkit-box-shadow: 0 0 0 0.2rem rgba(121, 32, 163, 0.5);
+        box-shadow: 0 0 0 0.2rem rgba(121, 32, 163, 0.5);
+    }
+
+    &:not(:disabled):not(.disabled):active, &:not(:disabled):not(.disabled).active {
+        background-color: $purpletext;
+        border-color: $purpletext;  
+    }
+
+    &.active {
+     background-color: $purpletext;
+     border-color:$purpletext;
+    }
+    }
+    .pb-link-default {
+       color: $purpletext; 
+    }
+    .mobil-step-1-left{
+        padding-top: 0 !important;
+    }
+}

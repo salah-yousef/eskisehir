@@ -1,0 +1,15 @@
+.secure {
+    padding-top: 60px;
+    background: rgba(255, 255, 255,0.5);
+    .secure-content{        
+        min-height: 200px;
+        height: 100%;
+        .frameUrl{
+            width: 100%;
+            height: 100%;
+            //max-width: 980px;
+            min-height: 320px;
+        }
+    }
+   
+}

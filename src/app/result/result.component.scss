@@ -1,0 +1,35 @@
+.result{
+    .result-right{
+        background: $bluebg;
+        color: #bcbfcc;
+        position: relative;
+        .pbwl & {
+            background: $purplebg;
+        }
+        @media only screen and (min-width: 768px)  {
+            min-height: 600px;
+        }
+        h1{
+            font-size: 24px;
+        }
+        .info{
+            font-size: 12px;
+        }
+        .result-content{
+            .result-code-text{
+                color: #df3336;
+                font-size: 24px;
+                font-weight: bold;
+                &.result-success{
+                    color: #32b07b;
+                    .pbwl & {
+                        color: $purpletext;
+                    }
+                }
+            }
+            .result-info{
+                font-size: 13px;
+            }
+        }
+    }
+}

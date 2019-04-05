@@ -1,0 +1,49 @@
+<div class="row h-100 mobil-step-2">
+  <div class="col-10 col-md-5 mx-auto h-100 pt-0 pb-0 pt-sm-5 pb-sm-5 mobil-step-1-left">
+    <img *ngIf="!ss.theme.logo" class="pb-logo" src="assets/images/svg/logo_pay-bros.svg" width="190" alt="pay bros">
+    <app-cart [step]="step"></app-cart>
+    <app-footer-left *ngIf="!ss.theme.sss" class="d-none d-md-block"></app-footer-left>
+  </div>
+
+  <div class="col-12 col-md-7 mobil-step-2-right pt-5 pb-5">
+    <div class="row h-100">
+      <div class="col-10 mx-auto">
+        <div class="text-right order-id">
+          Order ID: {{decodedData.OrderId}}
+        </div>
+        <h1 class="title pt-5 mb-4">Mobil Ödeme</h1>
+        <!-- <p class="info">Cep telefonunuza gelen mesajı yanıtlayarak işlemi tamamlayınız.</p> -->
+        <p class="info">+{{phoneNumber | mask:'phone'}} numarasına gelen mesajı yanıtlayarak işlemi tamamlayınız</p>
+        <p class="info green">Mobil ödemelerde operatörünüze bağlı olarak ek ücret uygulanmaktadır!</p>
+
+        <div class="countdown mx-auto">
+          <justgage id="countDown" [options]="options" [max]="max" [value]="value"></justgage>
+        </div>
+
+        <div class="approval-info mt-4 mb-1 mb-md-5">
+          <p>Onay verdikten sonra işlemin tamamlanması için birkaç saniye bekleyiniz. Bu ödeme işlemini onaylayarak {{decodedData.cellOperator}} Mobil ödeme çerçeve sözleşmesini kabul etmiş sayılırsınız.
+            <br/>
+            <a target="_blank" class="pb-link-default" href="{{contractUrl}}">Operatör sözleşmesi</a>
+          </p>
+        </div>
+        
+        <div class="pt-1">
+            <app-footer-right [ngClass]="ss.GetPaymentChannelOptions().Class"></app-footer-right>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<ng-template #template>
+  <div class="modal-header">
+    <h4 class="modal-title pull-left">Operatör sözleşmesi</h4>
+    <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+   <p *ngFor="let item of [1,2,3,4]"></p>   
+  </div>
+</ng-template>

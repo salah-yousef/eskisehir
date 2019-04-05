@@ -1,0 +1,49 @@
+.cc-login-step-2 {
+
+.info-content{
+    color: #bcbfcc;
+    margin-bottom: 25px;
+    h2{
+        font-size: 24px;
+        margin-bottom: 40px;
+    }
+        span{
+            &.label {
+                font-size: 13px;
+            }
+            &.value{
+                font-size: 18px;
+                font-weight: bold;
+            }            
+        }
+        .step-2-header-content{
+            line-height: 18px;
+        }
+}
+
+.timer-content{
+    margin-bottom: 35px;
+    color: #006dd3; 
+    .pbwl & {
+        color: $purpletext;
+    }
+    label { font-size: 13px;
+    margin-bottom: 10px;
+}
+    .timer{
+    font-size: 32px;
+    font-weight: 900;
+    min-height: 48px;
+    &.timer-0 {
+        color: #bcbfcc;
+    }
+    }
+}
+
+.reSMScode{
+    .btn-link{
+        font-size: 13px;
+        color: #bcbfcc;
+    }
+}
+}

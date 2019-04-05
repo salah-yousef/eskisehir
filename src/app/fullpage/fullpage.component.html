@@ -1,0 +1,14 @@
+<div class="container-fluid fp-header">
+  <img *ngIf="!ss.theme.logo" src="assets/images/svg/logo_pay-bros.svg" class="float-left" width="125" height="50" alt="paybros">
+  <div class="text-right order-id float-right">
+    Order ID: {{decodedData.OrderId}}
+  </div>
+</div>
+
+<router-outlet></router-outlet>
+
+<div class="fp-footer">
+  <div class="col-12 col-sm-8 col-md-6 mx-auto">
+    <app-footer-left></app-footer-left>
+  </div>
+</div>

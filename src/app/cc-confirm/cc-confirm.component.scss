@@ -1,0 +1,39 @@
+.cc-step-confirm{
+    .cc-step-confirm-right{
+        background: $bluebg;
+        .pbwl & {
+            background: $purplebg;
+        }
+        h4{
+            color: #bcbfcc;
+            font-size: 24px;
+        }
+
+        .confirm-content{
+
+            .icon.loading{
+                min-height: 100px !important;
+            }
+            .confirm-code-title{
+                font-size: 24px;
+                font-weight: bold;
+                color: #13c5f2;
+                margin-top: 15px;
+                margin-bottom: 20px;
+                .pbwl & {
+                    color: $purpletext;
+                }
+            }
+            .confirm-info{
+                color: #FFF;
+                font-size: 13px;
+                font-weight: bold;
+
+                .operator-message {
+                    min-height: 40px;
+                }
+
+            }
+        }
+    }      
+}
