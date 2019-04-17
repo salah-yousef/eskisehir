@@ -6,10 +6,10 @@
 export const environment = {
   production: false,
   refreshControl: false,
-  apiUrl: 'http://testext.paybrothers.com',
-  signalrUrl: 'http://testext.paybrothers.com/signalr',
-  // apiUrl: 'https://apistg.paybrothers.com',
-  // signalrUrl: 'https://apistg.paybrothers.com/signalr'
+  // apiUrl: 'http://testext.paybrothers.com',
+  // signalrUrl: 'http://testext.paybrothers.com/signalr',
+  apiUrl: 'https://apistg.paybrothers.com',
+  signalrUrl: 'https://apistg.paybrothers.com/signalr'
   // apiUrl: 'https://apistg.paybrothers.com',
   // signalrUrl: 'https://apistg.paybrothers.com/signalr',
 };

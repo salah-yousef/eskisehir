@@ -13,6 +13,7 @@ import { SharedService } from './../services/shared.service';
 export class BankTransferComponent implements OnInit {
   CurrentBankAccount;
   NetAmount: any;
+  public decodedData = this.globalService.decodedData;
   public returnUrl: string;
   constructor(
     private globalService: GlobalService,

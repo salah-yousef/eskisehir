@@ -12,7 +12,7 @@
       <div class="col-11 col-sm-9 mx-auto">
 
         <div class="text-right basket-amount">
-          Alışveriş Sepetiniz: {{NetAmount}} TL
+          Alışveriş Sepetiniz: {{NetAmount | currency:decodedData.Currency.AlphabeticalCode}}
         </div>
 
         <h4 class="pt-5 mb-4">Banka Bilgileri</h4>
@@ -76,10 +76,11 @@
             </div>
           </div>
         </div>
-       
 
 
-        <button [disabled]="CurrentBankAccount == null" class="btn btn-primary min200" (click)="BankTransferComplate()">Tamamla</button>
+
+        <button [disabled]="CurrentBankAccount == null" class="btn btn-primary min200"
+          (click)="BankTransferComplate()">Tamamla</button>
         <div class="pt-4 pt-sm-0">
           <app-footer-right [ngClass]="ss.GetPaymentChannelOptions().Class"></app-footer-right>
         </div>
