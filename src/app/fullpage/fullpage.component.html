@@ -1,7 +1,8 @@
 <div class="container-fluid fp-header">
-  <img *ngIf="!ss.theme.logo" src="assets/images/svg/logo_pay-bros.svg" class="float-left" width="125" height="50" alt="paybros">
+  <img *ngIf="!ss.theme.logo" src="assets/images/svg/logo_pay-bros.svg" class="float-left" width="125" height="50"
+    alt="paybros">
   <div class="text-right order-id float-right">
-    Order ID: {{decodedData.OrderId}}
+    <span translate>Order ID</span>: {{decodedData.OrderId}}
   </div>
 </div>
 

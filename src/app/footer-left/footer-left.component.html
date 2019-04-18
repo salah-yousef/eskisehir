@@ -3,13 +3,13 @@
         <div class="col-6">
             <a href="tel:908505320593">
                 <i class="icon contact"></i>
-                <span>+90 (850) 532 05 93</span>                
+                <span>+90 (850) 532 05 93</span>
             </a>
         </div>
         <div class="col-6">
             <a href="javascript:;" (click)="openModal(modalFaq)">
                 <i class="fa fa-question"></i>
-                <span>Sık Sorulan Sorular</span>
+                <span translate>Sık Sorulan Sorular</span>
             </a>
         </div>
     </div>
@@ -17,7 +17,7 @@
 
 <ng-template #modalFaq>
     <div class="modal-header">
-        <h4 class="modal-title pull-left">Sık Sorulan Sorular</h4>
+        <h4 class="modal-title pull-left" translate>Sık Sorulan Sorular</h4>
         <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
             <span aria-hidden="true">&times;</span>
         </button>
@@ -26,20 +26,43 @@
         <div class="row">
             <accordion class="col pb-faq" [closeOthers]="true">
                 <accordion-group heading="Paybrothers nedir ve nerelerde kullanılır?">
-                    Paybrothers, ödemelerinizde kullanmak üzere 2018 yılında kurulmuş olan hızlı, güvenilir ve kolay hizmet sunmayı misyon edinmiş bir ödeme şirketidir. Kullanıcılar, Paybrothers güvencesiyle ödeme hizmeti almayı kabul etmiş tüm web sitelerinde güvenli bir şekilde alışverişlerini tamamlayabilirler. Detaylı bilgi için <a target="_blank" href="http://www.paybrothers.com/">www.paybrothers.com</a> adresini ziyaret edebilirsiniz.
+                    Paybrothers, ödemelerinizde kullanmak üzere 2018 yılında kurulmuş olan hızlı, güvenilir ve kolay
+                    hizmet sunmayı misyon edinmiş bir ödeme şirketidir. Kullanıcılar, Paybrothers güvencesiyle ödeme
+                    hizmeti almayı kabul etmiş tüm web sitelerinde güvenli bir şekilde alışverişlerini
+                    tamamlayabilirler. Detaylı bilgi için <a target="_blank"
+                        href="http://www.paybrothers.com/">www.paybrothers.com</a> adresini ziyaret edebilirsiniz.
                 </accordion-group>
                 <accordion-group heading="Hangi ödeme yöntemleri geçerlidir?">
-                    <p>Paybrothers, siz değerleri kullanıcılarımıza cep telefonu faturanıza yansıtarak veya faturasız hat sahibi kullanıcılar için kontörünü kullanarak ödeme yapma imkanı sağlar. Ayrıca TROY, Mastercard ve VISA özellikli kredi/banka/sanal kartlarınızı kullanarak da alışverişlerinizde güvenli ödeme yapabilirsiniz.</p>
+                    <p>Paybrothers, siz değerleri kullanıcılarımıza cep telefonu faturanıza yansıtarak veya faturasız
+                        hat sahibi kullanıcılar için kontörünü kullanarak ödeme yapma imkanı sağlar. Ayrıca TROY,
+                        Mastercard ve VISA özellikli kredi/banka/sanal kartlarınızı kullanarak da alışverişlerinizde
+                        güvenli ödeme yapabilirsiniz.</p>
                 </accordion-group>
                 <accordion-group heading="Ödemem yarım kaldı, ne yapacağım?">
-                    <p>Paybrothers altyapısını kullanarak yapacağınız ödemelerde yarım kalan her işlem otomatik güvenliğiniz için iptal edilir. Yeniden sayfaya bağlanarak işleminizi gerçekleştirebilirsiniz. Eğer ekstrenizde size ait olmadığını düşündüğünüz bir ödemeniz olması halinde <a href="mailto:support@paybrothers.com">support@paybrothers.com</a> e-posta adresi ve <a href="tel:908505320593">+90 (850) 532 05 93</a> nolu telefon numarası üzerinden bizlere ulaşabilir ve destek alabilirsiniz.
-                    </p>                  
+                    <p>Paybrothers altyapısını kullanarak yapacağınız ödemelerde yarım kalan her işlem otomatik
+                        güvenliğiniz için iptal edilir. Yeniden sayfaya bağlanarak işleminizi gerçekleştirebilirsiniz.
+                        Eğer ekstrenizde size ait olmadığını düşündüğünüz bir ödemeniz olması halinde <a
+                            href="mailto:support@paybrothers.com">support@paybrothers.com</a> e-posta adresi ve <a
+                            href="tel:908505320593">+90 (850) 532 05 93</a> nolu telefon numarası üzerinden bizlere
+                        ulaşabilir ve destek alabilirsiniz.
+                    </p>
                 </accordion-group>
-                <accordion-group heading="Ödemeyi başarılı bir şekilde tamamladım ancak ürünüm teslim edilmedi, ne yapacağım?">
-                    <p>Ödemenin başarılı bir şekilde gerçekleşmesi ve ürünün teslim edilememesi halinde öncelikle ürünü satın almış olduğunuz üye işyerimiz ile iletişime geçerek durumu bildirerek ürününüzü teslim alabilirsiniz. Üye işyerinin herhangi bir ek bilgi talebi olması halinde <a href="mailto:support@paybrothers.com">support@paybrothers.com</a> e-posta adresi ve <a href="tel:908505320593">+90 (850) 532 05 93</a> nolu telefon numarası üzerinden bizlere ulaşabilir ve destek alabilirsiniz.</p>                  
+                <accordion-group
+                    heading="Ödemeyi başarılı bir şekilde tamamladım ancak ürünüm teslim edilmedi, ne yapacağım?">
+                    <p>Ödemenin başarılı bir şekilde gerçekleşmesi ve ürünün teslim edilememesi halinde öncelikle ürünü
+                        satın almış olduğunuz üye işyerimiz ile iletişime geçerek durumu bildirerek ürününüzü teslim
+                        alabilirsiniz. Üye işyerinin herhangi bir ek bilgi talebi olması halinde <a
+                            href="mailto:support@paybrothers.com">support@paybrothers.com</a> e-posta adresi ve <a
+                            href="tel:908505320593">+90 (850) 532 05 93</a> nolu telefon numarası üzerinden bizlere
+                        ulaşabilir ve destek alabilirsiniz.</p>
                 </accordion-group>
                 <accordion-group heading="3D Secure ile ödeme nedir?">
-                    <p>Ödemenin başarılı bir şekilde gerçekleşmesi ve ürünün teslim edilememesi halinde öncelikle ürünü satın almış olduğunuz üye işyerimiz ile iletişime geçerek durumu bildirerek ürününüzü teslim alabilirsiniz. Üye işyerinin herhangi bir ek bilgi talebi olması halinde <a href="mailto:support@paybrothers.com">support@paybrothers.com</a> e-posta adresi ve <a href="tel:908505320593">+90 (850) 532 05 93</a> nolu telefon numarası üzerinden bizlere ulaşabilir ve destek alabilirsiniz.</p>                  
+                    <p>Ödemenin başarılı bir şekilde gerçekleşmesi ve ürünün teslim edilememesi halinde öncelikle ürünü
+                        satın almış olduğunuz üye işyerimiz ile iletişime geçerek durumu bildirerek ürününüzü teslim
+                        alabilirsiniz. Üye işyerinin herhangi bir ek bilgi talebi olması halinde <a
+                            href="mailto:support@paybrothers.com">support@paybrothers.com</a> e-posta adresi ve <a
+                            href="tel:908505320593">+90 (850) 532 05 93</a> nolu telefon numarası üzerinden bizlere
+                        ulaşabilir ve destek alabilirsiniz.</p>
                 </accordion-group>
             </accordion>
         </div>

@@ -136,7 +136,7 @@ export class LoginApprovalComponent implements OnInit {
         this.duration = 3 * 60;
         this.tickTock();
       } else {
-        this.toastr.warning('İşlem başarısız oldu !', 'Dikkat');
+        this.toastr.warning('İşlem başarısız oldu!', 'Dikkat');
       }
     });
   }

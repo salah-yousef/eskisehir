@@ -34,13 +34,18 @@ export class HomeComponent implements OnInit {
     this.activatedRoute.params.forEach((params) => {
       this.queryParams = this.activatedRoute.snapshot.queryParams;
     });
+
+    console.log(this.queryParams);
+
     if (this.queryParams != null && this.queryParams.token != null) {
       this.homeText = 'İşleminiz tamamlanıyor. Lütfen bekleyiniz.';
       this.redirectToken = { RedirectUrl: this.queryParams.token };
+      console.log(this.redirectToken);
       this.authService.DecodePayment(this.redirectToken).subscribe((res: any) => {
+        console.log(res);
         if (res && res.Data != null && res.Success) {
           sessionStorage.setItem('decodedData', JSON.stringify(res.Data));
-         this.currentTheme = res.Data.IsWhiteLabel ? 'pbwl' : 'pbdf';
+          this.currentTheme = res.Data.IsWhiteLabel ? 'pbwl' : 'pbdf';
           document.body.classList.add(this.currentTheme);
           this.router.navigateByUrl('login');
         } else {

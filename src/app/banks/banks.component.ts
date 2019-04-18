@@ -33,8 +33,8 @@ export class BanksComponent implements OnInit, DoCheck {
   }
 
   jump(jumpId: string) {
-    var top = document.getElementById(jumpId).offsetTop;
-    $("html, body").animate({ scrollTop: top }, 800);
+    const top = document.getElementById(jumpId).offsetTop;
+    $('html, body').animate({ scrollTop: top }, 800);
   }
 
   SetupBankTransferTequest() {
@@ -69,7 +69,7 @@ export class BanksComponent implements OnInit, DoCheck {
         this.CurrentBankAccount.HGNStatus = false;
       });
 
-      this.jump("bankTransfer");
+      this.jump('bankTransfer');
 
     }
 

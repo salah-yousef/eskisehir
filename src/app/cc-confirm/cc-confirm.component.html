@@ -11,22 +11,23 @@
     <div class="row h-100">
       <div class="col-11 col-sm-9 mx-auto">
         <div class="text-right order-id">
-          Order ID: {{decodedData.OrderId}}
+          <span translate>Order ID</span>: {{decodedData.OrderId}}
         </div>
 
-        <h4 class="pt-3 pt-md-5 mb-4">Kredi Kartı ile Ödeme</h4>
+        <h4 class="pt-3 pt-md-5 mb-4" translate>Kredi Kartı ile Ödeme</h4>
 
         <div class="confirm-content text-center mt-1 mt-sm-5">
           <i class="icon loading"></i>
-          <div class="confirm-code-title mb-1 mb-sm-3">
+          <div class="confirm-code-title mb-1 mb-sm-3" translate>
             ONAY BEKLİYOR
           </div>
           <div class="confirm-info">
-            <div class="operator-message mb-3">       
-                <span *ngIf="operatorConfirm" class="text text-warning">Ödeme işleminiz için birazdan operatörlerimiz tarafından aranacaksınız.</span>
+            <div class="operator-message mb-3">
+              <span *ngIf="operatorConfirm" class="text text-warning" translate>Ödeme işleminiz için birazdan
+                operatörlerimiz tarafından aranacaksınız.</span>
             </div>
-            <p>
-              Lütfen sayfayı kapatmayınız!  
+            <p translate>
+              Lütfen sayfayı kapatmayınız!
             </p>
           </div>
         </div>

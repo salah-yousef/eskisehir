@@ -4,38 +4,41 @@
       <div class="col-12 col-md-6">
         <div class="row h-100">
           <div class="col-12 col-md-10 vertical-center2">
-            <img *ngIf="!ss.theme.logo" src="assets/images/svg/logo_pay-bros.svg" class="logo_pay-bros" alt="paybros" style="margin-left: 0">
+            <img *ngIf="!ss.theme.logo" src="assets/images/svg/logo_pay-bros.svg" class="logo_pay-bros" alt="paybros"
+              style="margin-left: 0">
             <div class="mb-2 mb-md-4">
 
               <div class="info-content mt-1 mt-sm-4">
-                <h2 class="clear mb-1 mb-sm-4">SMS Onay</h2>
+                <h2 class="clear mb-1 mb-sm-4" translate>SMS Onay</h2>
                 <div class="row step-2-header-content">
-                  <span class="col-12 col-sm-5 label">GSM Numaranız</span>
+                  <span class="col-12 col-sm-5 label" translate>GSM Numaranız</span>
                   <span class="col-12 col-sm-7 value">+{{phoneNumber | mask:'phone'}}</span>
                 </div>
               </div>
 
               <div class="timer-content">
-                <label>Cep telefonunuza gelen kodu girmeniz için kalan süre:</label>
+                <label translate>Cep telefonunuza gelen kodu girmeniz için kalan süre:</label>
                 <div class="timer {{'timer-'+ duration}}">{{clockDisplay}}</div>
               </div>
 
               <form role="form" #smsApproveForm="ngForm" novalidate autocomplete="off">
                 <div id="sendSMS" class="form-group text-center">
-                  <label for="">SMS Onay Kodunuz</label>
+                  <label for="" translate>SMS Onay Kodunuz</label>
                   <div class="input-group">
                     <div class="input-group-prepend">
                       <i class="input-group-text fa fa-unlock-alt"></i>
                     </div>
-                    <input [disabled]="duration==0" type="password" #phone="ngModel" class="form-control" id="smscode" placeholder="******" required
-                      name="smscode" [(ngModel)]="smscode">
+                    <input [disabled]="duration==0" type="password" #phone="ngModel" class="form-control" id="smscode"
+                      placeholder="******" required name="smscode" [(ngModel)]="smscode">
                   </div>
-                  <button *ngIf="duration>0" type="submit" [disabled]="smsApproveForm.invalid" (click)="LoginCC(smscode)" class="btn btn-primary min200 mt-3">Gönder</button>
+                  <button *ngIf="duration>0" type="submit" [disabled]="smsApproveForm.invalid"
+                    (click)="LoginCC(smscode)" class="btn btn-primary min200 mt-3" translate>Gönder</button>
 
                 </div>
               </form>
               <div *ngIf="duration==0" class="reSMScode text-center">
-                <button type="button" class="btn btn-success btn-block" (click)="reSMSLoginCode()">Tekrar Onay Kodu Gönder</button>
+                <button type="button" class="btn btn-success btn-block" (click)="reSMSLoginCode()" translate>Tekrar Onay
+                  Kodu Gönder</button>
               </div>
             </div>
 
@@ -50,8 +53,9 @@
 
         <div class="row">
           <div class="security-info col-sm-12 col-md-7 text-left text-md-right">
-            <h2>Güvenlik Uyarısı</h2>
-            <p>Yapacağınız işlemler 256 Bit SSL serfitikası ile korunmakta olup, herhangi bir üçüncü parti kurum veya kuruluşlarla
+            <h2 translate>Güvenlik Uyarısı</h2>
+            <p translate>Yapacağınız işlemler 256 Bit SSL serfitikası ile korunmakta olup, herhangi bir üçüncü parti
+              kurum veya kuruluşlarla
               paylaşılmamaktadır. Tüm ödemelerinizi güvenle gerçekleştirebilirsiniz.</p>
           </div>
         </div>

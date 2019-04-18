@@ -8,29 +8,30 @@
               style="margin-left: 0">
             <div class="cc-login-content" *ngIf="!getPhoneNumberStatus">
               <div class="first-content mt-1 mt-sm-5">
-                <h2 class="clear mb-4">Giriş Yap</h2>
-                <p class="mb-5">Ödeme işleminizi başlatmak için lütfen cep telefonu numaranızı girerek “Onay Kodu
+                <h2 class="clear mb-4" translate>Giriş Yap</h2>
+                <p class="mb-5" translate>Ödeme işleminizi başlatmak için lütfen cep telefonu numaranızı girerek “Onay
+                  Kodu
                   Gönder” butonuna tıklayınız.</p>
               </div>
 
-              <form role="form" [formGroup]="CCLoginForm" (ngSubmit)="getSMSLoginCode(CCLoginForm)"  autocomplete="off">
+              <form role="form" [formGroup]="CCLoginForm" (ngSubmit)="getSMSLoginCode(CCLoginForm)" autocomplete="off">
                 <div id="sendSMS" class="form-group text-center">
-                  <label for="">GSM Numaranız</label>
+                  <label for="" translate>GSM Numaranız</label>
                   <div class="input-group">
                     <div class="input-group-prepend">
                       <i class="input-group-text fa fa-mobile"></i>
                     </div>
                     <div class="int-tel">
                       <ngx-intl-tel-input id="phoneNumber" [cssClass]="'form-control'" [preferredCountries]="['tr']"
-                      [enablePlaceholder]="false" [enableAutoCountrySelect]="true" name="phoneNumber" 
-                      formControlName="phoneNumber">
-                    </ngx-intl-tel-input>
+                        [enablePlaceholder]="false" [enableAutoCountrySelect]="true" name="phoneNumber"
+                        formControlName="phoneNumber">
+                      </ngx-intl-tel-input>
                     </div>
-                                      
+
                   </div>
 
-                  <button type="submit" [disabled]="CCLoginForm.invalid" 
-                  class="btn btn-primary min200 mt-4" translate>Onay Kodu Gönder</button>
+                  <button type="submit" [disabled]="CCLoginForm.invalid" class="btn btn-primary min200 mt-4"
+                    translate>Onay Kodu Gönder</button>
 
                   <!-- <button type="submit" [disabled]="CCLoginForm.invalid" (click)="getSMSLoginCode(phoneNumber)"
                     class="btn btn-primary min200 mt-4">Onay Kodu Gönder</button> -->
@@ -50,8 +51,9 @@
 
         <div class="row">
           <div class="security-info col-sm-12 col-md-7 text-left text-md-right">
-            <h2>Güvenlik Uyarısı</h2>
-            <p>Yapacağınız işlemler 256 Bit SSL serfitikası ile korunmakta olup, herhangi bir üçüncü parti kurum veya
+            <h2 translate>Güvenlik Uyarısı</h2>
+            <p translate>Yapacağınız işlemler 256 Bit SSL serfitikası ile korunmakta olup, herhangi bir üçüncü parti
+              kurum veya
               kuruluşlarla paylaşılmamaktadır. Tüm ödemelerinizi güvenle gerçekleştirebilirsiniz.</p>
           </div>
         </div>

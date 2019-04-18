@@ -1,8 +1,8 @@
 <div class="row h-100 result">
   <div class="col-md-5 col-10 mx-auto h-100 pb-2 pb-md-5 mobil-step-1-left">
 
-    <img *ngIf="!ss.theme.logo"  src="assets/images/svg/logo_pay-bros.svg" class="logo_pay-bros" alt="paybros">
-  
+    <img *ngIf="!ss.theme.logo" src="assets/images/svg/logo_pay-bros.svg" class="logo_pay-bros" alt="paybros">
+
     <app-cart [step]="step"></app-cart>
 
     <app-footer-left *ngIf="!ss.theme.sss" class="d-none d-md-block"></app-footer-left>
@@ -12,13 +12,13 @@
     <div class="row h-100">
       <div class="col-10 mx-auto text-center text-sm-left">
         <div class="text-right order-id mb-2 mb-sm-0">
-          Order ID: {{decodedData.OrderId}}
+          <span>Order ID</span>: {{decodedData.OrderId}}
         </div>
-        <h1 class="title pt-5 mb-4">{{ss.GetPaymentChannelOptions().Name}}</h1> 
+        <h1 class="title pt-5 mb-4">{{ss.GetPaymentChannelOptions().Name}}</h1>
         <div *ngIf="sResult">
           <div class="result-content text-center mt-1 mt-sm-5" *ngIf="!sResult.Success">
             <i class="icon error" [ngClass]="PaymentChannelCC ? 'cc':'mobil'"></i>
-            <div class="result-code-text mb-1 mb-sm-3" [ngClass]="!sResult.Success ? 'result-error':''">
+            <div class="result-code-text mb-1 mb-sm-3" [ngClass]="!sResult.Success ? 'result-error':''" translate>
               HATA!
             </div>
             <div class="result-info">
@@ -30,11 +30,11 @@
 
           <div class="result-content text-center mt-1 mt-md-5 mb-1 mb-md-5" *ngIf="sResult.Success">
             <i class="icon success" [ngClass]="PaymentChannelCC ? 'cc':'mobil'"></i>
-            <div class="result-code-text mb-1 mb-md-3" [ngClass]="sResult.Success ? 'result-success':''">
+            <div class="result-code-text mb-1 mb-md-3" [ngClass]="sResult.Success ? 'result-success':''" translate>
               TEBRİKLER!
             </div>
             <div class="result-info">
-              <p>{{PaymentChannelName}} ödeme işleminiz başarı ile gerçekleşti.
+              <p translate>{{PaymentChannelName}} ödeme işleminiz başarı ile gerçekleşti.
               </p>
             </div>
           </div>
@@ -42,12 +42,12 @@
         <div *ngIf="!sResult">
           <div class="result-content text-center mt-1 mt-md-5">
             <i class="icon error" [ngClass]="PaymentChannelCC ? 'cc':'mobil'"></i>
-            <div class="result-code-text mb-1 mb-md-3" [ngClass]="!sResult ? 'result-error':''">
+            <div class="result-code-text mb-1 mb-md-3" [ngClass]="!sResult ? 'result-error':''" translate>
               HATA!
             </div>
             <div class="result-info">
               <p>
-                  {{errorText}}
+                {{errorText}}
               </p>
             </div>
           </div>

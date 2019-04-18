@@ -39,8 +39,8 @@ export class LoginCCComponent implements OnInit {
   };
 
   CCLoginForm = new FormGroup({
-		phoneNumber: new FormControl(undefined, [Validators.required])
-	});
+    phoneNumber: new FormControl(undefined, [Validators.required])
+  });
 
 
   ngOnInit() {
@@ -64,7 +64,6 @@ export class LoginCCComponent implements OnInit {
 
 
   getSMSLoginCode(data) {
-    console.log(data.value.phoneNumber)
     data = data.value.phoneNumber.internationalNumber.replace(/\D/g, '');
     localStorage.setItem('userPhoneNumber', data.replace(/\D/g, ''));
     const SMSLoginData: SmsLoginModel = {
