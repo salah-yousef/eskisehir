@@ -10,8 +10,8 @@
               <div class="first-content mt-1 mt-sm-5">
                 <h2 class="clear mb-4" translate>Giriş Yap</h2>
                 <p class="mb-5" translate>Ödeme işleminizi başlatmak için lütfen cep telefonu numaranızı girerek “Onay
-                  Kodu
-                  Gönder” butonuna tıklayınız.</p>
+                  Kodu Gönder” butonuna tıklayınız</p>
+                <!-- <p>{{ ('1307') | translate:'{phone:"LeBLEİ"}' }}</p> -->
               </div>
 
               <form role="form" [formGroup]="CCLoginForm" (ngSubmit)="getSMSLoginCode(CCLoginForm)" autocomplete="off">
@@ -30,8 +30,8 @@
 
                   </div>
 
-                  <button type="submit" [disabled]="CCLoginForm.invalid" class="btn btn-primary min200 mt-4"
-                    translate>Onay Kodu Gönder</button>
+                  <button type="submit" [disabled]="CCLoginForm.invalid" class="btn btn-primary min200 mt-4" translate>
+                    Onay Kodu Gönder</button>
 
                   <!-- <button type="submit" [disabled]="CCLoginForm.invalid" (click)="getSMSLoginCode(phoneNumber)"
                     class="btn btn-primary min200 mt-4">Onay Kodu Gönder</button> -->

@@ -12,8 +12,7 @@
           <span translate>Order ID</span>: {{decodedData.OrderId}}
         </div>
         <h1 class="title pt-5 mb-4" translate>Mobil Ödeme</h1>
-        <!-- <p class="info">Cep telefonunuza gelen mesajı yanıtlayarak işlemi tamamlayınız.</p> -->
-        <p class="info">+{{phoneNumber | mask:'phone'}} numarasına gelen mesajı yanıtlayarak işlemi tamamlayınız</p>
+        <p class="info">{{('MobilText2' | translate:'{phoneNumber:"'+ phoneNumber +'"}')}}</p>
         <p class="info green" translate>Mobil ödemelerde operatörünüze bağlı olarak ek ücret uygulanmaktadır!</p>
 
         <div class="countdown mx-auto">
@@ -21,11 +20,16 @@
         </div>
 
         <div class="approval-info mt-4 mb-1 mb-md-5">
-          <p translate>Onay verdikten sonra işlemin tamamlanması için birkaç saniye bekleyiniz. Bu ödeme işlemini
-            onaylayarak {{decodedData.cellOperator}} Mobil ödeme çerçeve sözleşmesini kabul etmiş sayılırsınız.
+          <p>
+            {{ ('MobilText1') | translate:'{cellOperator:"'+decodedData.cellOperator+'"}' }}
             <br />
-            <a target="_blank" class="pb-link-default" href="{{contractUrl}}" translate>Operatör sözleşmesi</a>
+            <a target="_blank" class="pb-link-default" [href]="contractUrl" translate>Operatör sözleşmesi</a>
           </p>
+          <!-- <p translate>Onay verdikten sonra işlemin tamamlanması için birkaç saniye bekleyiniz. Bu ödeme işlemini
+              onaylayarak {{decodedData.cellOperator}} Mobil ödeme çerçeve sözleşmesini kabul etmiş sayılırsınız.
+              <br />
+              <a target="_blank" class="pb-link-default" href="{{contractUrl}}" translate>Operatör sözleşmesi</a>
+            </p> -->
         </div>
 
         <div class="pt-1">

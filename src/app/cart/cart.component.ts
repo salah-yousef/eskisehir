@@ -18,7 +18,6 @@ export class CartComponent implements OnInit {
   MerchantLogoUrl = true;
   NetAmount: any;
 
-
   public decodedData = JSON.parse(sessionStorage.getItem('decodedData'));
 
   ngOnInit() {

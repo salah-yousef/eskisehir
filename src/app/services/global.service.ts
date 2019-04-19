@@ -49,6 +49,14 @@ export class GlobalService {
         }));
     }
 
+    GetCurrency() {
+        let Currency = 'TRY';
+        if (this.decodedData.Currency != null && this.decodedData.Currency.AlphabeticalCode != null) {
+            Currency = this.decodedData.Currency.AlphabeticalCode;
+        }
+        return Currency;
+    }
+
     SetupBankTransferTequest(data) {
         this.bankAccountHeaders.delete('Authorization');
         this.bankAccountHeaders.append('Authorization', 'Bearer ' + this.authorizationparams.access_token);

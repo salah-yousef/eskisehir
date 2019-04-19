@@ -25,7 +25,7 @@ export class SharedService {
 
     public currentTheme = this.IsWhiteLabel ? 'pbwl' : this.defaultTheme;
     public wlThemeStatus = this.currentTheme === 'pbwl';
-  
+
 
     public theme = {
         logo: this.wlThemeStatus ? true : false,
@@ -33,10 +33,13 @@ export class SharedService {
         hidden: this.wlThemeStatus ? true : false
     };
 
-    // strgChange(data) {
-    //     // console.log(data);
-    //     this.themeChange.next(data);
-    // }
+    CurrentLang() {
+        let Lang = 'en-US';
+        if (sessionStorage.getItem('Set') != null) {
+            Lang = JSON.parse(sessionStorage.getItem('Set')).Lang;
+        }
+        return Lang;
+    }
 
     ToastrMessage(status, content) {
         this.translate.get(content).subscribe((res: string) => {
@@ -67,38 +70,48 @@ export class SharedService {
     }
 
     GetPaymentChannelOptions() {
+        let Lang = 'en-US';
+        if (sessionStorage.getItem('Set') != null) {
+            Lang = JSON.parse(sessionStorage.getItem('Set')).Lang;
+        }
+
         let PaymentChannelOptions = {
             Name: 'Ödeme',
+            NameEN: 'Payment',
             Class: 'operator-logo-hidden'
         };
         switch (this.decodedData.PaymentChannel.Id) {
             case PaymentChannel.Credid_Card_Payment:
                 PaymentChannelOptions = {
                     Name: 'Kredi Kartı Ödeme',
+                    NameEN: 'Credit Card Payment',
                     Class: 'operator-logo-hidden'
                 };
                 break;
             case PaymentChannel.Mobile_Payment:
                 PaymentChannelOptions = {
                     Name: 'Mobil Ödeme',
+                    NameEN: 'Mobile Payment',
                     Class: 'cc-logo-hidden'
                 };
                 break;
             case PaymentChannel.TopUpDeposit:
                 PaymentChannelOptions = {
                     Name: 'Havale İşlemi',
+                    NameEN: 'Mobil Ödeme',
                     Class: 'operator-logo-hidden'
                 };
                 break;
             default:
                 PaymentChannelOptions = {
                     Name: 'Ödeme',
+                    NameEN: 'Payment',
                     Class: 'operator-logo-hidden'
                 };
                 break;
         }
         return {
-            Name: PaymentChannelOptions.Name,
+            Name: Lang === 'tr-TR' ? PaymentChannelOptions.Name : PaymentChannelOptions.NameEN,
             Class: PaymentChannelOptions.Class
         };
     }

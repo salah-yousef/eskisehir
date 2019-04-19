@@ -12,12 +12,12 @@
       <div class="col-11 col-sm-9 mx-auto">
 
         <div class="text-right basket-amount">
-          Alışveriş Sepetiniz: {{NetAmount | currency:decodedData.Currency.AlphabeticalCode}}
+          <span translate>Alışveriş Sepetiniz</span>: {{NetAmount | currency:Currency}}
         </div>
 
-        <h4 class="pt-5 mb-4">Banka Bilgileri</h4>
+        <h4 class="pt-5 mb-4" translate>Banka Bilgileri</h4>
         <div class="form-group">
-          <label>Hesap Sahibi</label>
+          <label translate>Hesap Sahibi</label>
           <div class="label-info">
             <span *ngIf="CurrentBankAccount !=null">{{CurrentBankAccount.MerchantName}}</span>
           </div>
@@ -27,7 +27,7 @@
         <div class="row">
           <div class="col-4">
             <div class="form-group">
-              <label>Şube No :</label>
+              <label translate>Şube No :</label>
               <div class="label-info">
                 <span *ngIf="CurrentBankAccount !=null">{{CurrentBankAccount.BankBranchCode}}</span>
               </div>
@@ -35,7 +35,7 @@
           </div>
           <div class="col-8">
             <div class="form-group">
-              <label>Hesap No :</label>
+              <label translate>Hesap No :</label>
               <div class="label-info">
                 <span *ngIf="CurrentBankAccount !=null">{{CurrentBankAccount.BankAccountNumber}}</span>
               </div>
@@ -43,7 +43,7 @@
           </div>
         </div>
         <div class="form-group bordered">
-          <label>IBAN No :</label>
+          <label><span translate>IBAN No</span> :</label>
           <div class="label-info">
             <span *ngIf="CurrentBankAccount !=null">
               {{CurrentBankAccount.IBAN}}
@@ -54,7 +54,7 @@
           <div class="row" *ngIf="CurrentBankAccount !=null && CurrentBankAccount.HGNStatus">
             <div class="col-3">
               <div class="form-group">
-                <label class="hgn">HGN Kodu:</label>
+                <label class="hgn" translate>HGN Kodu:</label>
                 <div class="label-info">
                   <span>{{CurrentBankAccount.HGN}}</span>
                 </div>
@@ -64,8 +64,11 @@
               <div class="icon">
                 <i class="fa fa-info-circle"></i>
               </div>
-              <div class="text">İlgili HGN kodunu açıklama kısmına yazarak
+              <!-- <div class="text">İlgili HGN kodunu açıklama kısmına yazarak
                 <span>24 saat içerisinde</span> ödemenizi tamamlayabilirsiniz.</div>
+            </div> -->
+              <div class="text" translate>İlgili HGN kodunu açıklama kısmına yazarak 24 saat içerisinde
+                ödemenizi tamamlayabilirsiniz.</div>
             </div>
           </div>
           <div class="row" *ngIf="CurrentBankAccount !=null && !CurrentBankAccount.HGNStatus">
@@ -77,10 +80,8 @@
           </div>
         </div>
 
-
-
-        <button [disabled]="CurrentBankAccount == null" class="btn btn-primary min200"
-          (click)="BankTransferComplate()">Tamamla</button>
+        <button [disabled]="CurrentBankAccount == null" class="btn btn-primary min200" (click)="BankTransferComplate()"
+          translate>Tamamla</button>
         <div class="pt-4 pt-sm-0">
           <app-footer-right [ngClass]="ss.GetPaymentChannelOptions().Class"></app-footer-right>
         </div>

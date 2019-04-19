@@ -7,6 +7,7 @@ import { PaymentService } from '../services/payment.service';
 import { SerializerObj } from '../helpers/serilalizer.function';
 import { SharedService } from './../services/shared.service';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { TranslateService } from '@ngx-translate/core';
 
 
 @Component({
@@ -21,8 +22,11 @@ export class LoginCCComponent implements OnInit {
     private authService: AuthService,
     private globalService: GlobalService,
     private paymentService: PaymentService,
+    translate: TranslateService,
     public ss: SharedService
-  ) { }
+  ) {
+    translate.use(ss.CurrentLang());
+  }
 
 
   public phoneNumber = '';

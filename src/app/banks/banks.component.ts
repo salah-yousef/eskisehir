@@ -78,6 +78,7 @@ export class BanksComponent implements OnInit, DoCheck {
   GetBankAccounts() {
     this.globalService.GetBankaccounts().subscribe((res: any) => {
       this.BankAccounts = res.Data;
+      console.log(res.Data);
     });
   }
 }

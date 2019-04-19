@@ -64,11 +64,18 @@ export class ResultComponent implements OnInit {
 
 
   ErrorStatus() {
+    const Lang = this.ss.CurrentLang();
+
     switch (this.errorCode) {
       case 'refresh':
       case 'operator':
       case 'back':
         this.errorText = 'İşlem sırasında hata oluştu. Lütfen tekrar deneyin. Yönlendiriliyorsunuz...';
+        if (
+          Lang !== 'tr-TR'
+        ) {
+          this.errorText = 'Error occured during transaction process. Please try again. Redirecting...';
+        }
         this.step = { bar: 50, step1: 'check', step2: 'error', step3: 'error' };
         break;
 
@@ -76,9 +83,20 @@ export class ResultComponent implements OnInit {
         if (this.decodedData.PaymentChannel.Id === PaymentChannel.Mobile_Payment) {
           // tslint:disable-next-line:max-line-length
           this.errorText = 'Belirlenen süre içerisinde telefonunuza gelen mesaja onay vermediğiniz için ' + this.ss.GetPaymentChannelOptions().Name.toLowerCase() + ' işleminiz tamamlanamamıştır. Lütfen tekrar deneyin!';
+          if (
+            Lang !== 'tr-TR'
+          ) {
+            // tslint:disable-next-line:max-line-length
+            this.errorText = 'Your ' + this.ss.GetPaymentChannelOptions().Name.toLowerCase() + ' transaction ist not completed because you did not reply and confirm the message you received on your phone within the specified time. Please try again!';
+          }
           break;
         }
         this.errorText = 'İşlem sırasında hata oluştu. Lütfen tekrar deneyin. Yönlendiriliyorsunuz...';
+        if (
+          Lang !== 'tr-TR'
+        ) {
+          this.errorText = 'Error occured during transaction process. Please try again. Redirecting...';
+        }
         // this.step = { bar: 50, step1: 'check', step2: 'error', step3: 'error' };
         break;
     }

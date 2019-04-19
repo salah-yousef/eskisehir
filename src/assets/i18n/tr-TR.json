@@ -1,0 +1,6 @@
+{
+    "1307": "Doğrulama kodunu yanlış girdiniz, lütfen cep telefonunuza gönderilen doğrulama kodunu giriniz.",
+    "MobilText1": "Onay verdikten sonra işlemin tamamlanması için birkaç saniye bekleyiniz. Bu ödeme işlemini onaylayarak {{cellOperator}} Mobil ödeme çerçeve sözleşmesini kabul etmiş sayılırsınız.",
+    "MobilText2": "+{{phoneNumber}} numarasına gelen mesajı yanıtlayarak işlemi tamamlayınız",
+    "ResultText1": "{{PaymentChannelName}} ödeme işleminiz başarı ile gerçekleşti."
+}

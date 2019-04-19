@@ -14,6 +14,7 @@ export class BankTransferComponent implements OnInit {
   CurrentBankAccount;
   NetAmount: any;
   public decodedData = this.globalService.decodedData;
+  public Currency = this.globalService.GetCurrency();
   public returnUrl: string;
   constructor(
     private globalService: GlobalService,

@@ -12,7 +12,7 @@
     <div class="row h-100">
       <div class="col-10 mx-auto text-center text-sm-left">
         <div class="text-right order-id mb-2 mb-sm-0">
-          <span>Order ID</span>: {{decodedData.OrderId}}
+          <span translate>Order ID</span>: {{decodedData.OrderId}}
         </div>
         <h1 class="title pt-5 mb-4">{{ss.GetPaymentChannelOptions().Name}}</h1>
         <div *ngIf="sResult">
@@ -34,8 +34,8 @@
               TEBRİKLER!
             </div>
             <div class="result-info">
-              <p translate>{{PaymentChannelName}} ödeme işleminiz başarı ile gerçekleşti.
-              </p>
+              <p class="info">
+                {{('ResultText1' | translate:'{PaymentChannelName:"'+ decodedData.PaymentChannel.Name +'"}')}}</p>
             </div>
           </div>
         </div>
@@ -46,7 +46,7 @@
               HATA!
             </div>
             <div class="result-info">
-              <p>
+              <p translate>
                 {{errorText}}
               </p>
             </div>

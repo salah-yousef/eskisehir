@@ -13,17 +13,18 @@ import { GlobalService } from '../services/global.service';
 import { PaymentService } from '../services/payment.service';
 import { SerializerObj } from '../helpers/serilalizer.function';
 import { SharedService } from './../services/shared.service';
+import { MaskPipe } from '../pipe/mask.pipe';
 
-// import * as $ from 'jquery';
 
 @Component({
   selector: 'app-mobile-approval',
   templateUrl: './mobile-approval.component.html',
   // styleUrls: ['./mobile-approval.component.scss'],
-  providers: [SignalRService, SessionControlService, GlobalService, PaymentService, AuthService, SharedService]
+  providers: [SignalRService, SessionControlService, GlobalService, PaymentService, AuthService, SharedService, MaskPipe]
 })
 
 export class MobileApprovalComponent implements OnInit, OnDestroy {
+  phoneNumber: string;
   constructor(
     private router: Router,
     private activatedRoute: ActivatedRoute,
@@ -35,13 +36,12 @@ export class MobileApprovalComponent implements OnInit, OnDestroy {
     private authService: AuthService,
     private toastr: ToastrService,
     private sessionControlService: SessionControlService,
-    public ss: SharedService
+    public ss: SharedService,
+    maskPipe: MaskPipe
   ) {
-
-
+    this.phoneNumber = maskPipe.transform(this.authService.GetPhoneNumber(), 'phone');
   }
   decodedData = this.globalService.decodedData;
-  phoneNumber =  this.authService.GetPhoneNumber();
   private authorizationparams = this.globalService.authorizationparams;
   step = { bar: 50, step1: 'check', step2: 'active', step3: '' };
 
@@ -93,7 +93,7 @@ export class MobileApprovalComponent implements OnInit, OnDestroy {
   ngOnInit() {
     this.CurrentOperator();
     this.sessionControlService.GetSessionControl('mobile-approval');
-
+    console.log(this.phoneNumber);
     this.signalRService.startConnection(this.authorizationparams.access_token);
     this.signalRService.smsReceived.subscribe((res: any) => {
       this.result = JSON.parse(res);
@@ -144,6 +144,7 @@ export class MobileApprovalComponent implements OnInit, OnDestroy {
   }
 
   CurrentOperator() {
+
     switch (this.decodedData.cellOperator) {
       case 'Turkcell':
         this.contractUrl = 'https://turkcellodemehizmetleri.com.tr/kullanim-sartlari-ve-sozlesmesi';

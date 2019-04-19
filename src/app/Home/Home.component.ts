@@ -34,29 +34,33 @@ export class HomeComponent implements OnInit {
     this.activatedRoute.params.forEach((params) => {
       this.queryParams = this.activatedRoute.snapshot.queryParams;
     });
-
-    console.log(this.queryParams);
+    let Set = JSON.parse(sessionStorage.getItem('Set'));
+    if (Set === null) {
+      Set = {};
+    }
 
     if (this.queryParams != null && this.queryParams.token != null) {
       this.homeText = 'İşleminiz tamamlanıyor. Lütfen bekleyiniz.';
       this.redirectToken = { RedirectUrl: this.queryParams.token };
-      console.log(this.redirectToken);
       this.authService.DecodePayment(this.redirectToken).subscribe((res: any) => {
-        console.log(res);
         if (res && res.Data != null && res.Success) {
           sessionStorage.setItem('decodedData', JSON.stringify(res.Data));
+          if (res.Data.LanguageCode == null) {
+            Set.Lang = 'tr-TR';
+          } else {
+            Set.Lang = res.Data.LanguageCode;
+          }
+          sessionStorage.setItem('Set', JSON.stringify(Set));
           this.currentTheme = res.Data.IsWhiteLabel ? 'pbwl' : 'pbdf';
           document.body.classList.add(this.currentTheme);
           this.router.navigateByUrl('login');
         } else {
           this.nullData = true;
           document.body.classList.add(this.currentTheme);
+          Set.Lang = 'tr-TR';
         }
       });
     }
 
   }
-
-
-
 }
