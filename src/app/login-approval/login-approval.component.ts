@@ -75,9 +75,18 @@ export class LoginApprovalComponent implements OnInit {
         };
         this.createPayment(SerializerObj(paymentData), this.authService.GetAuthorizeParams().access_token);
       } else if (this.decodedData.PaymentChannel.Id === PaymentChannel.Credid_Card_Payment) {
-        this.router.navigateByUrl('cc/info');
+        if (this.decodedData.IsOverMaxLimit) {
+          this.router.navigate(['result'], { queryParams: { error: 'maxlimit' } });
+        } else {
+          this.router.navigateByUrl('cc/info');
+        }
+
       } else if (this.decodedData.PaymentChannel.Id === PaymentChannel.TopUpDeposit) {
-        this.router.navigateByUrl('banktransfer');
+        if (this.decodedData.IsOverMaxLimit) {
+          this.router.navigate(['result'], { queryParams: { error: 'maxlimit' } });
+        } else {
+          this.router.navigateByUrl('banktransfer');
+        }
       } else {
         alert('Ödeme kanalı bilgisi eksik');
       }
@@ -118,7 +127,11 @@ export class LoginApprovalComponent implements OnInit {
   createPayment(data, token) {
     this.paymentService.CreatePayment(data, token).subscribe((res: any) => {
       if (res.Success) {
-        this.router.navigateByUrl('/mobile/approval');
+        if (this.decodedData.IsOverMaxLimit) {
+          this.router.navigate(['result'], { queryParams: { error: 'maxlimit' } });
+        } else {
+          this.router.navigateByUrl('/mobile/approval');
+        }
       } else {
         // this.loading = false;
         // this.errorHandlerService.handleError(res);

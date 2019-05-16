@@ -58,7 +58,7 @@ export class ResultComponent implements OnInit {
     this.PaymentResult();
     setTimeout(() => {
       location.href = this.returnUrl;
-    }, 6500);
+    }, 7000);
   }
 
 
@@ -75,6 +75,18 @@ export class ResultComponent implements OnInit {
           Lang !== 'tr-TR'
         ) {
           this.errorText = 'Error occured during transaction process. Please try again. Redirecting...';
+        }
+        this.step = { bar: 50, step1: 'check', step2: 'error', step3: 'error' };
+        break;
+
+      case 'maxlimit':
+        // tslint:disable-next-line:max-line-length
+        this.errorText = 'Ödeme yapmak istediğiniz işyeri için tanımlanan maksimum ödeme tutarını aşan bir sepet oluşturdunuz. Bu tutarda bir ödeme güvenlik sebebiyle yapamazsınız. Yönlendiriliyorsunuz...';
+        if (
+          Lang !== 'tr-TR'
+        ) {
+          // tslint:disable-next-line:max-line-length
+          this.errorText = 'The amount of your goods to pay exceeds the maximum price defined for this merchant. You cannot make this transaction for security reasons. Redirecting...';
         }
         this.step = { bar: 50, step1: 'check', step2: 'error', step3: 'error' };
         break;
