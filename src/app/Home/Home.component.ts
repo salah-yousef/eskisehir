@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { AuthService } from './../services/auth.service';
 import { DOCUMENT } from '@angular/platform-browser';
 import { SharedService } from './../services/shared.service';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-home',
@@ -23,9 +24,12 @@ export class HomeComponent implements OnInit {
     private router: Router,
     private activatedRoute: ActivatedRoute,
     private authService: AuthService,
+    translate: TranslateService,
     public ss: SharedService
   ) {
     // document.body.classList.add('pbwl');
+    translate.use(ss.CurrentLang());
+    console.log(ss.CurrentLang(), 'HomeComp');
   }
 
   ngOnInit() {
@@ -37,6 +41,7 @@ export class HomeComponent implements OnInit {
     let Set = JSON.parse(sessionStorage.getItem('Set'));
     if (Set === null) {
       Set = {};
+      Set.Lang = 'tr-TR';
     }
 
     if (this.queryParams != null && this.queryParams.token != null) {

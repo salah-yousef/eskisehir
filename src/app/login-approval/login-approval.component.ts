@@ -75,14 +75,14 @@ export class LoginApprovalComponent implements OnInit {
         };
         this.createPayment(SerializerObj(paymentData), this.authService.GetAuthorizeParams().access_token);
       } else if (this.decodedData.PaymentChannel.Id === PaymentChannel.Credid_Card_Payment) {
-        if (this.decodedData.IsOverMaxLimit) {
+        if (this.decodedData.IsOutsideOfLimits) {
           this.router.navigate(['result'], { queryParams: { error: 'maxlimit' } });
         } else {
           this.router.navigateByUrl('cc/info');
         }
 
       } else if (this.decodedData.PaymentChannel.Id === PaymentChannel.TopUpDeposit) {
-        if (this.decodedData.IsOverMaxLimit) {
+        if (this.decodedData.IsOutsideOfLimits) {
           this.router.navigate(['result'], { queryParams: { error: 'maxlimit' } });
         } else {
           this.router.navigateByUrl('banktransfer');
@@ -127,7 +127,7 @@ export class LoginApprovalComponent implements OnInit {
   createPayment(data, token) {
     this.paymentService.CreatePayment(data, token).subscribe((res: any) => {
       if (res.Success) {
-        if (this.decodedData.IsOverMaxLimit) {
+        if (this.decodedData.IsOutsideOfLimits) {
           this.router.navigate(['result'], { queryParams: { error: 'maxlimit' } });
         } else {
           this.router.navigateByUrl('/mobile/approval');
