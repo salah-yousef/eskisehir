@@ -59,6 +59,7 @@ import { TranslateModule, TranslateLoader, TranslateService } from '@ngx-transla
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { SharedService } from './services/shared.service';
 import { NgxIntlTelInputModule } from 'ngx-intl-tel-input';
+import { CreditCardDirectivesModule } from 'angular-cc-library';
 
 registerLocaleData(localeTr, 'tr');
 export function HttpLoaderFactory(http: HttpClient) {
@@ -135,6 +136,7 @@ export function createConfig(): SignalRConfiguration {
     NgSelectModule,
     TextMaskModule,
     JustgageModule,
+    CreditCardDirectivesModule,
     RouterModule.forRoot(routes),
     SignalRModule.forRoot(createConfig),
     ModalModule.forRoot(),

@@ -11,6 +11,7 @@ import { ToastrService } from 'ngx-toastr';
 import { SerializerObj } from './../helpers/serilalizer.function';
 import { SessionControlService } from './../services/session-control.service';
 import { SharedService } from './../services/shared.service';
+import { CreditCardValidator } from 'angular-cc-library';
 
 
 
@@ -103,7 +104,8 @@ export class CcInfoComponent implements OnInit {
       ]),
       CreditCardNumber: new FormControl('', [
         Validators.required,
-        Validators.minLength(19)
+        CreditCardValidator.validateCCNumber,
+        Validators.minLength(14)
       ]),
       CreditCardExpireDateMonth: new FormControl('', [
         Validators.required
