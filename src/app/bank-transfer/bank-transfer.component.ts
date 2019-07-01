@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { GlobalService } from './../services/global.service';
 import { PaymentService } from './../services/payment.service';
 import { SharedService } from './../services/shared.service';
+import { Router } from '@angular/router';
 
 
 
@@ -18,7 +19,8 @@ export class BankTransferComponent implements OnInit {
   public returnUrl: string;
   constructor(
     private globalService: GlobalService,
-    public ss: SharedService
+    public ss: SharedService,
+    private router: Router,
   ) { }
 
   ngOnInit() {
@@ -46,7 +48,25 @@ export class BankTransferComponent implements OnInit {
       } else {
         this.returnUrl = this.globalService.decodedData.FailUrl;
       }
-      location.href = this.returnUrl;
+      switch (res.ErrorMessages[0]) {
+        case '3101':
+        case '3102':
+        case '3103':
+        case '3104':
+        case '3105':
+        case '3106':
+        case '3201':
+        case '3202':
+        case '3203':
+        case '3204':
+        case '3205':
+        case '3206':
+          this.router.navigate(['result'], { queryParams: { error: res.ErrorMessages[0] } });
+          break;
+        default:
+          location.href = this.returnUrl;
+          break;
+      }
     }, (error) => {
       this.returnUrl = this.globalService.decodedData.FailUrl;
       location.href = this.returnUrl;

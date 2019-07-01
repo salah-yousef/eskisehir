@@ -65,6 +65,7 @@ export class ResultComponent implements OnInit {
 
   ErrorStatus() {
     const Lang = this.ss.CurrentLang();
+    console.log(this.errorCode);
 
     switch (this.errorCode) {
       case 'refresh':
@@ -89,6 +90,49 @@ export class ResultComponent implements OnInit {
           this.errorText = 'The amount of your goods to pay exceeds the maximum price defined for this merchant. You cannot make this transaction for security reasons. Redirecting...';
         }
         this.step = { bar: 50, step1: 'check', step2: 'error', step3: 'error' };
+        break;
+
+      case '3101':
+        this.errorText = Lang !== 'tr-TR' ? 'User daily total amount limit is passed' : 'Günlük toplam işlem tutarı aşıldı.';
+        break;
+      case '3102':
+        this.errorText = Lang !== 'tr-TR' ? 'User weekly total amount limit is passed' : 'Haftalık toplam işlem tutarı aşıldı.';
+        break;
+      case '3103':
+        this.errorText = Lang !== 'tr-TR' ? 'User monthly total amount limit is passed' : 'Aylık toplam işlem tutarı aşıldı.';
+        break;
+      case '3104':
+        this.errorText = Lang !== 'tr-TR' ? 'User daily total count limit is passed' : 'Günlük maksimum işlem sayısı aşıldı.';
+        break;
+      case '3105':
+        this.errorText = Lang !== 'tr-TR' ? 'User weekly total count limit is passed ' : 'Haftalık maksimum işlem sayısı aşıldı.';
+        break;
+      case '3106':
+        this.errorText = Lang !== 'tr-TR' ? 'User monthly total count limit is passed' : 'Aylık maksimum işlem sayısı aşıldı.';
+        break;
+      case '3201':
+        // tslint:disable-next-line:max-line-length
+        this.errorText = Lang !== 'tr-TR' ? 'User daily total amount limit is passed for this merchant.' : 'Bu iş yeri için günlük toplam işlem tutarı aşıldı.';
+        break;
+      case '3202':
+        // tslint:disable-next-line:max-line-length
+        this.errorText = Lang !== 'tr-TR' ? 'User weekly total amount limit is passed for this merchant.' : 'Bu iş yeri için haftalık toplam işlem tutarı aşıldı.';
+        break;
+      case '3203':
+        // tslint:disable-next-line:max-line-length
+        this.errorText = Lang !== 'tr-TR' ? 'User monthly total amount limit is passed for this merchant.' : 'Bu iş yeri için aylık toplam işlem tutarı aşıldı.';
+        break;
+      case '3204':
+        // tslint:disable-next-line:max-line-length
+        this.errorText = Lang !== 'tr-TR' ? 'User daily total count limit is passed for this merchant.' : 'Bu iş yeri için günlük maksimum işlem sayısı aşıldı.';
+        break;
+      case '3205':
+        // tslint:disable-next-line:max-line-length
+        this.errorText = Lang !== 'tr-TR' ? 'User weekly total count limit is passed for this merchant.' : 'Bu iş yeri için haftalık maksimum işlem sayısı aşıldı.';
+        break;
+      case '3206':
+        // tslint:disable-next-line:max-line-length
+        this.errorText = Lang !== 'tr-TR' ? 'User monthly total count limit is passed for this merchant.' : 'Bu iş yeri için aylık maksimum işlem sayısı aşıldı.';
         break;
 
       default:

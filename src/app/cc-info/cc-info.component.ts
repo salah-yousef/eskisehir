@@ -175,7 +175,27 @@ export class CcInfoComponent implements OnInit {
           this.router.navigateByUrl('cc/secure');
           // location.href = res.Data; // ayrı sayfada aç;
         } else {
-          this.toastr.warning(res.ErrorMessages[0], 'Dikkat');
+          switch (res.ErrorMessages[0]) {
+            case '3101':
+            case '3102':
+            case '3103':
+            case '3104':
+            case '3105':
+            case '3106':
+            case '3201':
+            case '3202':
+            case '3203':
+            case '3204':
+            case '3205':
+            case '3206':
+              this.router.navigate(['result'], { queryParams: { error: res.ErrorMessages[0] } });
+              break;
+
+            default:
+              this.toastr.warning(res.ErrorMessages[0], 'Dikkat');
+              break;
+          }
+
           this.loading = false;
         }
         // console.log(res);
