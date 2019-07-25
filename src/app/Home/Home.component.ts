@@ -24,12 +24,12 @@ export class HomeComponent implements OnInit {
     private router: Router,
     private activatedRoute: ActivatedRoute,
     private authService: AuthService,
-    translate: TranslateService,
+    public translate: TranslateService,
     public ss: SharedService
   ) {
     // document.body.classList.add('pbwl');
-    translate.use(ss.CurrentLang());
-    console.log(ss.CurrentLang(), 'HomeComp');
+    // translate.use(ss.CurrentLang());
+    // console.log(ss.CurrentLang(), 'HomeComp');
   }
 
   ngOnInit() {
@@ -55,6 +55,7 @@ export class HomeComponent implements OnInit {
           } else {
             Set.Lang = res.Data.LanguageCode;
           }
+          this.translate.use(Set.Lang);
           sessionStorage.setItem('Set', JSON.stringify(Set));
           this.currentTheme = res.Data.IsWhiteLabel ? 'pbwl' : 'pbdf';
           document.body.classList.add(this.currentTheme);

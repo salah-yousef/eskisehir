@@ -34,7 +34,7 @@ export class SharedService {
     };
 
     CurrentLang() {
-        let Lang = 'en-US';
+        let Lang = 'tr-TR';
         if (sessionStorage.getItem('Set') != null) {
             Lang = JSON.parse(sessionStorage.getItem('Set')).Lang;
         }
@@ -74,7 +74,6 @@ export class SharedService {
         if (sessionStorage.getItem('Set') != null) {
             Lang = JSON.parse(sessionStorage.getItem('Set')).Lang;
         }
-
         let PaymentChannelOptions = {
             Name: 'Ödeme',
             NameEN: 'Payment',

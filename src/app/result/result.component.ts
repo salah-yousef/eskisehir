@@ -65,7 +65,6 @@ export class ResultComponent implements OnInit {
 
   ErrorStatus() {
     const Lang = this.ss.CurrentLang();
-    console.log(this.errorCode);
 
     switch (this.errorCode) {
       case 'refresh':

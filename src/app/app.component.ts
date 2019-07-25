@@ -16,7 +16,7 @@ import { TranslateService } from '@ngx-translate/core';
 export class AppComponent implements OnInit {
   constructor(
     private ss: SharedService,
-    translate: TranslateService,
+    public translate: TranslateService,
     @Inject(DOCUMENT) private document: Document,
   ) {
     translate.addLangs(['tr', 'en']);
@@ -38,6 +38,7 @@ export class AppComponent implements OnInit {
     //   console.log(this.ss.decodedData);
     //   document.body.classList.add(this.ss.currentTheme);
     // });
+    this.translate.use(this.ss.CurrentLang());
   }
   // changeLang(data) {
   //   this.translate.use(data);

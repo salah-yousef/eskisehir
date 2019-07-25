@@ -24,6 +24,7 @@
             <div class="result-info">
               <p>
                 {{errorText}}
+               
               </p>
             </div>
           </div>
@@ -35,7 +36,7 @@
             </div>
             <div class="result-info">
               <p class="info">
-                {{('ResultText1' | translate:'{PaymentChannelName:"'+ decodedData.PaymentChannel.Name +'"}')}}</p>
+                {{('ResultText1' | translate:'{PaymentChannelName:"'+ ss.GetPaymentChannelOptions().Name +'"}')}}</p>
             </div>
           </div>
         </div>
@@ -43,7 +44,7 @@
           <div class="result-content text-center mt-1 mt-md-5">
             <i class="icon error" [ngClass]="PaymentChannelCC ? 'cc':'mobil'"></i>
             <div class="result-code-text mb-1 mb-md-3" [ngClass]="!sResult ? 'result-error':''" translate>
-              HATA!
+              HATA!              
             </div>
             <div class="result-info">
               <p translate>
