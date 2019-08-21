@@ -1,25 +1,33 @@
-.cc-login { 
+.cc-login {
     @media only screen and (min-width: 960px)  {
         min-height: 600px;
     }
   .pbdf & {
     background-image: url('../assets/images/layout/blue-bg.png');
-    @include media-breakpoint-down(sm) { 
-        //background-position: right  -18.5% center;    
-        background-image: none;  
+    @include media-breakpoint-down(sm) {
+        //background-position: right  -18.5% center;
+        background-image: none;
        }
-  }  
+  }
+  .pbesk & {
+    background-image: url('../assets/images/layout/red-bg.png');
+    background-color: #231F20;
+    @include media-breakpoint-down(sm) {
+        //background-position: right  -18.5% center;
+        background-image: none;
+       }
+  }
    .pbwl & {
        background-image: url('../assets/images/layout/login-secure.jpg');
-       @include media-breakpoint-down(sm) { 
-        background-image: none;  
+       @include media-breakpoint-down(sm) {
+        background-image: none;
        }
    }
    background-position: top right;
    background-repeat: no-repeat;
 
    @media only screen and (min-width: 768px) and (max-width:992px) {
-    background-position:130px 0; 
+    background-position:130px 0;
     background-size: cover;
        .pb-amblem{
            width: 120px;
@@ -29,7 +37,7 @@
         }
        }
        .pbwl & {
-        background-position:320px 0; 
+        background-position:320px 0;
         background-size: initial;
     }
 
@@ -40,11 +48,11 @@
                 width: 50px;
             }
           }
-           
+
        }
-  
-    
-      
+
+
+
 }
 .input-group-prepend{
     width: 5%;
@@ -56,10 +64,10 @@
     width: 95%;
     .intl-tel-input{
         width: 100%;
-        .dropdown-menu{          
+        .dropdown-menu{
                 max-width: 435px;
-                overflow-x: hidden; 
-           
+                overflow-x: hidden;
+
         }
     }
 }
@@ -73,6 +81,9 @@
 
 .first-content{
     color: #bcbfcc;
+    .pbesk & {
+      color: #fff;
+    }
     h2{
         font-size: 24px;
     }
@@ -85,13 +96,20 @@
         input {
          color: #333;
          font-size: 18px;
-         font-weight: bold;}
+         font-weight: bold;
+          .pbesk & {
+            color: #fff;
+          }
+        }
         label{
             float: left;
             font-size: 13px;
             color: #006dd3;
             .pbwl & {
                 color:$purpletext;
+            }
+            .pbesk & {
+                color: #fff;
             }
         }
     }
@@ -103,7 +121,7 @@
                 min-height: 570px;
             }
         }
-        
+
         .pb-amblem {
             position: absolute;
             right: 25.3%;
@@ -123,9 +141,14 @@
             bottom: 25px;
             right: 0;
             .pbwl & {
-                color: #FFF;  
-                bottom: 115px; 
-                right: 13%;             
+                color: #FFF;
+                bottom: 115px;
+                right: 13%;
+            }
+            .pbesk & {
+                color: #FFF;
+                bottom: 50px;
+                right: 13%;
             }
             h2{
                 font-size: 24px;
@@ -137,21 +160,24 @@
                 font-size: 12px;
                 text-align: justify;
             }
-           
+
         }
-        @include media-breakpoint-down(sm) { 
+        @include media-breakpoint-down(sm) {
             .pb-amblem {
               display: none;
-            } 
+            }
             .security-info{
                 position: static;
                 color: #333 !important;
                 .pbwl & {
-                    color: #333;                                   
+                    color: #333;
+                }
+                .pbesk & {
+                    color: #fff;
                 }
             }
            }
-        
+
     }
 
 }

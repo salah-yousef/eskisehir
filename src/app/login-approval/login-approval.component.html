@@ -17,14 +17,14 @@
               </div>
 
               <div class="timer-content">
-                <label translate>Cep telefonunuza gelen kodu girmeniz için kalan süre:</label>
+                <label translate class="{{'timer-'+ duration}}">Cep telefonunuza gelen kodu girmeniz için kalan süre:</label>
                 <div class="timer {{'timer-'+ duration}}">{{clockDisplay}}</div>
               </div>
 
               <form role="form" #smsApproveForm="ngForm" novalidate autocomplete="off">
                 <div id="sendSMS" class="form-group text-center">
                   <label for="" translate>SMS Onay Kodunuz</label>
-                  <div class="input-group">
+                  <div class="input-group" [ngStyle]="{'visibility': duration>0 ? 'visible':'hidden'}">
                     <div class="input-group-prepend">
                       <i class="input-group-text fa fa-unlock-alt"></i>
                     </div>
@@ -32,12 +32,12 @@
                       placeholder="******" required name="smscode" [(ngModel)]="smscode">
                   </div>
                   <button *ngIf="duration>0" type="submit" [disabled]="smsApproveForm.invalid"
-                    (click)="LoginCC(smscode)" class="btn btn-primary min200 mt-3" translate>Gönder</button>
+                    (click)="LoginCC(smscode)" class="btn btn-danger min200 mt-3" translate>Gönder</button>
 
                 </div>
               </form>
               <div *ngIf="duration==0" class="reSMScode text-center">
-                <button type="button" class="btn btn-success btn-block" (click)="reSMSLoginCode()" translate>Tekrar Onay
+                <button type="button" class="btn btn-danger btn-block" (click)="reSMSLoginCode()" translate>Tekrar Onay
                   Kodu Gönder</button>
               </div>
             </div>
@@ -49,7 +49,7 @@
 
 
       <div class="col-12 col-md-6 cc-login-right pt-3 pt-md-0">
-        <img class="pb-amblem approval" src="assets/images/svg/amblem_pay-bros.svg" width="235" alt="pay bros">
+        <img class="pb-amblem approval" [src]="amblemUrl" width="235" alt="pay bros">
 
         <div class="row">
           <div class="security-info col-sm-12 col-md-7 text-left text-md-right">

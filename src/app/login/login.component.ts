@@ -16,7 +16,7 @@ import { TranslateService } from '@ngx-translate/core';
   providers: [AuthService, GlobalService, PaymentService, SharedService]
 })
 export class LoginCCComponent implements OnInit {
-
+  public amblemUrl = 'assets/images/svg/logo_esk.svg';
   constructor(
     private router: Router,
     private authService: AuthService,

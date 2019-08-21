@@ -30,7 +30,7 @@
 
                   </div>
 
-                  <button type="submit" [disabled]="CCLoginForm.invalid" class="btn btn-primary min200 mt-4" translate>
+                  <button type="submit" [disabled]="CCLoginForm.invalid" class="btn btn-danger min200 mt-4" translate>
                     Onay Kodu Gönder</button>
 
                   <!-- <button type="submit" [disabled]="CCLoginForm.invalid" (click)="getSMSLoginCode(phoneNumber)"
@@ -46,7 +46,7 @@
 
 
       <div class="col-12 col-sm-12 col-md-6 cc-login-right">
-        <img *ngIf="!ss.theme.hidden" class="pb-amblem login" src="assets/images/svg/amblem_pay-bros.svg" width="235"
+        <img *ngIf="!ss.theme.hidden" class="pb-amblem login" [src]="amblemUrl" width="235"
           alt="pay bros">
 
         <div class="row">

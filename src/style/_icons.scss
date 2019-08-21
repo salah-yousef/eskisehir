@@ -2,6 +2,7 @@ $result-icon-size:95px;
 
 .logo_pay-bros {
     display: block;
+    visibility: hidden;
     width: 200px;
     height: 80px;
     margin-left: 30px;
@@ -20,13 +21,13 @@ $result-icon-size:95px;
     min-height: 12px;
     background-position: center;
     background-repeat: no-repeat;
-   
-   
+
+
     &.contact{
-        background-image: url('../assets/images/icons/icon-contact.svg');      
+        background-image: url('../assets/images/icons/icon-contact.svg');
         width: 16px;
-        height: 16px;        
-        color: #bcbfcc;        
+        height: 16px;
+        color: #bcbfcc;
     }
     &.error{
         width: $result-icon-size;
@@ -35,7 +36,7 @@ $result-icon-size:95px;
             background-image: url('../assets/images/icons/icon-cc-error.svg');
         }
         &.mobil{
-            background-image: url('../assets/images/icons/icon-mobil-error.svg'); 
+            background-image: url('../assets/images/icons/icon-mobil-error.svg');
         }
     }
     &.success{
@@ -45,13 +46,13 @@ $result-icon-size:95px;
             background-image: url('../assets/images/icons/icon-cc-success.svg');
         }
         &.mobil{
-            background-image: url('../assets/images/icons/icon-mobil-success.svg'); 
+            background-image: url('../assets/images/icons/icon-mobil-success.svg');
         }
     }
     &.loading{
         width: 80px;
-        height: 80px; 
-        background-image: url('../assets/images/icons/icon-loading.svg');   
+        height: 80px;
+        background-image: url('../assets/images/icons/icon-loading.svg');
     }
 }
 .icon-3d{

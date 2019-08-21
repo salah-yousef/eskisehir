@@ -19,7 +19,7 @@ import { SharedService } from './../services/shared.service';
   providers: [AuthService, SessionControlService, PaymentService, SharedService]
 })
 export class LoginApprovalComponent implements OnInit {
-
+  public amblemUrl = 'assets/images/svg/logo_esk.svg';
   constructor(
     private router: Router,
     private authService: AuthService,

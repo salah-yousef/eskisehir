@@ -6,7 +6,7 @@
 
   input {
     letter-spacing: 1px;
-    &::placeholder { 
+    &::placeholder {
         letter-spacing: 2px;
     }
 }
@@ -23,7 +23,7 @@ select {
         font-size: 26px;
     }
     .pbwl & {
-        border-bottom: 2px solid $purpletext;        
+        border-bottom: 2px solid $purpletext;
     }
 }
 
@@ -37,19 +37,22 @@ select {
 .form-control {
     &.ng-invalid.ng-dirty{
         border-bottom: 2px solid #ff7675;
-    }    
+    }
     .pbwl & {
-        border-bottom: 2px solid $purpletext; 
+        border-bottom: 2px solid $purpletext;
+    }
+    &:disabled{
+      background-color: transparent;
     }
 }
 
-.pbwl {  
+.pbwl {
         .ng-invalid.ng-dirty  {
             .input-group-text {
                 border-bottom: 2px solid #ff7675;
-            } 
-        }  
-   
+            }
+        }
+
     .btn-primary {
     background-color: $purpletext;
     border-color: $purpletext;
@@ -60,7 +63,7 @@ select {
 
     &:not(:disabled):not(.disabled):active, &:not(:disabled):not(.disabled).active {
         background-color: $purpletext;
-        border-color: $purpletext;  
+        border-color: $purpletext;
     }
 
     &.active {
@@ -69,7 +72,7 @@ select {
     }
     }
     .pb-link-default {
-       color: $purpletext; 
+       color: $purpletext;
     }
     .mobil-step-1-left{
         padding-top: 0 !important;

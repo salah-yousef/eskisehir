@@ -1,7 +1,7 @@
 .cc-login-step-2 {
 
 .info-content{
-    color: #bcbfcc;
+    color: #FFFFFF;
     margin-bottom: 25px;
     h2{
         font-size: 24px;
@@ -14,7 +14,8 @@
             &.value{
                 font-size: 18px;
                 font-weight: bold;
-            }            
+                color: #FFFFFF;
+            }
         }
         .step-2-header-content{
             line-height: 18px;
@@ -23,9 +24,17 @@
 
 .timer-content{
     margin-bottom: 35px;
-    color: #006dd3; 
-    .pbwl & {
+    color: #006dd3;
+    .pbwl &{
         color: $purpletext;
+    }
+    .pbesk &{
+         label{
+           color: $redtext;
+           &.timer-0 {
+            color: #FFFFFF;
+        }
+       }
     }
     label { font-size: 13px;
     margin-bottom: 10px;
@@ -34,8 +43,11 @@
     font-size: 32px;
     font-weight: 900;
     min-height: 48px;
+    .pbesk &{
+      color: $redtext;
+    }
     &.timer-0 {
-        color: #bcbfcc;
+        color: #FFFFFF;
     }
     }
 }
@@ -43,7 +55,7 @@
 .reSMScode{
     .btn-link{
         font-size: 13px;
-        color: #bcbfcc;
+        color: #FFFFFF;
     }
 }
 }
