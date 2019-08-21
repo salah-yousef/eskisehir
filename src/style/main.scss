@@ -13,7 +13,7 @@
 @import "../app/cc-confirm/cc-confirm.component.scss";
 @import "../app/cc-info/cc-info.component.scss";
 @import "../app/mobile-approval/mobile-approval.component.scss";
-@import "../app/bank-transfer/bank-transfer.component.scss";   
+@import "../app/bank-transfer/bank-transfer.component.scss";
 @import "_customs";
 @import "_ng-select";
 @import "../app/loading/loading.component.scss";
@@ -39,13 +39,18 @@ body{
     }
     &.pbdf{
         background-image: url(../assets/images/layout/bg.jpg);
-        background-color: #001537; 
+        background-color: #001537;
     }
-    
+    &.pbesk{
+      background-image: url(../assets/images/layout/bg_red.jpg);
+      background-color: #001537;
+    }
+
+
     background-size: cover;
     font-family: 'Lato', sans-serif !important;
-    @include media-breakpoint-down(xs) { 
-    background-image: none;  
+    @include media-breakpoint-down(xs) {
+    background-image: none;
     }
     &.fullpage {
         margin-bottom: 50px;
@@ -65,7 +70,7 @@ body{
     @media only screen and (min-width: 960px)  {
       min-height: 600px;
     }
-    
+
 }
 
 .content {
@@ -75,7 +80,7 @@ body{
 .min200{
     min-width: 200px;
 }
-.order-id {   
+.order-id {
     color: $blue2;
     .pbwl & {
         color: $purpletext;
@@ -88,17 +93,17 @@ body{
 
 .vertical-center {
     min-height: 100%;  /* Fallback for browsers do NOT support vh unit */
-    min-height: 100vh; /* These two lines are counted as one :-)       */  
+    min-height: 100vh; /* These two lines are counted as one :-)       */
     display: flex;
     align-items: center;
 }
 .vertical-center2 {
     .pbwl & {
-        min-height: 100%;  
-        min-height: 61vh; 
+        min-height: 100%;
+        min-height: 61vh;
         display: flex;
         align-items: center;
-    }   
+    }
 }
 .a-center {
     width: 100%;
@@ -112,7 +117,7 @@ body{
     }
 }
 
- 
+
 
 
 

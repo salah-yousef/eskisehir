@@ -17,7 +17,8 @@ export class HomeComponent implements OnInit {
   redirectToken: {};
   nullData = false;
   homeText = '...';
-  currentTheme = 'pbdf';
+  // currentTheme = 'pbdf';
+  currentTheme = 'pbesk';
 
   constructor(
     @Inject(DOCUMENT) private document: Document,
@@ -57,7 +58,7 @@ export class HomeComponent implements OnInit {
           }
           this.translate.use(Set.Lang);
           sessionStorage.setItem('Set', JSON.stringify(Set));
-          this.currentTheme = res.Data.IsWhiteLabel ? 'pbwl' : 'pbdf';
+          // this.currentTheme = res.Data.IsWhiteLabel ? 'pbwl' : 'pbdf';
           document.body.classList.add(this.currentTheme);
           this.router.navigateByUrl('login');
         } else {
