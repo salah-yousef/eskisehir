@@ -1,0 +1,25 @@
+.merchant-container {
+  div {
+    div {
+      background: #fff;
+      .pbesk & {
+        background: $redbg;
+      }
+    }
+  }
+  .steps{
+    .step-active-bar{
+      .pbesk & {
+        background-color: $blackbg;
+      }
+    }
+    .pbesk & {
+      background-color: $whitebg;
+    }
+    .step{
+      .pbesk & {
+        background-color: $blackbg;
+      }
+    }
+  }
+}

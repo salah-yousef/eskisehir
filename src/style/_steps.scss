@@ -3,24 +3,24 @@ $stepsGray:#cacedc;
 $stepsCube:24px;
 
 .steps {
-    width: ($stepsCube/4);   
+    width: ($stepsCube/4);
     height: 80%;
     background-color: $stepsGray;
-    position: relative; 
+    position: relative;
     z-index: 1;
     //margin: 50% auto;
     margin-top: 50%;
     margin-left: auto;
-    margin-right: auto; 
+    margin-right: auto;
 
-   
+
     .step-active-bar {
         width: ($stepsCube/4);
-        
+
         position: absolute;
         top: 0;
         left: 0;
-        background-color: $stepsBlue; 
+        background-color: $stepsBlue;
         .pbwl & {
             background-color: $purpletext;
         }
@@ -39,59 +39,62 @@ $stepsCube:24px;
         background-color: $stepsGray;
         position: absolute;
         z-index: 3;
-        left: -($stepsCube/2-($stepsCube/8)); 
+        left: -($stepsCube/2-($stepsCube/8));
         line-height: 22px;
 
         &.check{
-            background-color: $stepsBlue; 
+            background-color: $stepsBlue;
             .pbwl & {
                 background-color: $purpletext;
             }
             color: #FFF;
             &:before{
-                display: inline-block;   
-                vertical-align: middle;              
+                display: inline-block;
+                vertical-align: middle;
                 text-align: center;
                 font-size: 10px;
                 content: "\f00c";
                 width:$stepsCube;
                 height: $stepsCube;
-                font-family: 'FontAwesome';              
+                font-family: 'FontAwesome';
             }
-        }   
+        }
         &.active {
-            background-color: $stepsBlue; 
+            background-color: $stepsBlue;
             .pbwl & {
                 background-color: $purpletext;
             }
-            color: #FFF; 
+            color: #FFF;
             &:before{
-                display: inline-block;  
-                vertical-align: middle;           
+                display: inline-block;
+                vertical-align: middle;
                 text-align: center;
                 font-size: 10px;
                 content: "\f061";
                 width: $stepsCube;
                 height: $stepsCube;
-                font-family: 'FontAwesome';   
+                font-family: 'FontAwesome';
             }
-        }  
+        }
         &.error {
-            //background-color: #f79e1b; 
-            //color: #df3336; 
+            //background-color: #f79e1b;
+            //color: #df3336;
+            .pbesk & {
+              background-color: #cacaca !important;
+            }
             &:before{
-                display: inline-block;  
-                vertical-align: middle;           
+                display: inline-block;
+                vertical-align: middle;
                 text-align: center;
                 font-size: 10px;
                 content: "\f00d";
                 width: $stepsCube;
                 height: $stepsCube;
                 font-weight: bold;
-                font-family: 'FontAwesome';   
+                font-family: 'FontAwesome';
                 color:#FFF;
             }
-        }   
+        }
         &:first-child{
             top: -($stepsCube/2);
         }

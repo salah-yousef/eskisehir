@@ -1,6 +1,9 @@
 .merchant-container {
     background-color: #f3f5f8;
-    @include media-breakpoint-down(sm) { 
+    .pbesk & {
+      background-color: $redbg;
+    }
+    @include media-breakpoint-down(sm) {
         background-color: #FFF;
       }
       @media only screen and (min-width: 768px)  {
@@ -9,14 +12,16 @@
             margin-top: 125px;
         }
       }
-      
+
 }
 
 .merchant {
     margin-bottom: 30px;
     background: #FFF;
-    
-    @include media-breakpoint-down(sm) { 
+    .pbesk & {
+      background-color: $redbg;
+    }
+    @include media-breakpoint-down(sm) {
         margin-bottom: 10px;
       }
 
@@ -27,32 +32,32 @@
               max-width: 100%;
           }
       }
-    .merchant-product{        
-        margin-bottom: 30px; 
-        // padding: 0 15px;  
+    .merchant-product{
+        margin-bottom: 30px;
+        // padding: 0 15px;
         max-width: 100%;
-        min-height: 125px;   
-        @include media-breakpoint-down(sm) { 
+        min-height: 125px;
+        @include media-breakpoint-down(sm) {
            width: 20%;
            max-width: 20%;
            float: left;
-           text-align: center;   
-           padding: 5px;    
-           min-height: 40px;  
-           margin-bottom: 10px;             
+           text-align: center;
+           padding: 5px;
+           min-height: 40px;
+           margin-bottom: 10px;
          }
         img{
             max-width: 100%;
             max-height: 125px;
-            @include media-breakpoint-down(sm) { 
+            @include media-breakpoint-down(sm) {
                 max-height: 40px;
             }
         }
     }
     .merchant-title{
         font-size: 18px;
-        color: #888;      
-        @include media-breakpoint-down(sm) { 
+        color: #888;
+        @include media-breakpoint-down(sm) {
             width: 80%;
             float: left;
             font-size: 14px;
@@ -61,7 +66,7 @@
     .merchant-price{
         font-weight: bold;
         font-size: 24px;
-        @include media-breakpoint-down(sm) {             
+        @include media-breakpoint-down(sm) {
             font-size: 18px;
           }
     }
@@ -73,28 +78,28 @@
             @include media-breakpoint-down(sm){
                 bottom: 0;
                 margin-bottom: 5px;
-            } 
+            }
             li{
                 width: 3px;
                 border-radius: 3px;
                 background-color: #bdc3c7;
                 &.active{
-                    background-color: #34495e; 
+                    background-color: #34495e;
                 }
 
             }
         }
-        .carousel-inner{     
-            padding: 0 8%;       
+        .carousel-inner{
+            padding: 0 8%;
             //  .item {
             //      .carousel-item{
             //         &.active{
-   
+
             //         }
             //         .item {
 
             //         }
-                    
+
             //     }
             //  }
         }
@@ -103,35 +108,35 @@
             top:-85px;
             width: 8%;
             @include media-breakpoint-down(sm){
-                top: 0; 
-                
-            }            
+                top: 0;
+
+            }
             span{
                 color:black !important;
             }
            &.carousel-control-prev{
             .carousel-control-prev-icon{
                 background-image: none;
-                &::before{   
+                &::before{
                 font-family: FontAwesome;
                 display: inline-block;
                 text-rendering: auto;
-                content: "\f053";  
-                } 
-            } 
-           } 
+                content: "\f053";
+                }
+            }
+           }
            &.carousel-control-next{
             .carousel-control-next-icon{
                 background-image: none;
-                &::before{   
+                &::before{
                 font-family: FontAwesome;
                 display: inline-block;
                 text-rendering: auto;
-                content: "\f054";  
-                } 
+                content: "\f054";
+                }
             }
            }
-        } 
+        }
     }
 }
 

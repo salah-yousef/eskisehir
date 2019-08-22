@@ -20,7 +20,7 @@
 @import "../app/footer-right/footer-right.component.scss";
 @import "../app/result/result.component.scss";
 @import "../app/banks/banks.component.scss";
-
+@import "../app/cart/cart.component.scss";
 
 html {
     min-height: 100%;
@@ -75,6 +75,9 @@ body{
 
 .content {
     background: #FFF;
+    .pbesk & {
+      background: $redbg;
+    }
     box-shadow: 0px 0px 8px #222;
 }
 .min200{
@@ -82,6 +85,9 @@ body{
 }
 .order-id {
     color: $blue2;
+    .pbesk & {
+      color: $whitetext;
+    }
     .pbwl & {
         color: $purpletext;
     }
@@ -114,6 +120,10 @@ body{
     transform: translate(-50%, -50%);
     .merchant & {
         top: 55%;
+        .pbesk & {
+          top: 80%;
+          color: #FFF;
+        }
     }
 }
 

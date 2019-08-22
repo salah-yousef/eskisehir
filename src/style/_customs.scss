@@ -25,6 +25,9 @@ select {
     .pbwl & {
         border-bottom: 2px solid $purpletext;
     }
+    .pbesk & {
+      border-bottom: 2px solid $redtext;
+    }
 }
 
 //pb-faq panel-group
@@ -40,6 +43,9 @@ select {
     }
     .pbwl & {
         border-bottom: 2px solid $purpletext;
+    }
+    .pbesk & {
+        border-bottom: 2px solid $redtext;
     }
     &:disabled{
       background-color: transparent;

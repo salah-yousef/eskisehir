@@ -1,6 +1,9 @@
 .result{
     .result-right{
         background: $bluebg;
+        .pbesk & {
+          background: $blackbg;
+        }
         color: #bcbfcc;
         position: relative;
         .pbwl & {

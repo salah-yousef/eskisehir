@@ -2,22 +2,30 @@
     .cc-step-info-right{
         background: $bluebg;
         .pbdf & {
-            background: $bluebg;  
+            background: $bluebg;
         }
         .pbwl & {
-            background: $purplebg;  
+            background: $purplebg;
+        }
+        .pbesk & {
+            background: $blackbg;
         }
 
         h4{
             color: #bcbfcc;
-           
+            .pbesk & {
+              color: $whitetext;
+          }
             font-size: 24px;
         }
         .form-group{
             label{
                 color: #006dd3;
                 .pbwl & {
-                    color: $purpletext;  
+                    color: $purpletext;
+                }
+                .pbesk & {
+                  color: $redtext;
                 }
                 font-size: 13px;
             }
@@ -27,7 +35,10 @@
                 font-size: 20px;
                 color: #13c5f2;
                 .pbwl & {
-                    color: $purpletext;  
+                    color: $purpletext;
+                }
+                .pbesk & {
+                    color: $redtext;
                 }
             }
         }
@@ -35,27 +46,39 @@
             .fa {
                 font-size: 20px;
                 color: #13c5f2;
+                .pbesk & {
+                  color: $redtext;
+                }
                 line-height: 37px;
                 .pbwl & {
-                    color: $purpletext;  
+                    color: $purpletext;
                 }
             }
         }
-        
+
+    }
+
+    .cc-step-info-left{
+      .pbesk & {
+        background: $redbg;
+      }
     }
 
     .form-row{
         .form-row-label {
             color: #006dd3;
             .pbwl & {
-                color: $purpletext;  
+                color: $purpletext;
+            }
+            .pbesk & {
+              color: $redtext;
             }
             font-size: 13px;
         }
     }
-        
-  
-    
+
+
+
 }
 
 .ccNumpad{
@@ -73,7 +96,7 @@
         transition: 0.3s ease-in-out all;
         &:active{
             background-color: #e9ecf0 ;
-                 
+
             box-shadow: 1px  1px rgba(136, 136, 136,0.7);
         }
         &:hover{
@@ -82,5 +105,5 @@
     }
     .fa {
         color: #333 !important;
-    }  
+    }
 }

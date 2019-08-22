@@ -47,7 +47,7 @@
 }
 
 .ng-select {
-    .ng-select-container{ 
+    .ng-select-container{
         color: #FFF !important;
         min-height:38px;
         align-items:center;
@@ -55,20 +55,22 @@
         .pbwl & {
             border-bottom: 2px solid $purpletext;
         }
-       
+        .pbesk & {
+          border-bottom: 2px solid $redtext;
+        }
     }
     &.default {
-        .ng-select-container{ 
-            color: #000 !important;          
+        .ng-select-container{
+            color: #000 !important;
             border-bottom: 2px solid #ccc;
             .ng-value-container {
                 .ng-placeholder {
                     color: #24ca95 !important;
                 }
             }
-           
-           
-        }       
+
+
+        }
     }
 }
 .ng-select.ng-select-single .ng-select-container .ng-value-container .ng-input{
@@ -135,11 +137,11 @@
 .ng-select {
     &.custom{
         .ng-clear-wrapper{
-           display: none;      
-        }  
+           display: none;
+        }
     }
     .ng-clear-wrapper{
-        color:#999;       
+        color:#999;
     }
 }
 .ng-select .ng-clear-wrapper .ng-clear:hover{
@@ -245,4 +247,3 @@
 }
 
 
- 
