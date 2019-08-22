@@ -78,41 +78,47 @@ export class SharedService {
         let PaymentChannelOptions = {
             Name: 'Ödeme',
             NameEN: 'Payment',
-            Class: 'operator-logo-hidden'
+            Class: 'operator-logo-hidden',
+            icon: 'cc'
         };
         switch (this.decodedData.PaymentChannel.Id) {
             case PaymentChannel.Credid_Card_Payment:
                 PaymentChannelOptions = {
                     Name: 'Kredi Kartı Ödeme',
                     NameEN: 'Credit Card Payment',
-                    Class: 'operator-logo-hidden'
+                    Class: 'operator-logo-hidden',
+                    icon: 'cc'
                 };
                 break;
             case PaymentChannel.Mobile_Payment:
                 PaymentChannelOptions = {
                     Name: 'Mobil Ödeme',
                     NameEN: 'Mobile Payment',
-                    Class: 'cc-logo-hidden'
+                    Class: 'cc-logo-hidden',
+                    icon: 'mobil'
                 };
                 break;
             case PaymentChannel.TopUpDeposit:
                 PaymentChannelOptions = {
                     Name: 'Havale İşlemi',
                     NameEN: 'Mobil Ödeme',
-                    Class: 'operator-logo-hidden'
+                    Class: 'operator-logo-hidden',
+                    icon: 'cc'
                 };
                 break;
             default:
                 PaymentChannelOptions = {
                     Name: 'Ödeme',
                     NameEN: 'Payment',
-                    Class: 'operator-logo-hidden'
+                    Class: 'operator-logo-hidden',
+                    icon: 'cc'
                 };
                 break;
         }
         return {
             Name: Lang === 'tr-TR' ? PaymentChannelOptions.Name : PaymentChannelOptions.NameEN,
-            Class: PaymentChannelOptions.Class
+            Class: PaymentChannelOptions.Class,
+            Icon: PaymentChannelOptions.icon
         };
     }
 

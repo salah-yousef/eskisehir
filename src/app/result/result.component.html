@@ -17,20 +17,20 @@
         <h1 class="title pt-5 mb-4">{{ss.GetPaymentChannelOptions().Name}}</h1>
         <div *ngIf="sResult">
           <div class="result-content text-center mt-1 mt-sm-5" *ngIf="!sResult.Success">
-            <i class="icon error" [ngClass]="PaymentChannelCC ? 'cc':'mobil'"></i>
+            <i class="icon error" [ngClass]="ss.GetPaymentChannelOptions().Icon"></i>
             <div class="result-code-text mb-1 mb-sm-3" [ngClass]="!sResult.Success ? 'result-error':''" translate>
               HATA!
             </div>
             <div class="result-info">
               <p>
                 {{errorText}}
-               
+
               </p>
             </div>
           </div>
 
           <div class="result-content text-center mt-1 mt-md-5 mb-1 mb-md-5" *ngIf="sResult.Success">
-            <i class="icon success" [ngClass]="PaymentChannelCC ? 'cc':'mobil'"></i>
+            <i class="icon success" [ngClass]="ss.GetPaymentChannelOptions().Icon"></i>
             <div class="result-code-text mb-1 mb-md-3" [ngClass]="sResult.Success ? 'result-success':''" translate>
               TEBRİKLER!
             </div>
@@ -42,9 +42,9 @@
         </div>
         <div *ngIf="!sResult">
           <div class="result-content text-center mt-1 mt-md-5">
-            <i class="icon error" [ngClass]="PaymentChannelCC ? 'cc':'mobil'"></i>
+            <i class="icon error" [ngClass]="ss.GetPaymentChannelOptions().Icon"></i>
             <div class="result-code-text mb-1 mb-md-3" [ngClass]="!sResult ? 'result-error':''" translate>
-              HATA!              
+              HATA!
             </div>
             <div class="result-info">
               <p translate>

@@ -141,12 +141,12 @@
             bottom: 25px;
             right: 0;
             .pbwl & {
-                color: #FFF;
+                color: #FFF !important;
                 bottom: 115px;
                 right: 13%;
             }
             .pbesk & {
-                color: #FFF;
+                color: rgba(255, 255, 255, 0.5) !important;
                 bottom: 50px;
                 right: 13%;
             }

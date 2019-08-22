@@ -1,6 +1,14 @@
-.right-footer{   
+.right-footer{
     width: 100%;
-  
+    .pbesk & {
+      background-color: $whitebg;
+      width: 60%;
+      padding: 3%;
+      border-radius: 10px;
+      @include media-breakpoint-down(sm) {
+        width: 100%;
+      }
+    }
       .static & {
           position: static;
       }
@@ -11,18 +19,26 @@
           .pbwl & {
               bottom: -10px;
           }
-          @include media-breakpoint-down(sm) { 
+          .pbesk & {
+            right: 12%;
+          }
+          @include media-breakpoint-down(sm) {
             position: static;
           }
       }
       .logo_operators{
         max-width: 110px;
         width: 100%;
-    
+
     }
     .logo-sec{
         max-width: 160px;
         width: 100%;
+    }
+    .text-sm-right {
+      .pbesk & {
+        text-align: center !important;
+      }
     }
 }
 
