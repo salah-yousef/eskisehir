@@ -1,4 +1,12 @@
 .cc-login {
+  .left-side{
+    @include media-breakpoint-down(md) {
+      width: 127%;
+     }
+    @include media-breakpoint-down(sm) {
+      width: 100%;
+     }
+  }
     @media only screen and (min-width: 960px)  {
         min-height: 600px;
     }
@@ -146,9 +154,12 @@
                 right: 13%;
             }
             .pbesk & {
-                color: rgba(255, 255, 255, 0.5) !important;
+                color:  #fff;
                 bottom: 50px;
                 right: 13%;
+                @include media-breakpoint-down(md) {
+                  right: 0;
+                }
             }
             h2{
                 font-size: 24px;
@@ -168,12 +179,12 @@
             }
             .security-info{
                 position: static;
-                color: #333 !important;
+                color: #333 ;
                 .pbwl & {
                     color: #333;
                 }
                 .pbesk & {
-                    color: #fff;
+                    color: rgba(255, 255, 255, 0.5);
                 }
             }
            }

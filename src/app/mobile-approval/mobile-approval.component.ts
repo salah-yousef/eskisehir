@@ -110,7 +110,7 @@ export class MobileApprovalComponent implements OnInit, OnDestroy {
       this.value = this.value - 1;
       localStorage.setItem('countdown', this.value.toString());
       if (this.value === 0) {
-        this.router.navigateByUrl('result');
+        //this.router.navigateByUrl('result');
         clearInterval(this.countdown);
       }
     }, 1000);

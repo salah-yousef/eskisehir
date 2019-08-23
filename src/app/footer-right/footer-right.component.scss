@@ -1,4 +1,5 @@
-.right-footer{
+.right-footer {
+  .cc-logo-hidden & {
     width: 100%;
     .pbesk & {
       background-color: $whitebg;
@@ -9,46 +10,106 @@
         width: 100%;
       }
     }
-      .static & {
-          position: static;
-      }
-      .cc-login & {
-          position: absolute;
-          bottom:-20px;
-          right:15px;
-          .pbwl & {
-              bottom: -10px;
-          }
-          .pbesk & {
-            right: 12%;
-          }
-          @include media-breakpoint-down(sm) {
-            position: static;
-          }
-      }
-      .logo_operators{
-        max-width: 110px;
-        width: 100%;
-
+    .static & {
+      position: static;
     }
-    .logo-sec{
-        max-width: 160px;
-        width: 100%;
+    .cc-login & {
+      position: absolute;
+      bottom: -20px;
+      @include media-breakpoint-down(md) {
+        bottom: 0;
+      }
+      right: 50px;
+      .pbwl & {
+        bottom: -10px;
+      }
+      .pbesk & {
+        @include media-breakpoint-down(sm) {
+          right: 12%;
+        }
+        @include media-breakpoint-down(md) {
+          right: -3%;
+        }
+      }
+      @include media-breakpoint-down(sm) {
+        position: static;
+      }
+    }
+    .logo_operators {
+      max-width: 110px;
+      width: 100%;
+    }
+    .logo-sec {
+      max-width: 160px;
+      width: 100%;
     }
     .text-sm-right {
       .pbesk & {
         text-align: center !important;
       }
     }
+  }
+  .operator-logo-hidden & {
+    width: 100%;
+    .pbesk & {
+      background-color: $whitebg;
+      width: 70%;
+      border-radius: 10px;
+      @include media-breakpoint-down(sm) {
+        width: 100%;
+      }
+      @include media-breakpoint-down(md) {
+        width: 94%;
+      }
+    }
+    .static & {
+      position: static;
+    }
+    .cc-login & {
+      position: absolute;
+      bottom: -20px;
+      @include media-breakpoint-down(md) {
+        bottom: -13px;
+      }
+      right: 15px;
+      .pbwl & {
+        bottom: -10px;
+      }
+      .pbesk & {
+        right: 7%;
+      }
+      @include media-breakpoint-down(md) {
+        .pbesk & {
+          right: -20px;
+        }
+      }
+      @include media-breakpoint-down(sm) {
+        position: static;
+      }
+    }
+    .logo_operators {
+      max-width: 110px;
+      width: 100%;
+    }
+    .logo-sec {
+      max-width: 160px;
+      width: 100%;
+    }
+    .text-sm-right {
+      .pbesk & {
+        text-align: center !important;
+      }
+    }
+  }
 }
 
-.operator-logo-hidden{
-    .mobil-footer-right{
-        display: none;
-    }
+.operator-logo-hidden {
+  .mobil-footer-right {
+    display: none;
+  }
 }
-.cc-logo-hidden{
-    .cc-footer-right{
-        display: none;
-    }
+.cc-logo-hidden {
+  .cc-footer-right {
+    display: none;
+  }
 }
