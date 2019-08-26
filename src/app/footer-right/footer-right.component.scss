@@ -69,7 +69,7 @@
       position: absolute;
       bottom: -20px;
       @include media-breakpoint-down(md) {
-        bottom: -13px;
+        bottom: 15px;
       }
       right: 15px;
       .pbwl & {

@@ -4,6 +4,9 @@
         .pbwl & {
             background: $purplebg;
         }
+        .pbesk & {
+            background: $blackbg;
+        }
         h4{
             color: #bcbfcc;
             font-size: 24px;
@@ -23,6 +26,9 @@
                 .pbwl & {
                     color: $purpletext;
                 }
+                .pbesk & {
+                    color: $redtext;
+                }
             }
             .confirm-info{
                 color: #FFF;
@@ -33,6 +39,16 @@
                     min-height: 40px;
                 }
 
+            }
+        }
+        .pt-1 {
+            margin-left: 18%;
+            width: 100%;
+            @include media-breakpoint-down(md) {
+                margin-left: 6%;
+            }
+              @include media-breakpoint-down(sm) {
+                margin-left: 4%;
             }
         }
     }      

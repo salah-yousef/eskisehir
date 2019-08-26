@@ -159,6 +159,7 @@
                 right: 13%;
                 @include media-breakpoint-down(md) {
                   right: 0;
+                  bottom: 90px;
                 }
             }
             h2{
@@ -190,5 +191,11 @@
            }
 
     }
-
+    .logo_pay-bros{
+        .pbesk & {
+            @include media-breakpoint-down(sm){
+             display: block;
+            }
+        }
+    }
 }

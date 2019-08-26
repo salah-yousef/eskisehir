@@ -60,6 +60,7 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { SharedService } from './services/shared.service';
 import { NgxIntlTelInputModule } from 'ngx-intl-tel-input';
 import { CreditCardDirectivesModule } from 'angular-cc-library';
+import { SelectComponent } from './select/select.component';
 
 registerLocaleData(localeTr, 'tr');
 export function HttpLoaderFactory(http: HttpClient) {
@@ -84,6 +85,7 @@ const routes: Routes = [
       { path: 'banktransfer', component: BankTransferComponent },
       { path: 'result', component: ResultComponent, canActivate: [TokenGuards] },
       { path: 'error/:errorCode', component: NotFoundComponent, },
+      { path: 'select', component: SelectComponent, },
       { path: '**', component: NotFoundComponent }
     ]
   },
@@ -124,7 +126,8 @@ export function createConfig(): SignalRConfiguration {
     LayoutComponent,
     CcConfirmComponent,
     LoadingComponent,
-    BankTransferComponent
+    BankTransferComponent,
+    SelectComponent
   ],
   imports: [
     BrowserModule,

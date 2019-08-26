@@ -13,6 +13,11 @@ $result-icon-size:95px;
     .pbwl & {
          display: none;
     }
+    .pbesk & {
+        @include media-breakpoint-down(sm){
+         display: none;
+        }
+    }
 }
 
 .icon {
