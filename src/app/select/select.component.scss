@@ -1,0 +1,60 @@
+.select{
+    .select-left{
+        padding: 0 !important;
+        padding-bottom: 0px !important;
+        .prize-type {
+            height: 33.333%;
+            color: white;
+            padding: 0;
+            padding-top: 4%;
+            padding-bottom: 5%;
+            padding-left: 5%;
+            span{
+                text-align: center;
+                font-size: large;
+                letter-spacing: 2pt;
+            }
+            .title{
+                margin-bottom: 6%;
+                font-size: x-large;
+            }
+        }
+        .bronze {
+            background-color: $redbg;
+        }
+        .silver {
+            background-color: $blackbg;
+        }
+        .gold {
+            background-color: $redbg;
+        }
+    }
+    .select-right{
+        background: $bluebg;
+        .pbesk & {
+          background: $blackbg;
+        }
+        form{
+            label{
+                .pbesk & {
+                    color: $whitetext;
+                    font-size: x-large;
+                }
+            }
+            .input-group{
+                input{
+                    font-size: x-large;
+                    width: 10%;
+                }
+                span{
+                    font-size: x-large;
+                }
+            }
+        }
+        color: #bcbfcc;
+        position: relative;
+        .pbwl & {
+            background: $purplebg;
+        }
+    }
+}

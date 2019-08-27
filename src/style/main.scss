@@ -21,6 +21,7 @@
 @import "../app/result/result.component.scss";
 @import "../app/banks/banks.component.scss";
 @import "../app/cart/cart.component.scss";
+@import "../app/select/select.component.scss";
 
 html {
     min-height: 100%;
@@ -69,6 +70,9 @@ body{
     }
     @media only screen and (min-width: 960px)  {
       min-height: 600px;
+      .pbesk & {
+        min-height: 550px;
+    }
     }
 
 }

@@ -1,3 +1,86 @@
-<p>
-  select works!
-</p>
+<div class="row h-100 select">
+  <div class="col-md-5 col-10 mx-auto select-left pb-2 pb-md-5 mobil-step-1-left">
+    <div class="bronze prize-type">
+      <div class="row">
+        <div class="col-4">
+          <img src="../../assets/images/layout/badge-bronz.png" alt="bronz">
+        </div>
+        <div class="col-8">
+          <div class="col text-center mb-2 mt-4">
+            <span class="title">Bronz Berat</span>
+          </div>
+          <div class="col text-center">
+            <span>1-9</span>
+          </div>
+          <div class="col text-center">
+            <span>Adet</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="silver prize-type">
+      <div class="row">
+        <div class="col-4">
+          <img src="../../assets/images/layout/badge-silver.png" alt="bronz">
+        </div>
+        <div class="col-8">
+          <div class="col text-center mb-2 mt-4">
+            <span class="title">Gümüş Berat</span>
+          </div>
+          <div class="col text-center">
+            <span>10-49</span>
+          </div>
+          <div class="col text-center">
+            <span>Adet</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="gold prize-type">
+      <div class="row">
+        <div class="col-4">
+          <img src="../../assets/images/layout/badge-gold.png" alt="bronz">
+        </div>
+        <div class="col-8">
+          <div class="col text-center mb-2 mt-4">
+            <span class="title">Altın Berat</span>
+          </div>
+          <div class="col text-center">
+            <span>50+</span>
+          </div>
+          <div class="col text-center">
+            <span>Adet</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="col-md-7 col-12 select-right pt-5 pb-5">
+    <div class="row h-100">
+      <div class="col-md-6 col-sm-7 col mx-auto mt-auto mb-auto text-center text-sm-left">
+        <form role="form" [formGroup]="CCSelectForm" autocomplete="off">
+          <div class="form-group text-center">
+            <label translate>Berat Sayısını Gırınız</label>
+            <div class="input-group mb-5 col-6 mx-auto">
+              <input type="text" class="form-control text-center" placeholder="Adet" [textMask]="ccvMask"  (keyup)="onKey($event)" formControlName="adet">
+            </div>
+            <div class="input-group input-group-prepend">
+              <span class="input-group-text">Tuplam Tutar: </span>
+              <input type="text" class="form-control" placeholder="{{amount}}">
+            </div>
+
+            <button type="submit" [disabled]="CCLoginForm.invalid" class="btn btn-danger min200 mt-4" translate>
+              Devam Et
+            </button>
+
+          </div>
+        </form>
+
+      </div>
+    </div>
+  </div>
+</div>
