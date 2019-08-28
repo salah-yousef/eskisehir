@@ -1,7 +1,13 @@
-.not-found-content{
+.eskisehir{
+    img{
+        margin-top: 30%;
+    }
     background-color: #f3f5f8;
     .pbesk & {
-        background-color: $blackbg;
+        background-color: $redbg;
+    }
+    .hashtag{
+        font-size: x-large;
     }
     color: #dd3535;
     @media only screen and (min-width: 960px)  {
@@ -10,6 +16,4 @@
             min-height: 360px;
         }
     }
-
-    
 }

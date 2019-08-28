@@ -1,17 +1,23 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
+import { SharedService } from '../services/shared.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-select',
   templateUrl: './select.component.html'
 })
 export class SelectComponent implements OnInit {
-  amount: number;
+  amount: number = 0;
   adet: number;
-  CCSelectForm: FormGroup;
-  constructor(private fb: FormBuilder) { }
+  prizeSelectForm: FormGroup;
+  constructor(
+    private formBuilder: FormBuilder,
+    private ss: SharedService,
+    private router: Router
+    ) { }
   
-  public ccvMask = {
+  public adetMask = {
     mask: [/\d/, /\d/, /\d/],
     guide: false,
     keepCharPositions: false,
@@ -21,22 +27,29 @@ export class SelectComponent implements OnInit {
   };
 
   ngOnInit() {
-    this.CCSelectForm = this.fb.group({     
+    this.prizeSelectForm = this.formBuilder.group({     
       adet: new FormControl('', [
         Validators.required,
         Validators.maxLength(3)
-      ]),
+      ])
       
     });
-     //this.CCSelectForm.valueChanges.subscribe(console.log);
+    this.prizeSelectForm.valueChanges.subscribe(console.log);
     document.body.classList.add('pbesk');
   }
   
   onKey($event){
-    //console.log(this.adet);   
-    console.log(this.CCSelectForm.value.adet);
-    this.amount = this.CCSelectForm.value.adet * 26;
-     
+    console.log(this.prizeSelectForm.value.adet);
+    this.amount = this.prizeSelectForm.value.adet * 26;
+    this.prizeSelectForm.value.amount = this.amount;
+  }
+
+  prizeSubmit(form: any) {
+    console.log(form.value);
+    let decodedData = this.ss.decodedData;
+    decodedData.BaseAmount = this.amount * 100;
+    sessionStorage.setItem('decodedData', JSON.stringify(decodedData));
+    this.router.navigate(['cc/info']);
   }
 
 }

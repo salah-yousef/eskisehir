@@ -1,0 +1,35 @@
+import { Component, OnInit } from '@angular/core';
+import { GlobalService } from '../services/global.service';
+import { Router } from '@angular/router';
+import { EskisehirService } from '../services/eskisehir.service';
+
+@Component({
+  selector: 'app-eskisehir',
+  templateUrl: './eskisehir.component.html'
+})
+export class EskisehirComponent implements OnInit {
+  data = {
+    "CurrencyCode":"949",
+    "OrderId":"223345",
+    "BaseAmount":"0",
+    "SuccessUrl":"http://www.google.com.tr",
+    "FailUrl":"https://www.yahoo.com/",
+    "PaymentMethodCode": "CC",
+    "ProductList": []
+  };
+
+  constructor(private eskService: EskisehirService, private router: Router) { }
+
+  ngOnInit() {
+    document.body.classList.add('pbesk');
+    this.eskService.GetEskisehirUrl(this.data).subscribe((res) => {
+      console.log(res);
+      if (res.Success) {
+        const RedirectUrl = res.Data.RedirectUrl.replace('http://testext.paybrothers.com:3467','http://localhost:4200');
+       location.href = RedirectUrl;
+      }
+      console.log(res);
+    });
+  }
+
+}

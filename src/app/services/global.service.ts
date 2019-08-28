@@ -48,7 +48,7 @@ export class GlobalService {
             return res.json();
         }));
     }
-
+ 
     GetCurrency() {
         let Currency = 'TRY';
         if (this.decodedData.Currency != null && this.decodedData.Currency.AlphabeticalCode != null) {

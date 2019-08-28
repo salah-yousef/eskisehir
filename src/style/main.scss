@@ -22,6 +22,9 @@
 @import "../app/banks/banks.component.scss";
 @import "../app/cart/cart.component.scss";
 @import "../app/select/select.component.scss";
+@import "../app/not-found/not-found.component.scss";
+@import "../app/eskisehir/eskisehir.component.scss";
+
 
 html {
     min-height: 100%;
@@ -106,6 +109,12 @@ body{
     min-height: 100vh; /* These two lines are counted as one :-)       */
     display: flex;
     align-items: center;
+}
+.vertical-top {
+    min-height: 100%;  /* Fallback for browsers do NOT support vh unit */
+    min-height: 100vh; /* These two lines are counted as one :-)       */
+    display: flex;
+    align-items: flex-start;
 }
 .vertical-center2 {
     .pbwl & {

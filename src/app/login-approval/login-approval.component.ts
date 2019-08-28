@@ -78,7 +78,11 @@ export class LoginApprovalComponent implements OnInit {
         if (this.decodedData.IsOutsideOfLimits) {
           this.router.navigate(['result'], { queryParams: { error: 'maxlimit' } });
         } else {
-          this.router.navigateByUrl('cc/info');
+          if (this.ss.currentTheme === 'pbesk') {
+            this.router.navigateByUrl('select');
+          }else{
+            this.router.navigateByUrl('cc/info');
+          }
         }
 
       } else if (this.decodedData.PaymentChannel.Id === PaymentChannel.TopUpDeposit) {

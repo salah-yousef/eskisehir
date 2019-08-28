@@ -6,11 +6,10 @@ import { SharedService } from './../services/shared.service';
 @Component({
   selector: 'app-not-found',
   templateUrl: './not-found.component.html',
-  styleUrls: ['./not-found.component.scss'],
   providers: [SharedService]
 })
 export class NotFoundComponent implements OnInit {
-
+  isLogo: boolean;
   constructor(
     private router: Router,
     private activatedRoute: ActivatedRoute,
@@ -18,6 +17,8 @@ export class NotFoundComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    document.body.classList.add('pbesk');
+    this.isLogo = this.ss.currentTheme === 'pbesk'? false: true;
     this.activatedRoute.params.forEach((params) => {
       // console.log(params.errorCode);
     });
