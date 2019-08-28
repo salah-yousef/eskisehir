@@ -1,0 +1,19 @@
+.donator-form{
+  .right-part{
+          background: $blackbg;
+          label{
+            color: $whitetext;
+            font-size: x-large;
+            margin-bottom: 5%;
+          }
+          .form-donation{
+            margin-top: 10rem !important;
+          }
+    }
+    .left-part{
+        background: $redbg;
+      .steps{
+        display: none;
+      }
+    }
+}

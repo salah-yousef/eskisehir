@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { GlobalService } from '../services/global.service';
 import { Router } from '@angular/router';
 import { EskisehirService } from '../services/eskisehir.service';
+import { SharedService } from '../services/shared.service';
 
 @Component({
   selector: 'app-eskisehir',
@@ -18,7 +19,10 @@ export class EskisehirComponent implements OnInit {
     "ProductList": []
   };
 
-  constructor(private eskService: EskisehirService, private router: Router) { }
+  constructor(
+    private eskService: EskisehirService,
+     private router: Router,
+      public ss: SharedService) { }
 
   ngOnInit() {
     document.body.classList.add('pbesk');

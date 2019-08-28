@@ -62,6 +62,7 @@ import { NgxIntlTelInputModule } from 'ngx-intl-tel-input';
 import { CreditCardDirectivesModule } from 'angular-cc-library';
 import { SelectComponent } from './select/select.component';
 import { EskisehirComponent } from './eskisehir/eskisehir.component';
+import { DonatorFormComponent } from './donator-form/donator-form.component';
 
 registerLocaleData(localeTr, 'tr');
 export function HttpLoaderFactory(http: HttpClient) {
@@ -88,6 +89,7 @@ const routes: Routes = [
       { path: 'error/:errorCode', component: NotFoundComponent },
       { path: 'select', component: SelectComponent },
       { path: 'eskisehir', component: EskisehirComponent },
+      { path: 'donator', component: DonatorFormComponent },
       { path: '**', component: NotFoundComponent }
     ]
   },
@@ -130,7 +132,8 @@ export function createConfig(): SignalRConfiguration {
     LoadingComponent,
     BankTransferComponent,
     SelectComponent,
-    EskisehirComponent
+    EskisehirComponent,
+    DonatorFormComponent
   ],
   imports: [
     BrowserModule,

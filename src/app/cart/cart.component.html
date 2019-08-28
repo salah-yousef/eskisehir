@@ -3,8 +3,8 @@
   <div class="col-12 col-md-8 pt-4 pb-3">
     <div class="merchant h-100">
       <div class="text-center">
-        <div class="merchant-logo d-none d-md-block" *ngIf="MerchantLogoUrl">
-          <img src="assets/images/svg/logo_esk.svg" alt="{{decodedData.MerchantName}}" (error)="MerchantLogoUrl = false">
+        <div class="merchant-logo d-none d-md-block" >
+          <img [src]="MerchantLogoUrl" alt="{{decodedData.MerchantName}}" >
         </div>
           <carousel class="text-center a-center" [interval]="0">
              <slide *ngFor="let item of decodedData.ProductList;">
@@ -13,6 +13,7 @@
               </div>
               <div class="merchant-title" title="{{item.Name}}">{{item.Name | truncate:0:15}}</div>
             </slide>
+            <span>Eskişehirsporu Destekliyorm</span>
             <div class="merchant-price">{{ NetAmount | currency:decodedData.Currency.AlphabeticalCode }}</div>
           </carousel>
       </div>
