@@ -49,6 +49,14 @@
                 }
                 span{
                     font-size: x-large;
+                    @include media-breakpoint-down(md) {
+                        font-size: large;
+                    }
+                }
+            }
+            .myForm{
+                @include media-breakpoint-down(md) {
+                    max-width: 62%;
                 }
             }
         }

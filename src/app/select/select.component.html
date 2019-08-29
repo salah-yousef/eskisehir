@@ -1,5 +1,5 @@
 <div class="row h-100 select">
-  <div class="col-md-5 col-10 mx-auto select-left pb-2 pb-md-5 mobil-step-1-left">
+  <div class="col-md-5 col-10 col-sm-12 mx-auto select-left pb-2 pb-md-5 mobil-step-1-left">
     <div class="bronze prize-type">
       <div class="row">
         <div class="col-4">
@@ -65,7 +65,7 @@
         <form role="form" [formGroup]="prizeSelectForm" autocomplete="off" (ngSubmit)="prizeSubmit(prizeSelectForm)">
           <div class="form-group text-center">
             <label translate>Berat Sayısını Giriniz</label>
-            <div class="input-group mb-5 col-6 mx-auto">
+            <div class="input-group mb-5 col-6 mx-auto myForm">
               <input type="text" class="form-control text-center" placeholder="Adet" [textMask]="adetMask"  (keyup)="onKey($event)" formControlName="adet">
             </div>
             <div class="input-group input-group-prepend">

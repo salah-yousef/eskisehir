@@ -6,11 +6,11 @@ import { SharedService } from './../services/shared.service';
 @Component({
   selector: 'app-fullpage',
   templateUrl: './fullpage.component.html',
-  styleUrls: ['./fullpage.component.scss'],
   providers: [SharedService]
 })
 export class FullpageComponent implements OnInit {
   previousUrl: string;
+  ispbesk: boolean;
   constructor(
     private renderer: Renderer2,
     public ss: SharedService
@@ -24,6 +24,7 @@ export class FullpageComponent implements OnInit {
 
   ngOnInit() {
     this.renderer.addClass(document.body, 'fullpage');
+    this.ispbesk = this.ss.currentTheme === 'pbesk' ? true : false;    
   }
 
 }
