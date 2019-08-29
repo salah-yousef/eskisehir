@@ -10,11 +10,19 @@ export class DonatorFormComponent implements OnInit, AfterViewInit {
   donationForm: FormGroup;
   step = { bar: 50, step1: 'check', step2: 'active', step3: 'error' };
   decodedData: {};
+  vertical = 380;
+  horizontal = 1110;
+  textWidthArea = 826;
+  textWidth = 0;
+  extraSpace = 0;
+  leftOffset = 0;
   sources = {
-    silver: 'assets/images/layout/Beratlar.png',
-    bronze: 'assets/images/layout/Beratlar.png',
-    gold: 'assets/images/layout/Beratlar.png'
+    silver: 'assets/images/layout/badge-silver.jpg',
+    bronze: 'assets/images/layout/badge-bronz.jpg',
+    gold: 'assets/images/layout/badge-gold.jpg'
   };
+  width = 1920;
+  height = 1280;
 
   public context: CanvasRenderingContext2D;
   @ViewChild('myCanvas') myCanvas;
@@ -25,9 +33,9 @@ export class DonatorFormComponent implements OnInit, AfterViewInit {
   ) { }
 
   ngAfterViewInit(): void {
-    //this.drawCanvas("Salah");
+    this.drawCanvas("");
   }
-
+  
   ngOnInit() {
     this.decodedData = this.ss.decodedData;
     this.donationForm = this.formBuilder.group({
@@ -36,30 +44,33 @@ export class DonatorFormComponent implements OnInit, AfterViewInit {
         Validators.minLength(3),
         Validators.maxLength(20)
       ])
-
     });
-
     document.body.classList.add('pbesk');
   }
 
   donationSubmit(form) {
     console.log(form.value.name);
     this.drawCanvas(form.value.name);
-    //this.myCanvas.nativeElement.setAttribute('hidden', true);
   }
 
-  drawCanvas(name): void {
-    console.log("inside");
+  drawCanvas(name: string): void {
+    console.log(name.offsetWidth);
     const canvasEl: HTMLCanvasElement = this.myCanvas.nativeElement;
+    canvasEl.style.letterSpacing = '2px';
     this.context = canvasEl.getContext("2d");
     let image = new Image();
-    canvasEl.width = 900;
-    canvasEl.height = 530;
+    canvasEl.width = this.width;
+    canvasEl.height = this.height;
     image.onload = () => {
-      this.context.drawImage(image, 0, 0, 900, 530);
+      this.context.drawImage(image, 0, 0, canvasEl.width, canvasEl.height );
       this.context.fillStyle = "#fff";
-      this.context.font = "28px Verdana";
-      this.context.fillText(name, 520, 150);
+      this.context.font = "67px Gotham";
+      this.textWidth = name.length * 67;
+      this.extraSpace = (this.textWidthArea - this.textWidth) / 2;
+      console.log(this.extraSpace);
+      this.leftOffset = this.extraSpace + this.horizontal;
+      console.log(this.leftOffset );
+      this.context.fillText(name.toUpperCase(), this.leftOffset, this.vertical);
     }
 
     let numOfCertificates = this.ss.decodedData.BaseAmount / 26;
@@ -75,23 +86,4 @@ export class DonatorFormComponent implements OnInit, AfterViewInit {
       image.src = this.sources.gold;
     }
   }
-
-  // loadImages(sources, callback) {
-  //   var images = {};
-  //   var loadedImages = 0;
-  //   var numImages = 0;
-  //   // get num of sources
-  //   for (var src in sources) {
-  //     numImages++;
-  //   }
-  //   for (var src in sources) {
-  //     images[src] = new Image();
-  //     images[src].onload = function () {
-  //       if (++loadedImages >= numImages) {
-  //         callback(images);
-  //       }
-  //     };
-  //     images[src].src = sources[src];
-  //   }
-  // } 
 }
