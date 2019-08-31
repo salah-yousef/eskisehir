@@ -1,4 +1,4 @@
-<canvas #myCanvas width="width" height="width" [hidden]="false"></canvas>
+<canvas #myCanvas width="width" height="width" [hidden]="true"></canvas>
 <div class="row h-100 donator-form">
     <div class="col-md-5 col-10 left-part mx-auto h-100 pb-3 pb-md-5 mobil-step-1-left">
         <img *ngIf="!ss.theme.logo" src="assets/images/svg/logo_pay-bros.svg" class="logo_pay-bros" alt="paybros">
@@ -21,9 +21,9 @@
                     <div class="form-group mt-5 form-donation">
                         <label translate>Adınız Soyadınız</label>
                         <div class="input-group input-group-prepend mb-5">
-                            <input type="text" class="form-control text-uppercase" placeholder="Adınızı giriniz" formControlName="name"> 
+                            <input type="text" class="form-control" placeholder="Adınızı giriniz" formControlName="name">
                         </div>
-                        
+
                         <button type="submit" [disabled]="donationForm.invalid" class="btn btn-danger min200 mt-4"
                             translate>
                             Devam Et
