@@ -4,8 +4,14 @@
         .pbwl & {
             background: $purplebg;
         }
+        .pbesk & {
+            background: $blackbg;
+        }
         h4{
             color: #bcbfcc;
+            .pbesk & {
+              color: $whitetext;
+            }
             font-size: 24px;
         }
         .form-group{
@@ -15,8 +21,14 @@
                 .pbwl & {
                     color: $purpletext;
                 }
+                .pbesk & {
+                    color: $redtext;
+                }
                 &.hgn {
-                    color: #24ca95; 
+                    color: #24ca95;
+                    .pbesk & {
+                      color: $redtext;
+                    }
                 }
             }
 
@@ -27,37 +39,45 @@
             }
             &.bordered {
                 padding-bottom: 15px;
-                border-bottom: 2px solid #13c5f2;    
+                border-bottom: 2px solid #13c5f2;
                 .pbwl & {
-                    border-bottom: 2px solid $purpletext;    
-                }           
+                    border-bottom: 2px solid $purpletext;
+                }
             }
-        }     
+        }
     }
     .hgn-info {
         min-height: 70px;
 
         .bank-transfer-info {
+          .saat{
+            .pbesk & {
+              color: $redtext !important;
+            }
+          }
             .icon{
                 float: left;
                 width: 9%;
                 .fa {
                     font-size: 20px;
-                     color: #24ca95;                  
+                     color: #24ca95;
+                     .pbesk & {
+                      color: $redtext;
+                    }
                   }
             }
             .text {
                 font-size: 13px;
                 color: #FFF;
-                display: inline-block;  
-                width: 91%;       
+                display: inline-block;
+                width: 91%;
                 span{
-                    color: #ec5454;
+                    color: #01eb28;
                 }
             }
         }
     }
-    
+
 
     .form-row{
         .form-row-label {
@@ -67,5 +87,12 @@
                 color: $purpletext;
             }
         }
+    }
+
+    .min200{
+      .pbesk & {
+        background: $redbg;
+        border-color: $redbg;
+      }
     }
 }

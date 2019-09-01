@@ -1,9 +1,40 @@
 .banks {
+    .card{
+      .pbesk & {
+        background: $whitebg;
+        border-radius: 4%;
+        .merchant{
+            background: $whitebg;
+              .ng-select-container {
+                .ng-value-container{
+                  background: $whitebg;
+                  .ng-placeholder{
+                    color: $redtext !important;
+                    background: $whitebg;
+                  }
+                }
+                background: $whitebg;
+                .ng-value-container{
+                  .ng-input{
+                    background: transparent;
+                    position: fixed;
+                  }
+                  .ng-value{
+                    background: $whitebg;
+                  }
+                }
+              }
+        }
+      }
+    }
     .bank-logo{
         margin-top: 40px;
         margin-bottom: 40px;
         min-height: 80px;
         max-height: 80px;
+        .pbesk & {
+          background: $whitebg;
+        }
         img{
             max-width: 100%;
             border:1px solid #ccc;
@@ -13,18 +44,30 @@
     h5 {
         &.bank-transfers{
             font-size: 13px;
-            color:#006dd3; 
+            color:#006dd3;
             .pbwl & {
                 color: $purpletext;
             }
+            .pbesk & {
+                color: $redtext;
+                text-align: center;
+                margin-top: 5%;
+            }
         }
-      
+
     }
     .info{
+          .pbesk & {
+            background: $whitebg;
+          }
         .title{
            color: #ec5454;
-           font-size: 13px;            
+           font-size: 13px;
            margin-bottom: 10px;
+           margin-top: 10%;
+           .pbesk & {
+            background: $whitebg;
+          }
            span{
                line-height: 20px;
            }

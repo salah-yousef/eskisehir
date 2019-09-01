@@ -1,11 +1,11 @@
 <div class="row merchant-container banks mb-2 mb-md-5">
   <div class="col-1 p-0 d-none d-md-inline-block"></div>
-  <div class="col-12 col-md-8 pb-3" style="background: #FFF">
+  <div class="col-12 col-md-8 pb-3 card">
     <div class="merchant h-100">
       <h5 class="bank-transfers" translate>Havale Yapabileceğiniz Bankalar</h5>
       <ng-select class="default" placeholder="Bir Banka Seçiniz" [items]="BankAccounts" bindLabel="BankName"
         [(ngModel)]="CurrentBankAccount" (ngModelChange)="SetupBankTransferTequest()"></ng-select>
-      <div class="text-center bank-logo">
+      <div class="text-center bank-logo" *ngIf="CurrentBankAccount">
         <img *ngIf="CurrentBankAccount != null" [src]="CurrentBankAccount.BankLogoUrl" alt="">
       </div>
       <div class="info">

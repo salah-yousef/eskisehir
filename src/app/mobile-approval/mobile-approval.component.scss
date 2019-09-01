@@ -5,7 +5,11 @@
         color: #bcbfcc;
         position: relative;
         .pbwl & {
-           background: $purplebg;     
+           background: $purplebg;
+          }
+          .pbesk & {
+            background: $blackbg;
+            color: $whitetext;
         }
         .title {
             font-size: 24px;
@@ -14,13 +18,16 @@
             font-size: 12px;
             &.green{
                 color: #01bf7f;
+                .pbesk & {
+                  color: $whitetext;
+               }
             }
         }
         .countdown{
             max-width: 160px;
         }
         .approval-info {
-            font-size: 12px; 
+            font-size: 12px;
         }
     }
 }

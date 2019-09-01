@@ -88,7 +88,7 @@ const routes: Routes = [
       { path: 'result', component: ResultComponent, canActivate: [TokenGuards] },
       { path: 'error/:errorCode', component: NotFoundComponent },
       { path: 'select', component: SelectComponent },
-      { path: 'eskisehir', component: EskisehirComponent },
+      { path: 'eskisehir/:paymentType', component: EskisehirComponent },
       { path: 'donator', component: DonatorFormComponent },
       { path: '**', component: NotFoundComponent }
     ]

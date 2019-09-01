@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { GlobalService } from '../services/global.service';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { EskisehirService } from '../services/eskisehir.service';
 import { SharedService } from '../services/shared.service';
 
@@ -9,6 +9,7 @@ import { SharedService } from '../services/shared.service';
   templateUrl: './eskisehir.component.html'
 })
 export class EskisehirComponent implements OnInit {
+  paymentType: string;
   data = {
     "CurrencyCode":"949",
     "OrderId":"223345",
@@ -22,14 +23,16 @@ export class EskisehirComponent implements OnInit {
   constructor(
     private eskService: EskisehirService,
      private router: Router,
-      public ss: SharedService) { }
+      public ss: SharedService,
+      private route: ActivatedRoute) { }
 
   ngOnInit() {
+    this.paymentType = this.route.snapshot.paramMap.get('paymentType');
     document.body.classList.add('pbesk');
-    this.eskService.GetEskisehirUrl(this.data).subscribe((res) => {
-      console.log(res);
+    this.eskService.GetEskisehirUrl(this.data, this.paymentType).subscribe((res) => {
+      console.log(res.Data);
       if (res.Success) {
-        const RedirectUrl = res.Data.RedirectUrl.replace('http://testext.paybrothers.com:3467','http://localhost:4200');
+        const RedirectUrl = res.Data.RedirectUrl.replace('http://testext.paybrothers.com:3467', 'http://localhost:4200');
        location.href = RedirectUrl;
       }
       console.log(res);

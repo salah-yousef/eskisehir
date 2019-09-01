@@ -16,7 +16,7 @@ export class SelectComponent implements OnInit {
     private ss: SharedService,
     private router: Router
     ) { }
-  
+
   public adetMask = {
     mask: [/\d/, /\d/, /\d/],
     guide: false,
@@ -27,17 +27,17 @@ export class SelectComponent implements OnInit {
   };
 
   ngOnInit() {
-    this.prizeSelectForm = this.formBuilder.group({     
+    this.prizeSelectForm = this.formBuilder.group({
       adet: new FormControl('', [
         Validators.required,
         Validators.maxLength(3)
       ])
-      
+
     });
     this.prizeSelectForm.valueChanges.subscribe(console.log);
     document.body.classList.add('pbesk');
   }
-  
+
   onKey($event){
     console.log(this.prizeSelectForm.value.adet);
     this.amount = this.prizeSelectForm.value.adet * 26;
@@ -45,7 +45,6 @@ export class SelectComponent implements OnInit {
   }
 
   prizeSubmit(form: any) {
-    console.log(form.value);
     let decodedData = this.ss.decodedData;
     decodedData.BaseAmount = this.amount * 100;
     sessionStorage.setItem('decodedData', JSON.stringify(decodedData));
