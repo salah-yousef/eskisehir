@@ -9,6 +9,14 @@
           .form-donation{
             margin-top: 10rem !important;
           }
+          .loading{
+            .pbesk & {
+              color: $whitebg ;
+              .loading-icon{
+                background: $blackbg;
+              }
+            }
+          }
     }
     .left-part{
         background: $redbg;

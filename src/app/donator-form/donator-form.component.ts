@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild, ElementRef, AfterViewInit } from '@angular/core';
 import { SharedService } from '../services/shared.service';
 import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-donator-form',
@@ -13,6 +14,7 @@ export class DonatorFormComponent implements OnInit, AfterViewInit {
   myImage;
   topOffset = 380;
   leftOffset = 1355;
+  loading: boolean = false;
   sources = {
     silver: 'assets/images/layout/badge-silver.jpg',
     bronze: 'assets/images/layout/badge-bronz.jpg',
@@ -27,7 +29,8 @@ export class DonatorFormComponent implements OnInit, AfterViewInit {
 
   constructor(
     public ss: SharedService,
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
+    private router: Router
   ) { }
 
   ngAfterViewInit(): void {
@@ -43,20 +46,22 @@ export class DonatorFormComponent implements OnInit, AfterViewInit {
         Validators.maxLength(16)
       ])
     });
-    document.body.classList.add('pbesk');
   }
 
-  donationSubmit(form) {
+  donationSubmit(form, val) {
     this.userName = form.value.name;
     this.drawCanvas(form.value.name);
     setTimeout(() => {
       this.link.click();
       document.body.removeChild(this.link);
-    }, 0);
+      this.router.navigate(['result']);
+    }, 5000);
     
     let decodedData = this.ss.decodedData;
     decodedData.isCanvasUsed = true;
     sessionStorage.setItem('decodedData', JSON.stringify(decodedData));
+    val.setAttribute("style", "display:none");
+    this.loading = true;
   }
 
   drawCanvas(name: string): void {

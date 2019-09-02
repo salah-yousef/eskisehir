@@ -57,7 +57,7 @@ export class ResultComponent implements OnInit {
     this.ErrorStatus();
     this.PaymentResult();
     setTimeout(() => {
-      // location.href = this.returnUrl;
+      location.href = this.returnUrl;
     }, 7000);
   }
 

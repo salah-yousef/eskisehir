@@ -35,7 +35,6 @@ export class SelectComponent implements OnInit {
 
     });
     this.prizeSelectForm.valueChanges.subscribe(console.log);
-    document.body.classList.add('pbesk');
   }
 
   onKey($event){

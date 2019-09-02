@@ -17,7 +17,6 @@ export class NotFoundComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    document.body.classList.add('pbesk');
     this.isLogo = this.ss.currentTheme === 'pbesk'? false: true;
     this.activatedRoute.params.forEach((params) => {
       // console.log(params.errorCode);

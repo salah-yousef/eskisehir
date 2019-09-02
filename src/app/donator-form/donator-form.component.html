@@ -16,8 +16,8 @@
                         <span translate>Order ID</span>: {{decodedData.OrderId}}
                 </div>
             <div class="pt-auto mb-4 mt-5">
-                <form role="form" [formGroup]="donationForm" autocomplete="off"
-                    (ngSubmit)="donationSubmit(donationForm)">
+                <form role="form" [formGroup]="donationForm" autocomplete="off" #myform
+                    (ngSubmit)="donationSubmit(donationForm, myform)">
                     <div class="form-group mt-5 form-donation">
                         <label translate>Adınız Soyadınız</label>
                         <div class="input-group input-group-prepend mb-5">
@@ -31,6 +31,8 @@
 
                     </div>
                 </form>
+                <app-loading *ngIf="loading"></app-loading>
+
 
             </div>
         </div>
