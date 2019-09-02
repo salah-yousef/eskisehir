@@ -30,13 +30,11 @@
 
                   </div>
 
-                  <button type="submit" *ngIf="currentTheme === 'pbesk'" [disabled]="CCLoginForm.invalid" class="btn btn-danger min200 mt-4" translate>
-                    Onay Kodu Gönder</button>
-                  <button type="submit" *ngIf="currentTheme != 'pbesk'" [disabled]="CCLoginForm.invalid" class="btn btn-primary min200 mt-4" translate>
+                  <button type="submit" [disabled]="CCLoginForm.invalid" class="btn min200 mt-4"
+                    [ngClass]="{'pbesk':'btn-danger','pbwl':'btn-primary','pbdf':'btn-primary'}[currentTheme]"
+                    translate>
                     Onay Kodu Gönder</button>
 
-                  <!-- <button type="submit" [disabled]="CCLoginForm.invalid" (click)="getSMSLoginCode(phoneNumber)"
-                    class="btn btn-primary min200 mt-4">Onay Kodu Gönder</button> -->
                 </div>
               </form>
             </div>
@@ -48,8 +46,7 @@
 
 
       <div class="col-12 col-sm-12 col-md-6 cc-login-right">
-        <img *ngIf="!ss.theme.hidden" class="pb-amblem login" [src]="amblemUrl" width="235"
-          alt="pay bros">
+        <img *ngIf="!ss.theme.hidden" class="pb-amblem login" [src]="amblemUrl" width="235" alt="pay bros">
 
         <div class="row">
           <div class="security-info col-sm-12 col-md-7 text-left text-md-right">

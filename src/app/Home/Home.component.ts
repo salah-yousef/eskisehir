@@ -17,8 +17,7 @@ export class HomeComponent implements OnInit {
   redirectToken: {};
   nullData = false;
   homeText = '...';
-  currentTheme = 'pbdf';
-  // currentTheme = 'pbesk';
+  currentTheme = this.ss.currentTheme;
 
   constructor(
     @Inject(DOCUMENT) private document: Document,

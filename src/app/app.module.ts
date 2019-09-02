@@ -63,6 +63,7 @@ import { CreditCardDirectivesModule } from 'angular-cc-library';
 import { SelectComponent } from './select/select.component';
 import { EskisehirComponent } from './eskisehir/eskisehir.component';
 import { DonatorFormComponent } from './donator-form/donator-form.component';
+import { CanvasGuard } from './guards/canvas.guard';
 
 registerLocaleData(localeTr, 'tr');
 export function HttpLoaderFactory(http: HttpClient) {
@@ -89,7 +90,8 @@ const routes: Routes = [
       { path: 'error/:errorCode', component: NotFoundComponent },
       { path: 'select', component: SelectComponent },
       { path: 'eskisehir/:paymentType', component: EskisehirComponent },
-      { path: 'donator', component: DonatorFormComponent },
+      { path: 'eskisehir', component: EskisehirComponent },
+      { path: 'donator', component: DonatorFormComponent, canActivate:[CanvasGuard]},
       { path: '**', component: NotFoundComponent }
     ]
   },

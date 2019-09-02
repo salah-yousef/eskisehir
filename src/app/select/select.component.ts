@@ -45,8 +45,11 @@ export class SelectComponent implements OnInit {
   }
 
   prizeSubmit(form: any) {
-    let decodedData = this.ss.decodedData;
+    console.log(JSON.parse(sessionStorage.getItem('decodedData')));
+    console.log(this.ss.decodedData);
+    let decodedData = JSON.parse(sessionStorage.getItem('decodedData'));
     decodedData.BaseAmount = this.amount * 100;
+    decodedData.numOfCertificates = parseInt(this.prizeSelectForm.value.adet);
     sessionStorage.setItem('decodedData', JSON.stringify(decodedData));
     this.router.navigate(['cc/info']);
   }

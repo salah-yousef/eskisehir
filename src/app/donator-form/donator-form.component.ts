@@ -52,7 +52,11 @@ export class DonatorFormComponent implements OnInit, AfterViewInit {
     setTimeout(() => {
       this.link.click();
       document.body.removeChild(this.link);
-    }, 1000);
+    }, 0);
+    
+    let decodedData = this.ss.decodedData;
+    decodedData.isCanvasUsed = true;
+    sessionStorage.setItem('decodedData', JSON.stringify(decodedData));
   }
 
   drawCanvas(name: string): void {
@@ -73,17 +77,19 @@ export class DonatorFormComponent implements OnInit, AfterViewInit {
       this.createImage();
     };
 
-    const numOfCertificates = this.ss.decodedData.BaseAmount / 26;
+    const numOfCertificates = this.ss.decodedData.numOfCertificates;
+    console.log(numOfCertificates);
     if (numOfCertificates >= 1 && numOfCertificates <= 9) {
-      console.log('Silver');
-      image.src = this.sources.silver;
-    } else if (numOfCertificates >= 10 && numOfCertificates <= 49) {
       console.log('Bronze');
       image.src = this.sources.bronze;
+    } else if (numOfCertificates >= 10 && numOfCertificates <= 49) {
+      console.log('Silver');
+      image.src = this.sources.silver;
     } else {
       console.log('Gold');
       image.src = this.sources.gold;
     }
+    console.log(image.src);
   }
 
   createImage() {

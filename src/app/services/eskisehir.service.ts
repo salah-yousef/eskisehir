@@ -29,8 +29,8 @@ export class EskisehirService {
       } else if (paymentType === 'bankTransfer') {
         this.getteskisehirUrl = environment.apiUrl + '/Payment/startbanktransfer';
         data.PaymentMethodCode = 'TU';
-      } else {
-        this.router.navigate([paymentType]);
+      } else{
+        this.getteskisehirUrl = environment.apiUrl + '/Payment/startcreditcardpayment';
       }
       return this.http.post(this.getteskisehirUrl, data, { headers: this.eskisehirHeaders }).pipe(map((res: any) => {
         return res.json();
