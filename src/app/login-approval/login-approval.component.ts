@@ -19,7 +19,8 @@ import { SharedService } from './../services/shared.service';
   providers: [AuthService, SessionControlService, PaymentService, SharedService]
 })
 export class LoginApprovalComponent implements OnInit {
-  public amblemUrl = 'assets/images/svg/logo_esk.svg';
+  public amblemUrl : string;
+  private currentTheme: string;
   constructor(
     private router: Router,
     private authService: AuthService,
@@ -43,7 +44,8 @@ export class LoginApprovalComponent implements OnInit {
   public decodedData = JSON.parse(sessionStorage.getItem('decodedData'));
 
   ngOnInit() {
-
+    this.currentTheme = this.ss.currentTheme;
+    this.amblemUrl  = this.currentTheme === 'pbesk' ?  'assets/images/svg/logo_esk.svg': 'assets/images/svg/amblem_pay-bros.svg';
     this.sessionControlService.GetSessionControl('login-approval');
     this.tickTock();
     document.getElementById('smscode').focus();

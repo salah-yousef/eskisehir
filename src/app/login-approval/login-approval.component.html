@@ -31,8 +31,10 @@
                     <input [disabled]="duration==0" type="password" #phone="ngModel" class="form-control" id="smscode"
                       placeholder="******" required name="smscode" [(ngModel)]="smscode">
                   </div>
-                  <button *ngIf="duration>0" type="submit" [disabled]="smsApproveForm.invalid"
+                  <button *ngIf="duration>0 && currentTheme === 'pbesk'" type="submit" [disabled]="smsApproveForm.invalid"
                     (click)="LoginCC(smscode)" class="btn btn-danger min200 mt-3" translate>Gönder</button>
+                  <button *ngIf="duration>0 && currentTheme != 'pbesk'" type="submit" [disabled]="smsApproveForm.invalid"
+                    (click)="LoginCC(smscode)" class="btn btn-primary min200 mt-3" translate>Gönder</button>
 
                 </div>
               </form>

@@ -20,8 +20,8 @@ export class SharedService {
     // pbwl = paybros white label theme
 
     public decodedData = JSON.parse(sessionStorage.getItem('decodedData'));
-    // private defaultTheme = 'pbdf';
-    private defaultTheme = 'pbesk';
+     private defaultTheme = 'pbdf';
+   // private defaultTheme = 'pbesk';
     private IsWhiteLabel = this.decodedData == null ? false : this.decodedData.IsWhiteLabel;
 
     public currentTheme = this.IsWhiteLabel ? 'pbwl' : this.defaultTheme;

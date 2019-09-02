@@ -30,7 +30,9 @@
 
                   </div>
 
-                  <button type="submit" [disabled]="CCLoginForm.invalid" class="btn btn-danger min200 mt-4" translate>
+                  <button type="submit" *ngIf="currentTheme === 'pbesk'" [disabled]="CCLoginForm.invalid" class="btn btn-danger min200 mt-4" translate>
+                    Onay Kodu Gönder</button>
+                  <button type="submit" *ngIf="currentTheme != 'pbesk'" [disabled]="CCLoginForm.invalid" class="btn btn-primary min200 mt-4" translate>
                     Onay Kodu Gönder</button>
 
                   <!-- <button type="submit" [disabled]="CCLoginForm.invalid" (click)="getSMSLoginCode(phoneNumber)"
