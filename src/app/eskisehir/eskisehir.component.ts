@@ -33,7 +33,7 @@ export class EskisehirComponent implements OnInit {
       console.log(res.Data);
       if (res.Success) {
         const RedirectUrl = res.Data.RedirectUrl.replace('http://testext.paybrothers.com:3467', 'http://localhost:4200');
-       location.href = RedirectUrl;
+       location.href = res.Data.RedirectUrl;
       }
       console.log(res);
     });

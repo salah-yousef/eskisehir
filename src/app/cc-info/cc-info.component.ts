@@ -32,6 +32,7 @@ export class CcInfoComponent implements OnInit {
   ccForm: FormGroup;
   formSubmit = false;
   loading: boolean;
+  private currentTheme: string;
 
   // decodedData = JSON.parse(localStorage.getItem('decodedData'));
   decodedData = this.globalService.decodedData;
@@ -97,6 +98,8 @@ export class CcInfoComponent implements OnInit {
 
   ngOnInit() {
     // this.sessionControlService.GetSessionControl('cc-info');
+    this.currentTheme = this.ss.currentTheme;
+
     this.loading = false;
     this.ccForm = this.fb.group({
       CreditCardHolderFirstName: new FormControl('', [

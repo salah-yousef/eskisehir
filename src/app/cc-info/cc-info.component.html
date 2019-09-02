@@ -64,7 +64,8 @@
             </div>
           </div>
 
-          <button type="submit" [disabled]="ccForm.invalid" class="btn btn-danger min200" translate>Devam et</button>
+          <button type="submit" *ngIf="currentTheme === 'pbesk'" [disabled]="ccForm.invalid" class="btn btn-danger min200" translate>Devam et</button>
+          <button type="submit" *ngIf="currentTheme != 'pbesk'" [disabled]="ccForm.invalid" class="btn btn-primary min200" translate>Devam et</button>
         </form>
 
         <div class="pt-4 pt-sm-0">
