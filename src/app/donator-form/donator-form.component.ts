@@ -63,15 +63,6 @@ export class DonatorFormComponent implements OnInit, AfterViewInit {
       TotalAmount: this.ss.decodedData.BaseAmount,
       Quantity: this.ss.decodedData.numOfCertificates
     }).subscribe((res) => {
-      alert(res);
-      console.log(JSON.stringify(res));
-    });
-    this.ss.Donate({
-      Id : this.ss.decodedData.Id,
-      Amount : this.ss.decodedData.numOfCertificates,
-      PaymentChannelId: this.ss.decodedData.PaymentChannel.Id
-      }).subscribe((res) => {
-      alert(res);
       console.log(JSON.stringify(res));
     });
     setTimeout(() => {

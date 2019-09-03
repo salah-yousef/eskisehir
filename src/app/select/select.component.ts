@@ -44,7 +44,6 @@ export class SelectComponent implements OnInit {
   }
 
   onKey() {
-    console.log(this.prizeSelectForm.value.adet);
     this.amount = this.prizeSelectForm.value.adet * 26;
     this.prizeSelectForm.value.amount = this.amount;
     const decodedData = JSON.parse(sessionStorage.getItem('decodedData'));
@@ -91,6 +90,16 @@ export class SelectComponent implements OnInit {
         break;
 
     }
+
+    this.ss.Donate({
+      Id : this.ss.decodedData.Id,
+      Amount : this.ss.decodedData.numOfCertificates,
+      PaymentChannelId: this.ss.decodedData.PaymentChannel.Id
+      }).subscribe((res) => {
+      console.log(JSON.stringify(res));
+    });
+
+
   }
 
 }
