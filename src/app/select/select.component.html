@@ -71,7 +71,7 @@
             </div>
             <div class="input-group input-group-prepend">
               <span class="input-group-text">Tuplam Tutar: </span>
-              <span class="form-control">{{amount | currency:ss.decodedData.Currency.AlphabeticalCode}}</span>
+              <span class="form-control">{{amount | currency:decodedData.Currency.AlphabeticalCode}}</span>
               <!-- <input *ngIf="!amount" type="text" class="form-control text-center" value="0" placeholder="0" formControlName="amount"> -->
             </div>
 

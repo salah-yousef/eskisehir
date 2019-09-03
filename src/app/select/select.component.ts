@@ -17,6 +17,7 @@ export class SelectComponent implements OnInit {
     private router: Router
   ) { }
   public numOfCertificates = 0;
+  public decodedData = JSON.parse(sessionStorage.getItem('decodedData'));
 
   public adetMask = {
     mask: [/\d/, /\d/, /\d/],
