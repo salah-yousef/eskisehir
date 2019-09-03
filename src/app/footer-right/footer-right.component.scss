@@ -67,9 +67,9 @@
     }
     .cc-login & {
       position: absolute;
-      bottom: -20px;
+      bottom: -65px;
       @include media-breakpoint-down(md) {
-        bottom: 15px;
+        bottom: -15px;
       }
       right: 15px;
       .pbwl & {

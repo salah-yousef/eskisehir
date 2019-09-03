@@ -1,7 +1,7 @@
 <canvas #myCanvas width="width" height="width" [hidden]="true"></canvas>
 <div class="row h-100 donator-form">
     <div class="col-md-5 col-10 left-part mx-auto h-100 pb-3 pb-md-5 mobil-step-1-left">
-        <img *ngIf="!ss.theme.logo" src="assets/images/svg/logo_pay-bros.svg" class="logo_pay-bros" alt="paybros">
+        <img *ngIf="!ss.theme.logo && !ispbesk" src="assets/images/svg/logo_pay-bros.svg" class="logo_pay-bros" alt="paybros">
 
         <app-cart [step]="step"></app-cart>
 
@@ -26,18 +26,11 @@
                             formControlName="name">
                         </div>
 
-                        <button *ngIf="numOfCertificates < 9" type="submit" [disabled]="donationForm.invalid" class="btn btn-danger min200 mt-4"
+                        <button  [disabled]="donationForm.invalid" class="btn btn-danger min200 mt-4"
                             translate>
-                            Mobil Ödeme
+                            Devam Et
                         </button>
-                        <button type="submit" [disabled]="donationForm.invalid" class="btn btn-danger min200 mt-4"
-                            translate>
-                            Kredi Kartı
-                        </button>
-                        <button type="submit" [disabled]="donationForm.invalid" class="btn btn-danger min200 mt-4"
-                            translate>
-                            Banka Transferi
-                        </button>
+                      
 
                     </div>
                 </form>

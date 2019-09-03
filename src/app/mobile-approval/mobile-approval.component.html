@@ -1,6 +1,6 @@
 <div class="row h-100 mobil-step-2">
   <div class="col-10 col-md-5 mx-auto h-100 pt-0 pb-0 pt-sm-5 pb-sm-5 mobil-step-1-left">
-    <img *ngIf="!ss.theme.logo" class="pb-logo" src="assets/images/svg/logo_pay-bros.svg" width="190" alt="pay bros">
+    <img *ngIf="!ss.theme.logo && !ispbesk" class="pb-logo" src="assets/images/svg/logo_pay-bros.svg" width="190" alt="pay bros">
     <app-cart [step]="step"></app-cart>
     <app-footer-left *ngIf="!ss.theme.sss" class="d-none d-md-block"></app-footer-left>
   </div>

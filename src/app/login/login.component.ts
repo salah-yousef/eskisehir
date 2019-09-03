@@ -18,6 +18,7 @@ import { TranslateService } from '@ngx-translate/core';
 export class LoginCCComponent implements OnInit {
   public amblemUrl: string;
   private currentTheme: string;
+  ispbesk: boolean;
   constructor(
     private router: Router,
     private authService: AuthService,
@@ -54,6 +55,7 @@ export class LoginCCComponent implements OnInit {
     localStorage.removeItem('userPhoneNumber');
     document.body.classList.add(this.currentTheme);
     this.hello();
+    this.ispbesk = this.ss.currentTheme === 'pbesk' ? true : false;
   }
 
   hello() {

@@ -25,6 +25,7 @@ import { MaskPipe } from '../pipe/mask.pipe';
 
 export class MobileApprovalComponent implements OnInit, OnDestroy {
   phoneNumber: string;
+  ispbesk: boolean;
   constructor(
     private router: Router,
     private activatedRoute: ActivatedRoute,
@@ -110,13 +111,13 @@ export class MobileApprovalComponent implements OnInit, OnDestroy {
       this.value = this.value - 1;
       localStorage.setItem('countdown', this.value.toString());
       if (this.value === 0) {
-        //this.router.navigateByUrl('result');
+        this.router.navigateByUrl('result');
         clearInterval(this.countdown);
       }
     }, 1000);
 
     this.AuthLog();
-
+    this.ispbesk = this.ss.currentTheme === 'pbesk' ? true : false;
   }
 
   AuthLog() {

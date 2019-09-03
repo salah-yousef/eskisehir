@@ -14,6 +14,7 @@ import { SerializerObj } from '../helpers/serilalizer.function';
   providers: [PaymentService, AuthService, GlobalService, SharedService]
 })
 export class ResultComponent implements OnInit {
+  ispbesk: boolean;
 
   constructor(
     private activatedRoute: ActivatedRoute,
@@ -59,6 +60,7 @@ export class ResultComponent implements OnInit {
     setTimeout(() => {
       location.href = this.returnUrl;
     }, 7000);
+    this.ispbesk = this.ss.currentTheme === 'pbesk' ? true : false;
   }
 
 

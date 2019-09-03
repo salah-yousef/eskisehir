@@ -18,6 +18,7 @@
        }
   }
   .pbesk & {
+      padding-top: 10%;
     background-image: url('../assets/images/layout/red-bg.png');
     background-color: #231F20;
     @include media-breakpoint-down(sm) {
@@ -155,11 +156,11 @@
             }
             .pbesk & {
                 color:  #fff;
-                bottom: 50px;
+                bottom: 0;
                 right: 13%;
                 @include media-breakpoint-down(md) {
                   right: 0;
-                  bottom: 90px;
+                  bottom: 5%;
                 }
             }
             h2{

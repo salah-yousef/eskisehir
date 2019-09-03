@@ -66,16 +66,25 @@
           <div class="form-group text-center">
             <label translate>Berat Sayısını Giriniz</label>
             <div class="input-group mb-5 col-6 mx-auto myForm">
-              <input type="text" class="form-control text-center" placeholder="Adet" [textMask]="adetMask"  (keyup)="onKey($event)" formControlName="adet">
+              <input type="text" class="form-control text-center" placeholder="Adet" [textMask]="adetMask"
+                (keyup)="onKey()" formControlName="adet">
             </div>
             <div class="input-group input-group-prepend">
               <span class="input-group-text">Tuplam Tutar: </span>
               <span class="form-control">{{amount}}</span>
               <!-- <input *ngIf="!amount" type="text" class="form-control text-center" value="0" placeholder="0" formControlName="amount"> -->
             </div>
+            
 
-            <button type="submit" [disabled]="prizeSelectForm.invalid" class="btn btn-danger min200 mt-4" translate>
-              Devam Et
+            <button *ngIf="numOfCertificates < 9" type="button" (click)="prizeSubmit(prizeSelectForm, 1)" [disabled]="prizeSelectForm.invalid"
+              class="btn btn-danger min200 mt-4" translate>
+              Mobil Ödeme
+            </button>
+            <button type="button"  (click)="prizeSubmit(prizeSelectForm, 2)"  [disabled]="prizeSelectForm.invalid" class="btn btn-danger min200 mt-4" translate>
+              Kredi Kartı
+            </button>
+            <button type="button" (click)="prizeSubmit(prizeSelectForm, 3)"  [disabled]="prizeSelectForm.invalid" class="btn btn-danger min200 mt-4" translate>
+              Banka Transferi
             </button>
 
           </div>

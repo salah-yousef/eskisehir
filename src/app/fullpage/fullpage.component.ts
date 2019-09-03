@@ -24,7 +24,7 @@ export class FullpageComponent implements OnInit {
 
   ngOnInit() {
     this.renderer.addClass(document.body, 'fullpage');
-    this.ispbesk = this.ss.currentTheme === 'pbesk' ? true : false;    
+    this.ispbesk = this.ss.currentTheme === 'pbesk' ? true : false;
   }
 
 }

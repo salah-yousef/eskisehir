@@ -19,8 +19,9 @@ import { SharedService } from './../services/shared.service';
   providers: [AuthService, SessionControlService, PaymentService, SharedService]
 })
 export class LoginApprovalComponent implements OnInit {
-  public amblemUrl : string;
+  public amblemUrl: string;
   private currentTheme: string;
+  ispbesk: boolean;
   constructor(
     private router: Router,
     private authService: AuthService,
@@ -53,6 +54,7 @@ export class LoginApprovalComponent implements OnInit {
       // Mobil ödemelerde Operatör ve Fiyat bilgisini kontrol et
       this.PaymentPriceCheck();
     }
+    this.ispbesk = this.ss.currentTheme === 'pbesk' ? true : false;
   }
 
 
@@ -82,7 +84,7 @@ export class LoginApprovalComponent implements OnInit {
         } else {
           if (this.ss.currentTheme === 'pbesk') {
             this.router.navigateByUrl('select');
-          }else{
+          } else {
             this.router.navigateByUrl('cc/info');
           }
         }

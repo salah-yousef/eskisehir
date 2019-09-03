@@ -27,6 +27,7 @@ export class EskisehirComponent implements OnInit {
       private route: ActivatedRoute) { }
 
   ngOnInit() {
+    document.body.classList.add('pbesk');
     this.paymentType = this.route.snapshot.paramMap.get('paymentType');
     this.eskService.GetEskisehirUrl(this.data, this.paymentType).subscribe((res) => {
       console.log(res.Data);

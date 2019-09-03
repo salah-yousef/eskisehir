@@ -142,6 +142,9 @@ body{
         top: 55%;
         .pbesk & {
           top: 80%;
+          @include media-breakpoint-down(xs){
+            top: 55%;
+          }
           color: #FFF;
         }
     }

@@ -33,6 +33,7 @@ export class CcInfoComponent implements OnInit {
   formSubmit = false;
   loading: boolean;
   private currentTheme: string;
+  ispbesk: boolean;
 
   // decodedData = JSON.parse(localStorage.getItem('decodedData'));
   decodedData = this.globalService.decodedData;
@@ -127,6 +128,7 @@ export class CcInfoComponent implements OnInit {
     this.getYearList();
     // setTimeout(() => this.toastr.warning('sup','Dikkat'));
     this.AuthLog();
+    this.ispbesk = this.ss.currentTheme === 'pbesk' ? true : false;
   }
 
   getYearList() {

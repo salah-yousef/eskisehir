@@ -13,6 +13,7 @@ import { SharedService } from './../services/shared.service';
   providers: [SignalRService, SessionControlService, GlobalService, PaymentService, SharedService]
 })
 export class CcConfirmComponent implements OnInit, OnDestroy {
+  ispbesk: boolean;
 
   constructor(
     private router: Router,
@@ -78,6 +79,7 @@ export class CcConfirmComponent implements OnInit, OnDestroy {
       }
 
     });
+    this.ispbesk = this.ss.currentTheme === 'pbesk' ? true : false;
   }
 
   ngOnDestroy() {

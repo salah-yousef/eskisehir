@@ -28,6 +28,7 @@ export class DonatorFormComponent implements OnInit, AfterViewInit {
   public context: CanvasRenderingContext2D;
   @ViewChild('myCanvas') myCanvas;
   link = document.createElement('a');
+  ispbesk: boolean;
 
   constructor(
     public ss: SharedService,
@@ -48,18 +49,19 @@ export class DonatorFormComponent implements OnInit, AfterViewInit {
         Validators.maxLength(16)
       ])
     });
+    this.ispbesk = this.ss.currentTheme === 'pbesk' ? true : false;
   }
 
   donationSubmit(form, val) {
     this.userName = form.value.name;
     this.drawCanvas(form.value.name);
     this.ss.AddDonatorName({
-      "UserId": 1,
-      "FirstName": "Kaan",
-      "LastName": "Gecir",
-      "FundingCertificateId": 1,
-      "TotalAmount": 26,
-      "Quantity": 1
+      UserId: 1,
+      FirstName: this.ss.decodedData.firstName,
+      LastName: this.ss.decodedData.lastName,
+      FundingCertificateId: 1,
+      TotalAmount: this.ss.decodedData.BaseAmount,
+      Quantity: this.ss.decodedData.numOfCertificates
     }).subscribe((res) => {
       alert(res);
       console.log(JSON.stringify(res));
@@ -75,7 +77,7 @@ export class DonatorFormComponent implements OnInit, AfterViewInit {
     setTimeout(() => {
       this.link.click();
       document.body.removeChild(this.link);
-      //this.router.navigate(['result']);
+      this.router.navigate(['result']);
     }, 5000);
 
     const decodedData = this.ss.decodedData;
@@ -105,7 +107,6 @@ export class DonatorFormComponent implements OnInit, AfterViewInit {
     };
 
     const numOfCertificates = this.ss.decodedData.numOfCertificates;
-    //console.log(numOfCertificates);
     if (numOfCertificates >= 1 && numOfCertificates <= 9) {
       image.src = this.sources.bronze;
     } else if (numOfCertificates >= 10 && numOfCertificates <= 49) {
@@ -137,6 +138,11 @@ export class DonatorFormComponent implements OnInit, AfterViewInit {
       document.body.appendChild(this.link);
 
     }
+  }
+
+  onEnterName(event) {
+    this.ss.decodedData.firstName = event.target.valuse;
+    sessionStorage.setItem('decodedData', JSON.stringify(this.ss.decodedData));
   }
 
 
