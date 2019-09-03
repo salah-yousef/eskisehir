@@ -7,6 +7,7 @@ import { AuthService } from './../services/auth.service';
 import { SerializerObj } from '../helpers/serilalizer.function';
 import { PaymentService } from './../services/payment.service';
 import { GlobalService } from './../services/global.service';
+import { SharedService } from '../services/shared.service';
 
 
 @Component({
@@ -26,7 +27,8 @@ export class CcScureComponent implements OnInit, OnDestroy {
     private authService: AuthService,
     private paymentService: PaymentService,
     private globalService: GlobalService,
-    private sessionControlService: SessionControlService
+    private sessionControlService: SessionControlService,
+    private ss: SharedService
   ) { }
 
   SignalRResult = [];
@@ -62,7 +64,11 @@ export class CcScureComponent implements OnInit, OnDestroy {
       }
       console.log('5');
       if (this.globalService.decodedData.Id === this.result.PaymentId) {
-        this.router.navigateByUrl('result');
+        if (this.ss.decodedData.PaymentPageType === 2) {
+          this.router.navigateByUrl('donator');
+        } else {
+          this.router.navigateByUrl('result');
+        }
       }
     });
 

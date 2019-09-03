@@ -49,17 +49,17 @@ export class DonatorFormComponent implements OnInit, AfterViewInit {
         Validators.maxLength(16)
       ])
     });
-    this.ispbesk = this.ss.currentTheme === 'pbesk' ? true : false;
+    this.ispbesk = this.ss.CurrentTheme() === 'pbesk' ? true : false;
   }
 
   donationSubmit(form, val) {
     this.userName = form.value.name;
     this.drawCanvas(form.value.name);
     this.ss.AddDonatorName({
-      UserId: 1,
+      UserId: this.ss.decodedData.Id,
       FirstName: this.ss.decodedData.firstName,
       LastName: this.ss.decodedData.lastName,
-      FundingCertificateId: 1,
+      FundingCertificateId: this.ss.decodedData.PaymentChannel.Id,
       TotalAmount: this.ss.decodedData.BaseAmount,
       Quantity: this.ss.decodedData.numOfCertificates
     }).subscribe((res) => {
@@ -141,7 +141,11 @@ export class DonatorFormComponent implements OnInit, AfterViewInit {
   }
 
   onEnterName(event) {
-    this.ss.decodedData.firstName = event.target.valuse;
+    const fullName = event.target.value;
+    const words = fullName.split(' ');
+
+    this.ss.decodedData.firstName = words[0];
+    this.ss.decodedData.lastName = words[1];
     sessionStorage.setItem('decodedData', JSON.stringify(this.ss.decodedData));
   }
 

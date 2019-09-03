@@ -17,7 +17,6 @@ import { TranslateService } from '@ngx-translate/core';
 })
 export class LoginCCComponent implements OnInit {
   public amblemUrl: string;
-  private currentTheme: string;
   ispbesk: boolean;
   constructor(
     private router: Router,
@@ -50,12 +49,11 @@ export class LoginCCComponent implements OnInit {
 
 
   ngOnInit() {
-    this.currentTheme = this.ss.currentTheme;
-    this.amblemUrl  = this.currentTheme === 'pbesk' ?  'assets/images/svg/logo_esk.svg': 'assets/images/svg/amblem_pay-bros.svg';
+    this.amblemUrl  = this.ss.CurrentTheme() === 'pbesk' ?  'assets/images/svg/logo_esk.svg': 'assets/images/svg/amblem_pay-bros.svg';
     localStorage.removeItem('userPhoneNumber');
-    document.body.classList.add(this.currentTheme);
+    document.body.classList.add(this.ss.CurrentTheme());
     this.hello();
-    this.ispbesk = this.ss.currentTheme === 'pbesk' ? true : false;
+    this.ispbesk = this.ss.CurrentTheme() === 'pbesk' ? true : false;
   }
 
   hello() {

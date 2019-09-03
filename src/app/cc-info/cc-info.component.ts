@@ -32,7 +32,6 @@ export class CcInfoComponent implements OnInit {
   ccForm: FormGroup;
   formSubmit = false;
   loading: boolean;
-  private currentTheme: string;
   ispbesk: boolean;
 
   // decodedData = JSON.parse(localStorage.getItem('decodedData'));
@@ -99,7 +98,6 @@ export class CcInfoComponent implements OnInit {
 
   ngOnInit() {
     // this.sessionControlService.GetSessionControl('cc-info');
-    this.currentTheme = this.ss.currentTheme;
 
     this.loading = false;
     this.ccForm = this.fb.group({
@@ -128,7 +126,7 @@ export class CcInfoComponent implements OnInit {
     this.getYearList();
     // setTimeout(() => this.toastr.warning('sup','Dikkat'));
     this.AuthLog();
-    this.ispbesk = this.ss.currentTheme === 'pbesk' ? true : false;
+    this.ispbesk = this.ss.CurrentTheme() === 'pbesk' ? true : false;
   }
 
   getYearList() {

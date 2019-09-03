@@ -30,4 +30,13 @@
             font-size: 12px;
         }
     }
+    .mobil-step-1-left{
+        .pbesk & {
+            padding-top: 7rem !important;
+            @include media-breakpoint-down(sm) {
+                padding-top: 1rem !important;
+            }
+ 
+         }
+    }
 }

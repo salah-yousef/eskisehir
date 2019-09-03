@@ -31,7 +31,7 @@
                   </div>
 
                   <button type="submit" [disabled]="CCLoginForm.invalid" class="btn min200 mt-4"
-                    [ngClass]="{'pbesk':'btn-danger','pbwl':'btn-primary','pbdf':'btn-primary'}[currentTheme]"
+                    [ngClass]="{'pbesk':'btn-danger','pbwl':'btn-primary','pbdf':'btn-primary'}[ss.CurrentTheme()]"
                     translate>
                     Onay Kodu Gönder</button>
 
@@ -46,7 +46,7 @@
 
 
       <div class="col-12 col-sm-12 col-md-6 cc-login-right">
-        <img *ngIf="!ss.theme.hidden" class="pb-amblem login" [src]="amblemUrl" width="235" alt="pay bros">
+        <img *ngIf="!ss.theme.hidden" class="pb-amblem login" [src]="amblemUrl" width="235" alt="">
 
         <div class="row">
           <div class="security-info col-sm-12 col-md-7 text-left text-md-right">

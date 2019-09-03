@@ -29,7 +29,7 @@ export class BankTransferComponent implements OnInit {
     if (this.globalService.decodedData.CommissionAmount != null) {
       this.NetAmount = (this.globalService.decodedData.BaseAmount + this.globalService.decodedData.CommissionAmount) / 100;
     }
-    this.ispbesk = this.ss.currentTheme === 'pbesk' ? true : false;
+    this.ispbesk = this.ss.CurrentTheme() === 'pbesk' ? true : false;
   }
 
   SelectedBankAccount(e) {

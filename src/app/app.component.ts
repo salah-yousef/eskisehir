@@ -24,7 +24,7 @@ export class AppComponent implements OnInit {
     // const browserLang = 'tr'; // translate.getBrowserLang();
     // translate.use(browserLang.match(/tr|en/) ? browserLang : 'en');
     if (ss.decodedData != null) {
-      document.body.classList.add(ss.currentTheme);
+      
       translate.use(ss.CurrentLang());
     } else {
       // if (!document.body.classList.contains('pbwl')) {
@@ -36,8 +36,9 @@ export class AppComponent implements OnInit {
   ngOnInit(): void {
     // this.ss.themeChange.subscribe((res) => {
     //   console.log(this.ss.decodedData);
-    //   document.body.classList.add(this.ss.currentTheme);
+    //   document.body.classList.add(this.ss.CurrentTheme());
     // });
+   document.body.classList.add(this.ss.CurrentTheme());
     this.translate.use(this.ss.CurrentLang());
   }
   // changeLang(data) {

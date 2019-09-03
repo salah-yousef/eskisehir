@@ -24,10 +24,9 @@ export class CartComponent implements OnInit {
 
   ngOnInit() {
 
-    if (this.ss.currentTheme === 'pbesk') {
+    if (this.ss.CurrentTheme() === 'pbesk') {
       this.MerchantLogoUrl = 'assets/images/svg/logo_esk.svg';
-    }
-    else{
+    } else {
       this.MerchantLogoUrl = this.ss.decodedData.MerchantLogoUrl;
     }
 console.log(this.MerchantLogoUrl);

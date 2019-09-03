@@ -20,7 +20,6 @@ import { SharedService } from './../services/shared.service';
 })
 export class LoginApprovalComponent implements OnInit {
   public amblemUrl: string;
-  private currentTheme: string;
   ispbesk: boolean;
   constructor(
     private router: Router,
@@ -45,8 +44,7 @@ export class LoginApprovalComponent implements OnInit {
   public decodedData = JSON.parse(sessionStorage.getItem('decodedData'));
 
   ngOnInit() {
-    this.currentTheme = this.ss.currentTheme;
-    this.amblemUrl  = this.currentTheme === 'pbesk' ?  'assets/images/svg/logo_esk.svg': 'assets/images/svg/amblem_pay-bros.svg';
+    this.amblemUrl  = this.ss.CurrentTheme() === 'pbesk' ?  'assets/images/svg/logo_esk.svg' : 'assets/images/svg/amblem_pay-bros.svg';
     this.sessionControlService.GetSessionControl('login-approval');
     this.tickTock();
     document.getElementById('smscode').focus();
@@ -54,7 +52,7 @@ export class LoginApprovalComponent implements OnInit {
       // Mobil ödemelerde Operatör ve Fiyat bilgisini kontrol et
       this.PaymentPriceCheck();
     }
-    this.ispbesk = this.ss.currentTheme === 'pbesk' ? true : false;
+    this.ispbesk = this.ss.CurrentTheme() === 'pbesk' ? true : false;
   }
 
 
@@ -82,7 +80,7 @@ export class LoginApprovalComponent implements OnInit {
         if (this.decodedData.IsOutsideOfLimits) {
           this.router.navigate(['result'], { queryParams: { error: 'maxlimit' } });
         } else {
-          if (this.ss.currentTheme === 'pbesk') {
+          if (this.ss.CurrentTheme() === 'pbesk') {
             this.router.navigateByUrl('select');
           } else {
             this.router.navigateByUrl('cc/info');

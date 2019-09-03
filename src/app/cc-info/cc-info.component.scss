@@ -60,6 +60,10 @@
 
     .cc-step-info-left{
       .pbesk & {
+          margin-top: 7rem;
+          @include media-breakpoint-down(sm) {
+              margin-top: 1rem;
+          } 
         background: $redbg;
       }
     }

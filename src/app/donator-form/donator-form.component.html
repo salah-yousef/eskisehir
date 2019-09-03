@@ -23,6 +23,7 @@
                         <div class="input-group input-group-prepend mb-5">
                             <input type="text" class="form-control"
                             placeholder="Adınızı giriniz"
+                            (keyup)="onEnterName($event)"
                             formControlName="name">
                         </div>
 

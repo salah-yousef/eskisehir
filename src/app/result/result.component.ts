@@ -60,7 +60,7 @@ export class ResultComponent implements OnInit {
     setTimeout(() => {
       location.href = this.returnUrl;
     }, 7000);
-    this.ispbesk = this.ss.currentTheme === 'pbesk' ? true : false;
+    this.ispbesk = this.ss.CurrentTheme() === 'pbesk' ? true : false;
   }
 
 

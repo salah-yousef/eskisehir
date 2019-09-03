@@ -52,7 +52,11 @@ export class CcConfirmComponent implements OnInit, OnDestroy {
         this.operatorConfirm = true;
       } else {
         localStorage.setItem('sResult', res);
-        this.router.navigateByUrl('result');
+        if (this.ss.decodedData.PaymentPageType === 2) {
+          this.router.navigateByUrl('donator');
+        } else {
+          this.router.navigateByUrl('result');
+        }
       }
     });
 
@@ -79,7 +83,7 @@ export class CcConfirmComponent implements OnInit, OnDestroy {
       }
 
     });
-    this.ispbesk = this.ss.currentTheme === 'pbesk' ? true : false;
+    this.ispbesk = this.ss.CurrentTheme() === 'pbesk' ? true : false;
   }
 
   ngOnDestroy() {

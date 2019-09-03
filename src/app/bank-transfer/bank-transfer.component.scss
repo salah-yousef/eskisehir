@@ -1,4 +1,10 @@
 .bank-transfer{
+    .mobil-step-1-left{
+        padding-top: 7rem !important;
+        @include media-breakpoint-down(sm) {
+            padding-top: 2rem !important;
+         }
+    }
     .bank-transfer-right{
         background: $bluebg;
         .pbwl & {

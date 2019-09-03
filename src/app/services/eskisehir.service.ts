@@ -15,23 +15,12 @@ export class EskisehirService {
     private http: Http,
     private router: Router
   ) { }
-  GetEskisehirUrl(data, paymentType) {
+  GetEskisehirUrl(data) {
     this.eskisehirHeaders.delete('AppId');
     this.eskisehirHeaders.append('AppId', '54C97CCD-4C44-49B2-99BA-9C8A213C18C6');
     this.eskisehirHeaders.delete('AppSecret');
     this.eskisehirHeaders.append('AppSecret', '2D718DFF-9BEB-4DE6-A57F-1D9B2302F406');
-    if (paymentType === 'creditcard') {
-       this.getteskisehirUrl = environment.apiUrl + '/Payment/startcreditcardpayment';
-       data.PaymentMethodCode = 'CC';
-      } else if (paymentType === 'mobile') {
-        this.getteskisehirUrl = environment.apiUrl + '/Payment/startmobilepayment';
-        data.PaymentMethodCode = 'MP';
-      } else if (paymentType === 'bankTransfer') {
-        this.getteskisehirUrl = environment.apiUrl + '/Payment/startbanktransfer';
-        data.PaymentMethodCode = 'TU';
-      } else{
-        this.getteskisehirUrl = environment.apiUrl + '/Payment/startcreditcardpayment';
-      }
+    this.getteskisehirUrl = environment.apiUrl + '/Payment/startcreditcardpayment';
       return this.http.post(this.getteskisehirUrl, data, { headers: this.eskisehirHeaders }).pipe(map((res: any) => {
         return res.json();
     }));

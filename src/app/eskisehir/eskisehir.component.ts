@@ -9,7 +9,6 @@ import { SharedService } from '../services/shared.service';
   templateUrl: './eskisehir.component.html'
 })
 export class EskisehirComponent implements OnInit {
-  paymentType: string;
   data = {
     "CurrencyCode":"949",
     "OrderId":"223345",
@@ -28,8 +27,7 @@ export class EskisehirComponent implements OnInit {
 
   ngOnInit() {
     document.body.classList.add('pbesk');
-    this.paymentType = this.route.snapshot.paramMap.get('paymentType');
-    this.eskService.GetEskisehirUrl(this.data, this.paymentType).subscribe((res) => {
+    this.eskService.GetEskisehirUrl(this.data).subscribe((res) => {
       console.log(res.Data);
       if (res.Success) {
         const RedirectUrl = res.Data.RedirectUrl.replace('http://testext.paybrothers.com:3467', 'http://localhost:4200');

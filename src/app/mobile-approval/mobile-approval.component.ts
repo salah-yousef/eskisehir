@@ -103,7 +103,11 @@ export class MobileApprovalComponent implements OnInit, OnDestroy {
       localStorage.setItem('sResult', res);
       this.signalRResponseStatus = true;
       if (this.globalService.decodedData.Id === this.result.PaymentId) {
-        this.router.navigateByUrl('result');
+        if (this.ss.decodedData.PaymentPageType === 2) {
+          this.router.navigateByUrl('donator');
+        } else {
+          this.router.navigateByUrl('result');
+        }
       }
     });
 
@@ -117,7 +121,7 @@ export class MobileApprovalComponent implements OnInit, OnDestroy {
     }, 1000);
 
     this.AuthLog();
-    this.ispbesk = this.ss.currentTheme === 'pbesk' ? true : false;
+    this.ispbesk = this.ss.CurrentTheme() === 'pbesk' ? true : false;
   }
 
   AuthLog() {

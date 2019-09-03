@@ -89,7 +89,6 @@ const routes: Routes = [
       { path: 'result', component: ResultComponent, canActivate: [TokenGuards] },
       { path: 'error/:errorCode', component: NotFoundComponent },
       { path: 'select', component: SelectComponent },
-      { path: 'eskisehir/:paymentType', component: EskisehirComponent },
       { path: 'eskisehir', component: EskisehirComponent },
       { path: 'donator', component: DonatorFormComponent, canActivate:[CanvasGuard]},
       { path: '**', component: NotFoundComponent }

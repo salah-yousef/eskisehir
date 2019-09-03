@@ -2,7 +2,7 @@ import { TranslateService } from '@ngx-translate/core';
 import { ToastrService, Toast } from 'ngx-toastr';
 import { Injectable } from '@angular/core';
 import { PaymentChannel } from '../enums/set.enum';
-import { Http, Headers} from '@angular/http';
+import { Http, Headers } from '@angular/http';
 import { environment } from './../../environments/environment';
 import { map } from 'rxjs/operators';
 // import { Subject } from 'rxjs/Subject';
@@ -17,6 +17,7 @@ export class SharedService {
     constructor(
         private toastr: ToastrService,
         private translate: TranslateService,
+        // tslint:disable-next-line: deprecation
         private http: Http
     ) { }
 
@@ -29,11 +30,11 @@ export class SharedService {
     public decodedData = JSON.parse(sessionStorage.getItem('decodedData'));
     // private defaultTheme = 'pbdf';
     // private defaultTheme = 'pbwl';
-     private defaultTheme = 'pbesk';
+    private defaultTheme = 'pbesk';
     private IsWhiteLabel = this.decodedData == null ? false : this.decodedData.IsWhiteLabel;
 
-    public currentTheme = this.IsWhiteLabel ? 'pbwl' : this.defaultTheme;
-    public wlThemeStatus = this.currentTheme === 'pbwl';
+
+    public wlThemeStatus = this.decodedData != null ? this.decodedData.PaymentPageType === 1 : false ;
 
 
     public theme = {
@@ -41,6 +42,30 @@ export class SharedService {
         sss: this.wlThemeStatus ? true : false,
         hidden: this.wlThemeStatus ? true : false
     };
+
+
+
+    CurrentTheme() {
+        let currentTheme;
+        switch (this.decodedData != null ? this.decodedData.PaymentPageType : 1) {
+            case 0:
+                currentTheme = 'pbesk';
+                break;
+            case 1:
+                currentTheme = 'pbdf';
+                break;
+            case 2:
+                currentTheme = 'pbesk';
+                break;
+            default:
+                currentTheme = 'pbdf';
+                break;
+        }
+        return currentTheme;
+    }
+
+
+
 
     CurrentLang() {
         let Lang = 'tr-TR';
@@ -131,18 +156,18 @@ export class SharedService {
     }
 
     AddDonatorName(data) {
-      this.bankAccountHeaders.delete('Authorization');
-      this.bankAccountHeaders.append('Authorization', 'Bearer ' + this.authorizationparams.access_token);
-      return this.http.post(this.certificatesUrl, data, { headers: this.bankAccountHeaders }).pipe(map((res: any) => {
-          return res.json();
-      }));
-  }
+        this.bankAccountHeaders.delete('Authorization');
+        this.bankAccountHeaders.append('Authorization', 'Bearer ' + this.authorizationparams.access_token);
+        return this.http.post(this.certificatesUrl, data, { headers: this.bankAccountHeaders }).pipe(map((res: any) => {
+            return res.json();
+        }));
+    }
     Donate(data) {
-      this.bankAccountHeaders.delete('Authorization');
-      this.bankAccountHeaders.append('Authorization', 'Bearer ' + this.authorizationparams.access_token);
-      return this.http.post(this.donateUrl, data, { headers: this.bankAccountHeaders }).pipe(map((res: any) => {
-          return res.json();
-      }));
-  }
+        this.bankAccountHeaders.delete('Authorization');
+        this.bankAccountHeaders.append('Authorization', 'Bearer ' + this.authorizationparams.access_token);
+        return this.http.post(this.donateUrl, data, { headers: this.bankAccountHeaders }).pipe(map((res: any) => {
+            return res.json();
+        }));
+    }
 
 }
