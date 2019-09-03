@@ -2,6 +2,9 @@ import { TranslateService } from '@ngx-translate/core';
 import { ToastrService, Toast } from 'ngx-toastr';
 import { Injectable } from '@angular/core';
 import { PaymentChannel } from '../enums/set.enum';
+import { Http, Headers} from '@angular/http';
+import { environment } from './../../environments/environment';
+import { map } from 'rxjs/operators';
 // import { Subject } from 'rxjs/Subject';
 // import { Observable } from 'rxjs/Observable';
 // import { BehaviorSubject } from 'rxjs/BehaviorSubject';
@@ -10,14 +13,18 @@ import { PaymentChannel } from '../enums/set.enum';
 @Injectable()
 export class SharedService {
     // public themeChange = new BehaviorSubject<any>('');
-
+    bankAccountHeaders = new Headers();
     constructor(
         private toastr: ToastrService,
-        private translate: TranslateService
+        private translate: TranslateService,
+        private http: Http
     ) { }
 
     // pbdf = paybros default theme
     // pbwl = paybros white label theme
+    public certificatesUrl = environment.apiUrl + '/userFunding/saveUserFundingDetail';
+    public donateUrl = environment.apiUrl + '/Payment/donate';
+    public authorizationparams = JSON.parse(localStorage.getItem('__authorizationparams'));
 
     public decodedData = JSON.parse(sessionStorage.getItem('decodedData'));
     // private defaultTheme = 'pbdf';
@@ -122,5 +129,20 @@ export class SharedService {
             Icon: PaymentChannelOptions.icon
         };
     }
+
+    AddDonatorName(data) {
+      this.bankAccountHeaders.delete('Authorization');
+      this.bankAccountHeaders.append('Authorization', 'Bearer ' + this.authorizationparams.access_token);
+      return this.http.post(this.certificatesUrl, data, { headers: this.bankAccountHeaders }).pipe(map((res: any) => {
+          return res.json();
+      }));
+  }
+    Donate(data) {
+      this.bankAccountHeaders.delete('Authorization');
+      this.bankAccountHeaders.append('Authorization', 'Bearer ' + this.authorizationparams.access_token);
+      return this.http.post(this.donateUrl, data, { headers: this.bankAccountHeaders }).pipe(map((res: any) => {
+          return res.json();
+      }));
+  }
 
 }

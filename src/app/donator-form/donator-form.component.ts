@@ -14,7 +14,9 @@ export class DonatorFormComponent implements OnInit, AfterViewInit {
   myImage;
   topOffset = 380;
   leftOffset = 1355;
-  loading: boolean = false;
+  loading = false;
+  numOfCertificates = this.ss.decodedData.numOfCertificates;
+  OrderId = this.ss.decodedData.OrderId;
   sources = {
     silver: 'assets/images/layout/badge-silver.jpg',
     bronze: 'assets/images/layout/badge-bronz.jpg',
@@ -51,16 +53,36 @@ export class DonatorFormComponent implements OnInit, AfterViewInit {
   donationSubmit(form, val) {
     this.userName = form.value.name;
     this.drawCanvas(form.value.name);
+    this.ss.AddDonatorName({
+      "UserId": 1,
+      "FirstName": "Kaan",
+      "LastName": "Gecir",
+      "FundingCertificateId": 1,
+      "TotalAmount": 26,
+      "Quantity": 1
+    }).subscribe((res) => {
+      alert(res);
+      console.log(JSON.stringify(res));
+    });
+    this.ss.Donate({
+      Id : this.ss.decodedData.Id,
+      Amount : this.ss.decodedData.numOfCertificates,
+      PaymentChannelId: this.ss.decodedData.PaymentChannel.Id
+      }).subscribe((res) => {
+      alert(res);
+      console.log(JSON.stringify(res));
+    });
     setTimeout(() => {
       this.link.click();
       document.body.removeChild(this.link);
-      this.router.navigate(['result']);
+      //this.router.navigate(['result']);
     }, 5000);
-    
-    let decodedData = this.ss.decodedData;
+
+    const decodedData = this.ss.decodedData;
     decodedData.isCanvasUsed = true;
+    decodedData.userName = this.userName;
     sessionStorage.setItem('decodedData', JSON.stringify(decodedData));
-    val.setAttribute("style", "display:none");
+    val.setAttribute('style', 'display:none');
     this.loading = true;
   }
 
@@ -83,18 +105,14 @@ export class DonatorFormComponent implements OnInit, AfterViewInit {
     };
 
     const numOfCertificates = this.ss.decodedData.numOfCertificates;
-    console.log(numOfCertificates);
+    //console.log(numOfCertificates);
     if (numOfCertificates >= 1 && numOfCertificates <= 9) {
-      console.log('Bronze');
       image.src = this.sources.bronze;
     } else if (numOfCertificates >= 10 && numOfCertificates <= 49) {
-      console.log('Silver');
       image.src = this.sources.silver;
     } else {
-      console.log('Gold');
       image.src = this.sources.gold;
     }
-    console.log(image.src);
   }
 
   createImage() {
@@ -120,5 +138,6 @@ export class DonatorFormComponent implements OnInit, AfterViewInit {
 
     }
   }
+
 
 }

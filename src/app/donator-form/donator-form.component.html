@@ -13,7 +13,7 @@
                 <div class="col-11 col-sm-9 mx-auto">
 
                 <div class="text-right col order-id mb-5">
-                        <span translate>Order ID</span>: {{decodedData.OrderId}}
+                        <span translate>Order ID</span>: {{OrderId}}
                 </div>
             <div class="pt-auto mb-4 mt-5">
                 <form role="form" [formGroup]="donationForm" autocomplete="off" #myform
@@ -21,12 +21,22 @@
                     <div class="form-group mt-5 form-donation">
                         <label translate>Adınız Soyadınız</label>
                         <div class="input-group input-group-prepend mb-5">
-                            <input type="text" class="form-control" placeholder="Adınızı giriniz" formControlName="name">
+                            <input type="text" class="form-control"
+                            placeholder="Adınızı giriniz"
+                            formControlName="name">
                         </div>
 
+                        <button *ngIf="numOfCertificates < 9" type="submit" [disabled]="donationForm.invalid" class="btn btn-danger min200 mt-4"
+                            translate>
+                            Mobil Ödeme
+                        </button>
                         <button type="submit" [disabled]="donationForm.invalid" class="btn btn-danger min200 mt-4"
                             translate>
-                            Devam Et
+                            Kredi Kartı
+                        </button>
+                        <button type="submit" [disabled]="donationForm.invalid" class="btn btn-danger min200 mt-4"
+                            translate>
+                            Banka Transferi
                         </button>
 
                     </div>
