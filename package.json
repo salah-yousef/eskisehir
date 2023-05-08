@@ -32,7 +32,7 @@
     "font-awesome": "^4.7.0",
     "google-libphonenumber": "^3.2.2",
     "intl-tel-input": "^15.0.1",
-    "jquery": "^3.3.1",
+    "jquery": "^3.5.0",
     "ng2-signalr": "^5.0.0",
     "ng2-validation": "^4.2.0",
     "ngx-bootstrap": "^2.0.4",
